@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from rdflib import Graph, URIRef, Dataset, RDF, Literal, XSD, Namespace
+from rdflib.namespace import GEO
 
 import objects
 
@@ -41,6 +42,7 @@ class LDESServer:
         g.bind('xsd', 'http://www.w3.org/2001/XMLSchema#')
         g.bind('hydra', 'http://www.w3.org/ns/hydra/core#')
         g.bind('dct', 'http://purl.org/dc/terms/')
+        g.bind('locn', 'http://www.w3.org/ns/locn#')
         g.bind('asset', Namespace('https://data.awvvlaanderen.be/id/asset/'))
         g.bind('installatie', Namespace('https://wegenenverkeer.data.vlaanderen.be/ns/installatie#'))
         g.bind('wr', Namespace('https://www.vlaanderen.be/digitaal-vlaanderen/onze-oplossingen/wegenregister/'))
@@ -74,9 +76,15 @@ class LDESServer:
                 g.add((subject, URIRef('http://purl.org/dc/terms/issued'),
                       Literal(f'{asset_versie_timestamp}Z', datatype=XSD.dateTime)))
 
-            # for s, p, o in graph_data.triples((subject, None, None)):
-            #     graph_data.add((id, p, o))
-            #     graph_data.remove((s, p, o))
+            wkt_literal = graph_data.value(subject=subject, predicate=URIRef(
+                'https://loc.data.wegenenverkeer.be/ns/implementatieelement#Locatie.geometrie'))
+            if wkt_literal is not None:
+                wkt_string = str(wkt_literal)
+                graph_data.remove((subject, URIRef(
+                'https://loc.data.wegenenverkeer.be/ns/implementatieelement#Locatie.geometrie'), wkt_literal))
+                graph_data.add((subject, URIRef('http://www.w3.org/ns/locn#geometry'),
+                                Literal(f'<https://www.opengis.net/def/crs/EPSG/0/31370> {wkt_string}',
+                                        datatype=GEO.wktLiteral)))
 
         g = g + graph_data
         self.print_graph(g)
