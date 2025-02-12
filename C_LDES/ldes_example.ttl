@@ -1,0 +1,62 @@
+@prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
+@prefix asset: <https://data.awvvlaanderen.be/id/asset/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
+@prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
+@prefix ldes: <https://w3id.org/ldes#> .
+@prefix loc: <https://loc.data.wegenenverkeer.be/ns/implementatieelement#> .
+@prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
+@prefix tree: <https://w3id.org/tree#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.com/ldes> a ldes:EventStream ;
+    tree:member <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/bord_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/bord_01/v2>,
+        <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> .
+
+<https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01/v1> a onderdeel:HoortBij ;
+    dcterms:isVersionOf asset:HoortBij_-_bord_01_-_opstelling_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HoortBij_-_bord_01_-_opstelling_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bron asset:HoortBij_-_bord_01_-_opstelling_01 ;
+    imel:RelatieObject.doel asset:HoortBij_-_bord_01_-_opstelling_01 .
+
+<https://data.awvvlaanderen.be/id/asset/bord_01/v1> a onderdeel:RetroreflecterendVerkeersbord ;
+    dcterms:isVersionOf asset:bord_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "bord_01" ] ;
+    imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-ontwerp> ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+
+<https://data.awvvlaanderen.be/id/asset/bord_01/v2> a onderdeel:RetroreflecterendVerkeersbord ;
+    dcterms:isVersionOf asset:bord_01 ;
+    dcterms:issued "2025-02-02T00:00:00+00:00"^^xsd:dateTime ;
+    abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;
+    abs:Verkeersbord.opstelhoogte [ imel:KwantWrdInMeter.waarde 1.8 ] ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "bord_01" ] ;
+    imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2025-02-02T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 2 ] .
+
+<https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
+    dcterms:isVersionOf asset:opstelling_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    loc:Locatie.geometrie "POINT Z (200000 200000 0)" ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
+    imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+

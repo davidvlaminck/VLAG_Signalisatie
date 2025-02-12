@@ -82,7 +82,7 @@ if __name__ == '__main__':
     g.add((b, SH.prefix, Literal('awv')))  # TODO ??
     g.add((b, SH.namespace, URIRef('https://wegenenverkeer.data.vlaanderen.be')))
 
-    reader = SQLDbReader(Path('UnitTests/OTL_AllCasesTestClass.db'))
+    reader = SQLDbReader(Path('../UnitTests/OTL_AllCasesTestClass.db'))
 
     # classes
     for row in reader.perform_read_query(
@@ -245,7 +245,7 @@ if __name__ == '__main__':
     concurrent.futures.wait(futures)
 
     print(g.serialize(format='turtle'))
-    g.serialize(format='turtle', destination=Path('otl_shacl.ttl'))
+    g.serialize(format='turtle', destination=Path('../otl_shacl.ttl'))
 
     h = Graph()
     start = time.time()

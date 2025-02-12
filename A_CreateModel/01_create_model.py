@@ -10,7 +10,7 @@ def create_model():
     current_dir = Path(__file__).parent
     otl_subset_path = Path(current_dir / 'VLAG_model.db')
     GA_file_path = Path(current_dir / 'Geometrie_Artefact_2.13.db')
-    model_directory = Path(current_dir / 'VLAG_model')
+    model_directory = Path(current_dir.parent / 'VLAG_model')
 
     ModelBuilder.build_otl_datamodel(otl_subset_location=otl_subset_path, geometry_artefact_location=GA_file_path,
                                      directory=model_directory, environment='prd')

@@ -1,12 +1,10 @@
-import os
-import unittest
 from pathlib import Path
 from unittest import TestCase
 
 from pyshacl import validate
 from rdflib import Graph, URIRef, RDF, RDFS, OWL, Literal, SH, BNode, XSD
 
-from OTLShaclGenerator import OTLShaclGenerator
+from B_CreateShacl.OTLShaclGenerator import OTLShaclGenerator
 from SQLDbReader import SQLDbReader
 
 

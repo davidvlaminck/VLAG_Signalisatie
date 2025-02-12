@@ -92,14 +92,10 @@ onderdeel:AnotherTestClassShape a sh:NodeShape ;
 
 onderdeel:BevestigingRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class onderdeel:AllCasesTestClass ;
-                            sh:path imel:RelatieObject.bron ]
-                       [ sh:class onderdeel:AnotherTestClass ;
-                            sh:path imel:RelatieObject.doel ] ) ]
-            [ sh:and ( [ sh:class onderdeel:AnotherTestClass ;
-                            sh:path imel:RelatieObject.bron ]
-                       [ sh:class onderdeel:AllCasesTestClass ;
-                            sh:path imel:RelatieObject.doel ] )
-            ] ) ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:AnotherTestClass ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class onderdeel:AnotherTestClass ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:AllCasesTestClass ;
+                            sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:Bevestiging .
 
 onderdeel:BevestigingShape a sh:NodeShape ;
@@ -209,7 +205,7 @@ imel:AIMObject.typeURIShape a sh:PropertyShape ;
 imel:AIMToestand.toestandShape a sh:PropertyShape ;
     rdfs:label "toestand" ;
     rdfs:comment imel:KlAIMToestand ;
-    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/verwijderd> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-ontwerp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/overgedragen> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/uit-gebruik> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-opbouw> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/gepland> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/geannuleerd> ) ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/verwijderd> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-ontwerp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/geannuleerd> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/uit-gebruik> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/overgedragen> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-opbouw> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/gepland> ) ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "toestand" ;
@@ -391,7 +387,6 @@ onderdeel:AllCasesTestClass.testIntegerFieldShape a sh:PropertyShape ;
 onderdeel:AllCasesTestClass.testKeuzelijstMetKardShape a sh:PropertyShape ;
     rdfs:label "Test Keuzelijst Met Kard" ;
     rdfs:comment abs:KlTestKeuzelijst ;
-    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-4> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-5> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-6> ) ;
     sh:minCount 0 ;
     sh:name "testKeuzelijstMetKard" ;
     sh:nodeKind sh:IRI ;
@@ -400,7 +395,6 @@ onderdeel:AllCasesTestClass.testKeuzelijstMetKardShape a sh:PropertyShape ;
 onderdeel:AllCasesTestClass.testKeuzelijstShape a sh:PropertyShape ;
     rdfs:label "Test Keuzelijst" ;
     rdfs:comment abs:KlTestKeuzelijst ;
-    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-4> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-5> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTestKeuzelijst/waarde-6> ) ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "testKeuzelijst" ;
