@@ -1,6 +1,6 @@
 @prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
 @prefix asset: <https://data.awvvlaanderen.be/id/asset/> .
-@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
@@ -17,8 +17,8 @@
         <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> .
 
 <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01/v1> a onderdeel:HoortBij ;
-    dct:isVersionOf asset:HoortBij_-_bord_01_-_opstelling_01 ;
-    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:isVersionOf asset:HoortBij_-_bord_01_-_opstelling_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -28,8 +28,8 @@
     imel:RelatieObject.doel asset:HoortBij_-_bord_01_-_opstelling_01 .
 
 <https://data.awvvlaanderen.be/id/asset/bord_01/v1> a onderdeel:RetroreflecterendVerkeersbord ;
-    dct:isVersionOf asset:bord_01 ;
-    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:isVersionOf asset:bord_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "bord_01" ] ;
@@ -39,8 +39,8 @@
             imel:DtcAssetVersie.versienummer 1 ] .
 
 <https://data.awvvlaanderen.be/id/asset/bord_01/v2> a onderdeel:RetroreflecterendVerkeersbord ;
-    dct:isVersionOf asset:bord_01 ;
-    dct:issued "2025-02-02T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:isVersionOf asset:bord_01 ;
+    dcterms:issued "2025-02-02T00:00:00+00:00"^^xsd:dateTime ;
     abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;
     abs:Verkeersbord.opstelhoogte [ imel:KwantWrdInMeter.waarde 1.8 ] ;
     imel:AIMDBStatus.isActief true ;
@@ -51,8 +51,8 @@
             imel:DtcAssetVersie.versienummer 2 ] .
 
 <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
-    dct:isVersionOf asset:opstelling_01 ;
-    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    dcterms:isVersionOf asset:opstelling_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     locn:geometry "<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)"^^geo:wktLiteral ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;

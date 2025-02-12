@@ -91,6 +91,7 @@ class LDESServer:
 
         g.serialize(destination=Path(current_dir / 'ldes_example.ttl'), format='ttl')
         g.serialize(destination=Path(current_dir / 'ldes_example.jsonld'), format='json-ld')
+        g.serialize(destination=Path(current_dir / 'ldes_example.xml'), format='pretty-xml')
 
 
 if __name__ == '__main__':
