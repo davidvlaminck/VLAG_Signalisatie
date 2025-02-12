@@ -1,0 +1,1879 @@
+@prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
+@prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<RelatieObjectConstraint> a sh:NodeShape ;
+    sh:and ( [ sh:minCount 1 ;
+                sh:path imel:RelatieObject.bron ] [ sh:minCount 1 ;
+                sh:path imel:RelatieObject.doel ] ) ;
+    sh:targetClass imel:RelatieObject .
+
+<http://data.europa.eu/eli/ontology#LegalExpressionShape> a sh:NodeShape ;
+    rdfs:label "Legale Verschijningsvorm" ;
+    sh:property <http://data.europa.eu/eli/ontology#LegalExpression.inhoudShape>,
+        <http://data.europa.eu/eli/ontology#LegalExpression.taalShape>,
+        <http://data.europa.eu/eli/ontology#LegalExpression.titelShape> ;
+    sh:targetClass <http://data.europa.eu/eli/ontology#LegalExpression> .
+
+<http://data.europa.eu/eli/ontology#LegalResourceShape> a sh:NodeShape ;
+    rdfs:label "Rechtsgrond" ;
+    sh:property <http://data.europa.eu/eli/ontology#LegalResource.buitenwerkingtredingShape>,
+        <http://data.europa.eu/eli/ontology#LegalResource.inwerkingtredingShape>,
+        <http://data.europa.eu/eli/ontology#LegalResource.typeDocumentShape> ;
+    sh:targetClass <http://data.europa.eu/eli/ontology#LegalResource> .
+
+<http://data.europa.eu/eli/ontology#LegalResourceSubdivisionShape> a sh:NodeShape ;
+    rdfs:label "Rechtsgrondonderdeel" ;
+    sh:targetClass <http://data.europa.eu/eli/ontology#LegalResourceSubdivision> .
+
+<http://data.vlaanderen.be/ns/besluit#AanvullendReglementShape> a sh:NodeShape ;
+    rdfs:label "Aanvullend Reglement" ;
+    sh:property <http://data.vlaanderen.be/ns/besluit#AanvullendReglement.tijdsintervalShape> ;
+    sh:targetClass <http://data.vlaanderen.be/ns/besluit#AanvullendReglement> .
+
+<http://data.vlaanderen.be/ns/besluit#InnamevergunningShape> a sh:NodeShape ;
+    rdfs:label "Innamevergunning" ;
+    sh:property <http://data.vlaanderen.be/ns/besluit#Innamevergunning.verguntTypeShape> ;
+    sh:targetClass <http://data.vlaanderen.be/ns/besluit#Innamevergunning> .
+
+<http://data.vlaanderen.be/ns/besluit#SignalisatievergunningShape> a sh:NodeShape ;
+    rdfs:label "Signalisatievergunning" ;
+    sh:property <http://data.vlaanderen.be/ns/besluit#Signalisatievergunning.verguntTypeShape> ;
+    sh:targetClass <http://data.vlaanderen.be/ns/besluit#Signalisatievergunning> .
+
+<http://data.vlaanderen.be/ns/besluit#TijdelijkReglementShape> a sh:NodeShape ;
+    rdfs:label "Tijdelijk Reglement" ;
+    sh:property <http://data.vlaanderen.be/ns/besluit#TijdelijkReglement.tijdsintervalShape> ;
+    sh:targetClass <http://data.vlaanderen.be/ns/besluit#TijdelijkReglement> .
+
+<http://data.vlaanderen.be/ns/besluit#VoorwaardeShape> a sh:NodeShape ;
+    rdfs:label "Voorwaarde" ;
+    sh:property <http://data.vlaanderen.be/ns/besluit#Voorwaarde.beschrijvingShape> ;
+    sh:targetClass <http://data.vlaanderen.be/ns/besluit#Voorwaarde> .
+
+<http://data.vlaanderen.be/ns/besluit#heeftSignalisatieplanRelationConstraint> a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class <http://data.vlaanderen.be/ns/besluit#Signalisatievergunning> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Signalisatieplan> ;
+                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+    sh:targetClass <http://data.vlaanderen.be/ns/besluit#heeftSignalisatieplan> .
+
+dcterms:AgentShape a sh:NodeShape ;
+    rdfs:label "Agent" ;
+    sh:property dcterms:Agent.agentIdShape,
+        dcterms:Agent.contactinfoShape,
+        dcterms:Agent.naamShape ;
+    sh:targetClass dcterms:Agent .
+
+<http://purl.org/vocab/cpsv#FormalFrameworkShape> a sh:NodeShape ;
+    rdfs:label "Formeel Kader" ;
+    sh:property <http://purl.org/vocab/cpsv#FormalFramework.beschrijvingShape>,
+        <http://purl.org/vocab/cpsv#FormalFramework.naamShape>,
+        <http://purl.org/vocab/cpsv#FormalFramework.onderwerpShape>,
+        <http://purl.org/vocab/cpsv#FormalFramework.statusShape>,
+        <http://purl.org/vocab/cpsv#FormalFramework.taalShape>,
+        <http://purl.org/vocab/cpsv#FormalFramework.toepassingsgebiedShape>,
+        <http://purl.org/vocab/cpsv#FormalFramework.typeShape> ;
+    sh:targetClass <http://purl.org/vocab/cpsv#FormalFramework> .
+
+skos:ConceptSchemeShape a sh:NodeShape ;
+    rdfs:label "" ;
+    sh:property skos:ConceptScheme.codelijstTypeShape,
+        skos:ConceptScheme.naamShape ;
+    sh:targetClass skos:ConceptScheme .
+
+skos:ConceptShape a sh:NodeShape ;
+    rdfs:label "" ;
+    sh:property skos:Concept.labelShape ;
+    sh:targetClass skos:Concept .
+
+prov:EntityShape a sh:NodeShape ;
+    rdfs:label "Entiteit" ;
+    sh:property prov:Entity.identificatorShape ;
+    sh:targetClass prov:Entity .
+
+foaf:DocumentShape a sh:NodeShape ;
+    rdfs:label "Document" ;
+    sh:targetClass foaf:Document .
+
+<https://data.vlaanderen.be/ns/besluit#ArtikelShape> a sh:NodeShape ;
+    rdfs:label "Artikel" ;
+    sh:property <https://data.vlaanderen.be/ns/besluit#Artikel.nummerShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/besluit#Artikel> .
+
+<https://data.vlaanderen.be/ns/besluit#BesluitShape> a sh:NodeShape ;
+    rdfs:label "Besluit" ;
+    sh:property <https://data.vlaanderen.be/ns/besluit#Besluit.beschrijvingShape>,
+        <https://data.vlaanderen.be/ns/besluit#Besluit.citeeropschriftShape>,
+        <https://data.vlaanderen.be/ns/besluit#Besluit.motiveringShape>,
+        <https://data.vlaanderen.be/ns/besluit#Besluit.publicatiedatumShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/besluit#Besluit> .
+
+<https://data.vlaanderen.be/ns/besluit#VergunningShape> a sh:NodeShape ;
+    rdfs:label "Vergunning" ;
+    sh:property <https://data.vlaanderen.be/ns/besluit#Vergunning.aanvraagdatumShape>,
+        <https://data.vlaanderen.be/ns/besluit#Vergunning.belastingsplichtigShape>,
+        <https://data.vlaanderen.be/ns/besluit#Vergunning.redenShape>,
+        <https://data.vlaanderen.be/ns/besluit#Vergunning.vergunningsdatumShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/besluit#Vergunning> .
+
+<https://data.vlaanderen.be/ns/besluit#heeftVoorwaardeRelationConstraint> a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/besluit#Besluit> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#Voorwaarde> ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/besluit#Artikel> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#Voorwaarde> ;
+                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+    sh:targetClass <https://data.vlaanderen.be/ns/besluit#heeftVoorwaarde> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerpShape> a sh:NodeShape ;
+    rdfs:label "Aanvullend reglement ontwerp" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp.naamShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#InnameShape> a sh:NodeShape ;
+    rdfs:label "Inname" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Inname.adresVoorstellingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.beschrijvingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.identificatorShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.openbaarDomeinShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.periodeGeplandShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.plaatsbepalingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.statusShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.tijdschemaShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.typeShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Inname.zoneShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Inname> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#MobiliteitshinderShape> a sh:NodeShape ;
+    rdfs:label "Mobiliteitshinder" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.adresVoorstellingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.beschrijvingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.heeftBetrekkingOpInnamezoneShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.identificatorShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.periodeShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.tijdschemaShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.typeShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder.zoneShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#MobiliteitshindergevolgShape> a sh:NodeShape ;
+    rdfs:label "Mobiliteitshindergevolg" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshindergevolg.doelgroepShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshindergevolg.gevolgShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshindergevolg> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#MobiliteitsmaatregelShape> a sh:NodeShape ;
+    rdfs:label "Mobiliteitsmaatregel" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.adresVoorstellingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.beschrijvingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.doelgroepShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.identificatorShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.periodeShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.plaatsbepalingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.tijdschemaShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.typeShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.zoneShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#MobiliteitsmaatregelconceptShape> a sh:NodeShape ;
+    rdfs:label "Mobiliteitsmaatregelconcept" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.labelShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.templateShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.variabeleSignalisatieShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#OmleidingShape> a sh:NodeShape ;
+    rdfs:label "Omleiding" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Omleiding.heeftRouteShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Omleiding> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeerstekenShape> a sh:NodeShape ;
+    rdfs:label "Ontwerp voor verkeersteken" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken.statusShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerpShape> a sh:NodeShape ;
+    rdfs:label "Signalisatie ontwerp" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.datumShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.naamShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieplanShape> a sh:NodeShape ;
+    rdfs:label "Signalisatieplan" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Signalisatieplan.beschrijvingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Signalisatieplan.grafischeWeergaveShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Signalisatieplan> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeerstekenShape> a sh:NodeShape ;
+    rdfs:label "Verkeersbord-verkeersteken" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isBeginZoneShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isEindeZoneShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordconceptShape> a sh:NodeShape ;
+    rdfs:label "Verkeersbordconcept" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.classificatieShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.mogelijkeVormShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.zonaliteitShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeerstekenShape> a sh:NodeShape ;
+    rdfs:label "Verkeerslicht verkeersteken" ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtconceptShape> a sh:NodeShape ;
+    rdfs:label "Verkeerslichtconcept" ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeerslichtconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeersmaatregelShape> a sh:NodeShape ;
+    rdfs:label "Verkeersmaatregel" ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeersmaatregel> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeerstekenShape> a sh:NodeShape ;
+    rdfs:label "Verkeersteken" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.adresVoorstellingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.afbeeldingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.buitenwerkingtredingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.inwerkingstijdShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.locatieShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.plaatsbepalingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.variabeleShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.wettelijkeStatusShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeerstekenconceptShape> a sh:NodeShape ;
+    rdfs:label "Verkeerstekenconcept" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.afbeeldingShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.betekenisShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.heeftInstructieShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.statusShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.verkeersbordcodeShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeerstekenShape> a sh:NodeShape ;
+    rdfs:label "Wegmarkering verkeersteken" ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringsconceptShape> a sh:NodeShape ;
+    rdfs:label "Wegmarkeringsconcept" ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Wegmarkeringsconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#ZoneShape> a sh:NodeShape ;
+    rdfs:label "Zone" ;
+    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Zone.geometrieShape>,
+        <https://data.vlaanderen.be/ns/mobiliteit#Zone.typeShape> ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Zone> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#heeftGerelateerdVerkeerstekenRelationConstraint> a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#heeftGerelateerdVerkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#heeftTransportLinkSetRelationConstraint> a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/weg#TransportLinkSet> ;
+                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#heeftTransportLinkSet> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#verguntRelationConstraint> a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class <http://data.vlaanderen.be/ns/besluit#Signalisatievergunning> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#vergunt> .
+
+<https://data.vlaanderen.be/ns/weg#TransportLinkSetShape> a sh:NodeShape ;
+    rdfs:label "" ;
+    sh:targetClass <https://data.vlaanderen.be/ns/weg#TransportLinkSet> .
+
+abs:AbstracteAanvullendeGeometrieShape a sh:NodeShape ;
+    rdfs:label "Abstracte aanvullende geometrie" ;
+    sh:property abs:AbstracteAanvullendeGeometrie.assetIdShape,
+        abs:AbstracteAanvullendeGeometrie.bijlageShape,
+        abs:AbstracteAanvullendeGeometrie.naamShape,
+        abs:AbstracteAanvullendeGeometrie.notitieShape,
+        abs:AbstracteAanvullendeGeometrie.typeURIShape ;
+    sh:targetClass abs:AbstracteAanvullendeGeometrie .
+
+abs:SignalisatieShape a sh:NodeShape ;
+    rdfs:label "Signalisatie" ;
+    sh:targetClass abs:Signalisatie .
+
+abs:VerkeersbordShape a sh:NodeShape ;
+    rdfs:label "Verkeersbord" ;
+    sh:property abs:Verkeersbord.afmetingShape,
+        abs:Verkeersbord.kaartVoorstellingShape,
+        abs:Verkeersbord.opstelhoogteShape,
+        abs:Verkeersbord.soortSteunShape ;
+    sh:targetClass abs:Verkeersbord .
+
+imel:AIMDBStatusShape a sh:NodeShape ;
+    rdfs:label "AIM databank status" ;
+    sh:property imel:AIMDBStatus.isActiefShape ;
+    sh:targetClass imel:AIMDBStatus .
+
+imel:AIMNaamObjectShape a sh:NodeShape ;
+    rdfs:label "AIM naam object" ;
+    sh:property imel:AIMNaamObject.naamShape ;
+    sh:targetClass imel:AIMNaamObject .
+
+imel:AIMObjectShape a sh:NodeShape ;
+    rdfs:label "AIM object" ;
+    sh:property imel:AIMObject.assetIdShape,
+        imel:AIMObject.notitieShape,
+        imel:AIMObject.typeURIShape ;
+    sh:targetClass imel:AIMObject .
+
+imel:AIMToestandShape a sh:NodeShape ;
+    rdfs:label "AIM Toestand" ;
+    sh:property imel:AIMToestand.toestandShape ;
+    sh:targetClass imel:AIMToestand .
+
+imel:AIMVersieShape a sh:NodeShape ;
+    rdfs:label "AIM versie" ;
+    sh:property imel:AIMVersie.assetVersieShape ;
+    sh:targetClass imel:AIMVersie .
+
+imel:BijlageShape a sh:NodeShape ;
+    rdfs:label "Bijlage" ;
+    owl:deprecated true ;
+    sh:property imel:Bijlage.typeShape ;
+    sh:targetClass imel:Bijlage .
+
+imel:DerdenobjectShape a sh:NodeShape ;
+    rdfs:label "Derdenobject" ;
+    sh:property imel:Derdenobject.assetIdShape,
+        imel:Derdenobject.contactgegevensShape,
+        imel:Derdenobject.fotoShape,
+        imel:Derdenobject.heeftAansluitkastGeintegreerdShape,
+        imel:Derdenobject.omschrijvingShape,
+        imel:Derdenobject.typeURIShape ;
+    sh:targetClass imel:Derdenobject .
+
+imel:DirectioneleRelatieShape a sh:NodeShape ;
+    rdfs:label "Directionele relatie" ;
+    sh:targetClass imel:DirectioneleRelatie .
+
+imel:DtcAfmetingBxhInM.breedteShape a sh:PropertyShape ;
+    rdfs:label "breedte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "breedte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxhInM.breedte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcAfmetingBxhInM.hoogteShape a sh:PropertyShape ;
+    rdfs:label "hoogte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "hoogte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxhInM.hoogte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcAfmetingBxlInM.breedteShape a sh:PropertyShape ;
+    rdfs:label "breedte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "breedte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlInM.breedte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcAfmetingBxlInM.lengteShape a sh:PropertyShape ;
+    rdfs:label "lengte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "lengte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlInM.lengte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcAfmetingBxlInMm.breedteShape a sh:PropertyShape ;
+    rdfs:label "breedte" ;
+    rdfs:comment imel:KwantWrdInMillimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "breedte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlInMm.breedte ;
+    sh:property imel:KwantWrdInMillimeter.standaardEenheidShape,
+        imel:KwantWrdInMillimeter.waardeShape .
+
+imel:DtcAfmetingBxlInMm.lengteShape a sh:PropertyShape ;
+    rdfs:label "lengte" ;
+    rdfs:comment imel:KwantWrdInMillimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "lengte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlInMm.lengte ;
+    sh:property imel:KwantWrdInMillimeter.standaardEenheidShape,
+        imel:KwantWrdInMillimeter.waardeShape .
+
+imel:DtcAfmetingBxlxhInCm.breedteShape a sh:PropertyShape ;
+    rdfs:label "breedte" ;
+    rdfs:comment imel:KwantWrdInCentimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "breedte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlxhInCm.breedte ;
+    sh:property imel:KwantWrdInCentimeter.standaardEenheidShape,
+        imel:KwantWrdInCentimeter.waardeShape .
+
+imel:DtcAfmetingBxlxhInCm.hoogteShape a sh:PropertyShape ;
+    rdfs:label "hoogte" ;
+    rdfs:comment imel:KwantWrdInCentimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "hoogte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlxhInCm.hoogte ;
+    sh:property imel:KwantWrdInCentimeter.standaardEenheidShape,
+        imel:KwantWrdInCentimeter.waardeShape .
+
+imel:DtcAfmetingBxlxhInCm.lengteShape a sh:PropertyShape ;
+    rdfs:label "lengte" ;
+    rdfs:comment imel:KwantWrdInCentimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "lengte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlxhInCm.lengte ;
+    sh:property imel:KwantWrdInCentimeter.standaardEenheidShape,
+        imel:KwantWrdInCentimeter.waardeShape .
+
+imel:DtcAfmetingBxlxhInM.breedteShape a sh:PropertyShape ;
+    rdfs:label "breedte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "breedte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlxhInM.breedte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcAfmetingBxlxhInM.hoogteShape a sh:PropertyShape ;
+    rdfs:label "hoogte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "hoogte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlxhInM.hoogte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcAfmetingBxlxhInM.lengteShape a sh:PropertyShape ;
+    rdfs:label "lengte" ;
+    rdfs:comment imel:KwantWrdInMeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "lengte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcAfmetingBxlxhInM.lengte ;
+    sh:property imel:KwantWrdInMeter.standaardEenheidShape,
+        imel:KwantWrdInMeter.waardeShape .
+
+imel:DtcBereikInKg.maximumShape a sh:PropertyShape ;
+    rdfs:label "maximum" ;
+    rdfs:comment imel:KwantWrdInKilogram ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "maximum" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcBereikInKg.maximum ;
+    sh:property imel:KwantWrdInKilogram.standaardEenheidShape,
+        imel:KwantWrdInKilogram.waardeShape .
+
+imel:DtcBereikInKg.minimiumShape a sh:PropertyShape ;
+    rdfs:label "minimum" ;
+    rdfs:comment imel:KwantWrdInKilogram ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "minimium" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcBereikInKg.minimium ;
+    sh:property imel:KwantWrdInKilogram.standaardEenheidShape,
+        imel:KwantWrdInKilogram.waardeShape .
+
+imel:DtcBeschermendeLaag.beschermlaagShape a sh:PropertyShape ;
+    rdfs:label "beschermlaag" ;
+    rdfs:comment onderdeel:KlDraagConstrBeschermlaag ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDraagConstrBeschermlaag/gegalvaniseerd> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDraagConstrBeschermlaag/gecoat> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDraagConstrBeschermlaag/geschilderd> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "beschermlaag" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBeschermendeLaag.beschermlaag .
+
+imel:DtcBeschermendeLaag.corrosieklasseShape a sh:PropertyShape ;
+    rdfs:label "corrosieklasse" ;
+    rdfs:comment imel:KlCorrosiebelastingscategorie ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "corrosieklasse" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBeschermendeLaag.corrosieklasse .
+
+imel:DtcBetonspecificaties.betondekkingShape a sh:PropertyShape ;
+    rdfs:label "betondekking" ;
+    rdfs:comment imel:KwantWrdInMillimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "betondekking" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcBetonspecificaties.betondekking ;
+    sh:property imel:KwantWrdInMillimeter.standaardEenheidShape,
+        imel:KwantWrdInMillimeter.waardeShape .
+
+imel:DtcBetonspecificaties.betonmilieuklassenShape a sh:PropertyShape ;
+    rdfs:label "betonmilieuklassen" ;
+    rdfs:comment imel:KlBetonmilieuklasse ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-a-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-f-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-c-4> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-f-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-d-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-s-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-d-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-s-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-c-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-c-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-s-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-a-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-c-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-d-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-f-4> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-f-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-0> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonmilieuklasse/x-a-2> ) ;
+    sh:minCount 0 ;
+    sh:name "betonmilieuklassen" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBetonspecificaties.betonmilieuklassen .
+
+imel:DtcBetonspecificaties.betonomgevingsklassenShape a sh:PropertyShape ;
+    rdfs:label "betonomgevingsklassen" ;
+    rdfs:comment imel:KlBetonomgevingsklasse ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-e-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-s-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-a-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-s-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-e-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-a-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-s-1> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-0> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-e-2> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/ei> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/xf3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-e-4> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-a-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonomgevingsklasse/e-s-4> ) ;
+    sh:minCount 0 ;
+    sh:name "betonomgevingsklassen" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBetonspecificaties.betonomgevingsklassen .
+
+imel:DtcBetonspecificaties.betonsterkteklasseShape a sh:PropertyShape ;
+    rdfs:label "betonsterkteklasse" ;
+    rdfs:comment imel:KlBetonsterkteklasse ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-28-35> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-8-10> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-30-37> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-25-30> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-16-20> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-40-50> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-70-85> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-45-55> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-53-65> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-35-45> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-90-105> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-60-75> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-20-25> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-50-60> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-80-85> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-55-67> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlBetonsterkteklasse/c-12-15> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "betonsterkteklasse" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBetonspecificaties.betonsterkteklasse .
+
+imel:DtcBetonspecificaties.gebruiksdomeinShape a sh:PropertyShape ;
+    rdfs:label "gebruiksdomein" ;
+    rdfs:comment imel:KlGebruiksdomein ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGebruiksdomein/gzb-gewapend-zichtbeton> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGebruiksdomein/ob-ongewapend> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGebruiksdomein/gb-gewapend> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlGebruiksdomein/vb-voorgespannen> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "gebruiksdomein" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBetonspecificaties.gebruiksdomein .
+
+imel:DtcBetonspecificaties.grootsteKorrelafmetingDmaxShape a sh:PropertyShape ;
+    rdfs:label "grootste korrelafmeting (Dmax)" ;
+    rdfs:comment imel:KwantWrdInMillimeter ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "grootsteKorrelafmetingDmax" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcBetonspecificaties.grootsteKorrelafmetingDmax ;
+    sh:property imel:KwantWrdInMillimeter.standaardEenheidShape,
+        imel:KwantWrdInMillimeter.waardeShape .
+
+imel:DtcBetonspecificaties.isCementMetBeperktAlkaligehalteShape a sh:PropertyShape ;
+    rdfs:label "is cement met beperkt alkaligehalte" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "isCementMetBeperktAlkaligehalte" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcBetonspecificaties.isCementMetBeperktAlkaligehalte .
+
+imel:DtcBetonspecificaties.isCementMetHogeAanvangssterkteShape a sh:PropertyShape ;
+    rdfs:label "is cement met hoge aanvangssterkte" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "isCementMetHogeAanvangssterkte" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcBetonspecificaties.isCementMetHogeAanvangssterkte .
+
+imel:DtcBetonspecificaties.isCementMetHogeBestandheidTegenSulfatenShape a sh:PropertyShape ;
+    rdfs:label "is cement met hoge bestandheid tegen sulfaten" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "isCementMetHogeBestandheidTegenSulfaten" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcBetonspecificaties.isCementMetHogeBestandheidTegenSulfaten .
+
+imel:DtcBetonspecificaties.isCementMetLageHydratatiewarmteShape a sh:PropertyShape ;
+    rdfs:label "is cement met lage hydratatiewarmte" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "isCementMetLageHydratatiewarmte" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcBetonspecificaties.isCementMetLageHydratatiewarmte .
+
+imel:DtcBetonspecificaties.isColloidaalbetonShape a sh:PropertyShape ;
+    rdfs:label "is colloïdaalbeton" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "isColloidaalbeton" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcBetonspecificaties.isColloidaalbeton .
+
+imel:DtcBetonspecificaties.technischeFicheShape a sh:PropertyShape ;
+    rdfs:label "technische fiche" ;
+    rdfs:comment imel:DtcDocument ;
+    owl:deprecated true ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "technischeFiche" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcBetonspecificaties.technischeFiche ;
+    sh:property imel:DtcDocument.bestandsnaamShape,
+        imel:DtcDocument.mimeTypeShape,
+        imel:DtcDocument.omschrijvingShape,
+        imel:DtcDocument.opmaakdatumShape,
+        imel:DtcDocument.uriShape .
+
+imel:DtcBetonspecificaties.technischeFicheSpecificatiesBetonShape a sh:PropertyShape ;
+    rdfs:label "technische fiche specificaties beton" ;
+    rdfs:comment imel:DtcDocument ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "technischeFicheSpecificatiesBeton" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcBetonspecificaties.technischeFicheSpecificatiesBeton ;
+    sh:property imel:DtcDocument.bestandsnaamShape,
+        imel:DtcDocument.mimeTypeShape,
+        imel:DtcDocument.omschrijvingShape,
+        imel:DtcDocument.opmaakdatumShape,
+        imel:DtcDocument.uriShape .
+
+imel:DtcBetonspecificaties.toeslagmiddelenShape a sh:PropertyShape ;
+    rdfs:label "toeslagmiddelen" ;
+    rdfs:comment imel:KlToeslagmiddelBeton ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToeslagmiddelBeton/grof-toeslagmateriaal> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlToeslagmiddelBeton/fijn-toeslagmateriaal> ) ;
+    sh:minCount 0 ;
+    sh:name "toeslagmiddelen" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcBetonspecificaties.toeslagmiddelen .
+
+imel:DtcCameraBeeldverwerking.configBestandShape a sh:PropertyShape ;
+    rdfs:label "configuratiebestand beeldverwerking" ;
+    rdfs:comment imel:DtcDocument ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "configBestand" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcCameraBeeldverwerking.configBestand ;
+    sh:property imel:DtcDocument.bestandsnaamShape,
+        imel:DtcDocument.mimeTypeShape,
+        imel:DtcDocument.omschrijvingShape,
+        imel:DtcDocument.opmaakdatumShape,
+        imel:DtcDocument.uriShape .
+
+imel:DtcCameraBeeldverwerking.typeBeeldverwerkingShape a sh:PropertyShape ;
+    rdfs:label "type beeldverwerking" ;
+    rdfs:comment onderdeel:KlCameraBeeldverwerkingstype ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/surface-state> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/anpr> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/aid> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlCameraBeeldverwerkingstype/adr> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "typeBeeldverwerking" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcCameraBeeldverwerking.typeBeeldverwerking .
+
+imel:DtcCodelijst.codelijstTypeShape a sh:PropertyShape ;
+    rdfs:label "" ;
+    rdfs:comment imel:KlCodelijstType ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "codelijstType" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcCodelijst.codelijstType .
+
+imel:DtcCodelijst.naamShape a sh:PropertyShape ;
+    rdfs:label "" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "naam" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcCodelijst.naam .
+
+imel:DtcConstructiestaalspecificaties.staalsoortShape a sh:PropertyShape ;
+    rdfs:label "staalsoort" ;
+    rdfs:comment imel:KlConstructiestaalsoort ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-355-j-0-c> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-320-gp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-460-nl> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-275-j-2-n> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-460-m> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-275-j-0> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-235-j-0> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-270-gp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-460-ml> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-235-jr> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-390-gp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-355-j-0> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-355-k-2-n> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-240-gp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-430-gp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-460-n> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-355-gp> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-235-j-2-n> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-355-jr> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-275-jr> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/s-355-j-2-n> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructiestaalsoort/rvs-316-brut> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "staalsoort" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcConstructiestaalspecificaties.staalsoort .
+
+imel:DtcConstructiestaalspecificaties.walsmethodeShape a sh:PropertyShape ;
+    rdfs:label "walsmethode" ;
+    rdfs:comment imel:KlWalsmethode ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWalsmethode/koud> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlWalsmethode/warm> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "walsmethode" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcConstructiestaalspecificaties.walsmethode .
+
+imel:DtcFrequentierange.bovengrensShape a sh:PropertyShape ;
+    rdfs:label "bovengrens" ;
+    rdfs:comment imel:KwantWrdInHerz ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "bovengrens" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcFrequentierange.bovengrens ;
+    sh:property imel:KwantWrdInHerz.standaardEenheidShape,
+        imel:KwantWrdInHerz.waardeShape .
+
+imel:DtcFrequentierange.ondergrensShape a sh:PropertyShape ;
+    rdfs:label "ondergrens" ;
+    rdfs:comment imel:KwantWrdInHerz ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "ondergrens" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcFrequentierange.ondergrens ;
+    sh:property imel:KwantWrdInHerz.standaardEenheidShape,
+        imel:KwantWrdInHerz.waardeShape .
+
+imel:DtcHoutspecificaties.fscCertificaatShape a sh:PropertyShape ;
+    rdfs:label "FSC-certificaat" ;
+    rdfs:comment imel:DtcDocument ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "fscCertificaat" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcHoutspecificaties.fscCertificaat ;
+    sh:property imel:DtcDocument.bestandsnaamShape,
+        imel:DtcDocument.mimeTypeShape,
+        imel:DtcDocument.omschrijvingShape,
+        imel:DtcDocument.opmaakdatumShape,
+        imel:DtcDocument.uriShape .
+
+imel:DtcHoutspecificaties.houtduurzaamheidsklasseShape a sh:PropertyShape ;
+    rdfs:label "houtduurzaamheidsklasse" ;
+    rdfs:comment imel:KlDuurzaamheidsklasseHout ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-ii> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-v> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-iv> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-i> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-iii> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "houtduurzaamheidsklasse" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcHoutspecificaties.houtduurzaamheidsklasse .
+
+imel:DtcHoutspecificaties.houtkwaliteitsklasseShape a sh:PropertyShape ;
+    rdfs:label "houtkwaliteitsklasse" ;
+    rdfs:comment imel:KlKwaliteitsklasseHout ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKwaliteitsklasseHout/klasse-a> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKwaliteitsklasseHout/klasse-b> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKwaliteitsklasseHout/tropisch-hardhout> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlKwaliteitsklasseHout/klasse-c> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "houtkwaliteitsklasse" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcHoutspecificaties.houtkwaliteitsklasse .
+
+imel:DtcHoutspecificaties.houtsterkteklasseShape a sh:PropertyShape ;
+    rdfs:label "houtsterkteklasse" ;
+    rdfs:comment imel:KlSterkteklasseHout ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c35> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c14> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c45> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d50> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d40> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c16> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c40> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d35> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d60> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d70> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c24> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/d30> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c18> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c30> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c22> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c27> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c20> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSterkteklasseHout/c50> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "houtsterkteklasse" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcHoutspecificaties.houtsterkteklasse .
+
+imel:DtcHoutspecificaties.isResistentTegenMarieneBoordersShape a sh:PropertyShape ;
+    rdfs:label "is resistent tegen mariene boorders" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "isResistentTegenMarieneBoorders" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcHoutspecificaties.isResistentTegenMarieneBoorders .
+
+imel:DtcKunststofspecificaties.elasticiteitsmodulusShape a sh:PropertyShape ;
+    rdfs:label "elasticiteitsmodulus" ;
+    rdfs:comment imel:KwantWrdInMegaPascal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "elasticiteitsmodulus" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcKunststofspecificaties.elasticiteitsmodulus ;
+    sh:property imel:KwantWrdInMegaPascal.standaardEenheidShape,
+        imel:KwantWrdInMegaPascal.waardeShape .
+
+imel:DtcKunststofspecificaties.naamShape a sh:PropertyShape ;
+    rdfs:label "naam" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "naam" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcKunststofspecificaties.naam .
+
+imel:DtcKunststofspecificaties.normShape a sh:PropertyShape ;
+    rdfs:label "norm" ;
+    rdfs:comment imel:KlDuurzaamheidsklasseHout ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-ii> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-v> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-iv> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-i> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlDuurzaamheidsklasseHout/klasse-iii> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "norm" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtcKunststofspecificaties.norm .
+
+imel:DtcKunststofspecificaties.treksterkteShape a sh:PropertyShape ;
+    rdfs:label "treksterkte" ;
+    rdfs:comment imel:KwantWrdInMegaPascal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "treksterkte" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcKunststofspecificaties.treksterkte ;
+    sh:property imel:KwantWrdInMegaPascal.standaardEenheidShape,
+        imel:KwantWrdInMegaPascal.waardeShape .
+
+imel:DtcKwaliteitscertifcaat.datumOndertekeningShape a sh:PropertyShape ;
+    rdfs:label "datum ondertekening" ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "datumOndertekening" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcKwaliteitscertifcaat.datumOndertekening .
+
+imel:DtcKwaliteitscertifcaat.documentShape a sh:PropertyShape ;
+    rdfs:label "document" ;
+    rdfs:comment imel:DtcDocument ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "document" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcKwaliteitscertifcaat.document ;
+    sh:property imel:DtcDocument.bestandsnaamShape,
+        imel:DtcDocument.mimeTypeShape,
+        imel:DtcDocument.omschrijvingShape,
+        imel:DtcDocument.opmaakdatumShape,
+        imel:DtcDocument.uriShape .
+
+imel:DtcKwaliteitscertifcaat.identificatorShape a sh:PropertyShape ;
+    rdfs:label "identificator" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "identificator" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcKwaliteitscertifcaat.identificator .
+
+imel:DtcNatuurlijkPersoon.achternaamShape a sh:PropertyShape ;
+    rdfs:label "achternaam" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "achternaam" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.achternaam .
+
+imel:DtcNatuurlijkPersoon.adresShape a sh:PropertyShape ;
+    rdfs:label "adres" ;
+    rdfs:comment imel:DtcAdres ;
+    sh:minCount 0 ;
+    sh:name "adres" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcNatuurlijkPersoon.adres ;
+    sh:property imel:DtcAdres.busShape,
+        imel:DtcAdres.gemeenteShape,
+        imel:DtcAdres.huisnummerShape,
+        imel:DtcAdres.postcodeShape,
+        imel:DtcAdres.provincieShape,
+        imel:DtcAdres.straatnaamShape .
+
+imel:DtcNatuurlijkPersoon.emailadresShape a sh:PropertyShape ;
+    rdfs:label "emailadres" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:name "emailadres" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.emailadres .
+
+imel:DtcNatuurlijkPersoon.faxShape a sh:PropertyShape ;
+    rdfs:label "fax" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:name "fax" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.fax .
+
+imel:DtcNatuurlijkPersoon.heeftEmailVoorkeurShape a sh:PropertyShape ;
+    rdfs:label "heeft email voorkeur" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "heeftEmailVoorkeur" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.heeftEmailVoorkeur .
+
+imel:DtcNatuurlijkPersoon.heeftFaxVoorkeurShape a sh:PropertyShape ;
+    rdfs:label "heeft fax voorkeur" ;
+    sh:datatype xsd:boolean ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "heeftFaxVoorkeur" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.heeftFaxVoorkeur .
+
+imel:DtcNatuurlijkPersoon.telefoonnnummerShape a sh:PropertyShape ;
+    rdfs:label "telefoonnnummer" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:name "telefoonnnummer" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.telefoonnnummer .
+
+imel:DtcNatuurlijkPersoon.voornaamShape a sh:PropertyShape ;
+    rdfs:label "voornaam" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "voornaam" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcNatuurlijkPersoon.voornaam .
+
+imel:DtcProductidentificatiecode.keuringsverslagShape a sh:PropertyShape ;
+    rdfs:label "keuringsverslag" ;
+    rdfs:comment imel:DtcDocument ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "keuringsverslag" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcProductidentificatiecode.keuringsverslag ;
+    sh:property imel:DtcDocument.bestandsnaamShape,
+        imel:DtcDocument.mimeTypeShape,
+        imel:DtcDocument.omschrijvingShape,
+        imel:DtcDocument.opmaakdatumShape,
+        imel:DtcDocument.uriShape .
+
+imel:DtcProductidentificatiecode.linkTechnischeFicheShape a sh:PropertyShape ;
+    rdfs:label "link technische fiche" ;
+    sh:datatype xsd:anyURI ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "linkTechnischeFiche" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcProductidentificatiecode.linkTechnischeFiche .
+
+imel:DtcProductidentificatiecode.producentShape a sh:PropertyShape ;
+    rdfs:label "producent" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "producent" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcProductidentificatiecode.producent .
+
+imel:DtcProductidentificatiecode.productidentificatiecodeShape a sh:PropertyShape ;
+    rdfs:label "productidentificatiecode" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "productidentificatiecode" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcProductidentificatiecode.productidentificatiecode .
+
+imel:DtcRechtspersoon.adresShape a sh:PropertyShape ;
+    rdfs:label "adres" ;
+    rdfs:comment imel:DtcAdres ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "adres" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcRechtspersoon.adres ;
+    sh:property imel:DtcAdres.busShape,
+        imel:DtcAdres.gemeenteShape,
+        imel:DtcAdres.huisnummerShape,
+        imel:DtcAdres.postcodeShape,
+        imel:DtcAdres.provincieShape,
+        imel:DtcAdres.straatnaamShape .
+
+imel:DtcRechtspersoon.afdelingShape a sh:PropertyShape ;
+    rdfs:label "afdeling" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "afdeling" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcRechtspersoon.afdeling .
+
+imel:DtcRechtspersoon.organisatieShape a sh:PropertyShape ;
+    rdfs:label "organisatie" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "organisatie" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcRechtspersoon.organisatie .
+
+imel:DtcRechtspersoon.telefoonnnummerShape a sh:PropertyShape ;
+    rdfs:label "telefoonnnummer" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "telefoonnnummer" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DtcRechtspersoon.telefoonnnummer .
+
+imel:DtcTijdsduur.minutenShape a sh:PropertyShape ;
+    rdfs:label "minuten" ;
+    rdfs:comment imel:KwantWrdInMinuut ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "minuten" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcTijdsduur.minuten ;
+    sh:property imel:KwantWrdInMinuut.standaardEenheidShape,
+        imel:KwantWrdInMinuut.waardeShape .
+
+imel:DtcTijdsduur.secondenShape a sh:PropertyShape ;
+    rdfs:label "seconden" ;
+    rdfs:comment imel:KwantWrdInSeconde ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "seconden" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcTijdsduur.seconden ;
+    sh:property imel:KwantWrdInSeconde.standaardEenheidShape,
+        imel:KwantWrdInSeconde.waardeShape .
+
+imel:DtcTijdsduur.urenShape a sh:PropertyShape ;
+    rdfs:label "uren" ;
+    rdfs:comment imel:KwantWrdInUur ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "uren" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtcTijdsduur.uren ;
+    sh:property imel:KwantWrdInUur.standaardEenheidShape,
+        imel:KwantWrdInUur.waardeShape .
+
+imel:DteIPv4Adres.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DteIPv4Adres.waarde .
+
+imel:DteKleurRAL.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:DteKleurRAL.waarde .
+
+imel:DtuDwarsafmetingen.rechthoekigShape a sh:PropertyShape ;
+    rdfs:label "rechthoekig" ;
+    rdfs:comment imel:DtcAfmetingBxlxhInMm ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "rechthoekig" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtuDwarsafmetingen.rechthoekig ;
+    sh:property imel:DtcAfmetingBxlxhInMm.breedteShape,
+        imel:DtcAfmetingBxlxhInMm.hoogteShape,
+        imel:DtcAfmetingBxlxhInMm.lengteShape .
+
+imel:DtuDwarsafmetingen.rondShape a sh:PropertyShape ;
+    rdfs:label "rond" ;
+    rdfs:comment imel:DtcAfmetingDiameterInMm ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "rond" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtuDwarsafmetingen.rond ;
+    sh:property imel:DtcAfmetingDiameterInMm.diameterShape .
+
+imel:DtuDwarsafmetingenUnionConstraint a sh:NodeShape ;
+    rdfs:comment "union constraint of https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuDwarsafmetingen" ;
+    sh:or ( [ sh:and ( [ sh:maxCount 0 ;
+                            sh:path imel:DtuDwarsafmetingen.rechthoekig ] [ sh:maxCount 0 ;
+                            sh:path imel:DtuDwarsafmetingen.rond ] ) ] [ sh:and ( [ sh:minCount 1 ;
+                            sh:path imel:DtuDwarsafmetingen.rechthoekig ] [ sh:maxCount 0 ;
+                            sh:path imel:DtuDwarsafmetingen.rond ] ) ] [ sh:and ( [ sh:maxCount 0 ;
+                            sh:path imel:DtuDwarsafmetingen.rechthoekig ] [ sh:minCount 1 ;
+                            sh:path imel:DtuDwarsafmetingen.rond ] ) ] ) ;
+    sh:targetObjectsOf imel:DtuDwarsafmetingen .
+
+imel:DtuHellingsSchoorhoek.hellingshoekShape a sh:PropertyShape ;
+    rdfs:label "hellingshoek" ;
+    rdfs:comment imel:KwantWrdInDecimaleGraden ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "hellingshoek" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path imel:DtuHellingsSchoorhoek.hellingshoek ;
+    sh:property imel:KwantWrdInDecimaleGraden.standaardEenheidShape,
+        imel:KwantWrdInDecimaleGraden.waardeShape .
+
+imel:DtuHellingsSchoorhoek.schoorhoekShape a sh:PropertyShape ;
+    rdfs:label "schoorhoek" ;
+    rdfs:comment imel:KlSchoorhoek ;
+    sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-5> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-3> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlSchoorhoek/1-4> ) ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "schoorhoek" ;
+    sh:nodeKind sh:IRI ;
+    sh:path imel:DtuHellingsSchoorhoek.schoorhoek .
+
+imel:DtuHellingsSchoorhoekUnionConstraint a sh:NodeShape ;
+    rdfs:comment "union constraint of https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtuHellingsSchoorhoek" ;
+    sh:or ( [ sh:and ( [ sh:maxCount 0 ;
+                            sh:path imel:DtuHellingsSchoorhoek.hellingshoek ] [ sh:maxCount 0 ;
+                            sh:path imel:DtuHellingsSchoorhoek.schoorhoek ] ) ] [ sh:and ( [ sh:minCount 1 ;
+                            sh:path imel:DtuHellingsSchoorhoek.hellingshoek ] [ sh:maxCount 0 ;
+                            sh:path imel:DtuHellingsSchoorhoek.schoorhoek ] ) ] [ sh:and ( [ sh:maxCount 0 ;
+                            sh:path imel:DtuHellingsSchoorhoek.hellingshoek ] [ sh:minCount 1 ;
+                            sh:path imel:DtuHellingsSchoorhoek.schoorhoek ] ) ] ) ;
+    sh:targetObjectsOf imel:DtuHellingsSchoorhoek .
+
+imel:KwantWrdInAmpere.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInAmpere.standaardEenheid ;
+    sh:pattern "A" .
+
+imel:KwantWrdInAmpere.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInAmpere.waarde .
+
+imel:KwantWrdInAmpereUur.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInAmpereUur.standaardEenheid ;
+    sh:pattern "Ah" .
+
+imel:KwantWrdInAmpereUur.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInAmpereUur.waarde .
+
+imel:KwantWrdInBar.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInBar.standaardEenheid ;
+    sh:pattern "bar" .
+
+imel:KwantWrdInBar.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInBar.waarde .
+
+imel:KwantWrdInCelsius.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInCelsius.standaardEenheid ;
+    sh:pattern "Cel" .
+
+imel:KwantWrdInCelsius.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInCelsius.waarde .
+
+imel:KwantWrdInEuro.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInEuro.standaardEenheid ;
+    sh:pattern "{Euro}" .
+
+imel:KwantWrdInEuro.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInEuro.waarde .
+
+imel:KwantWrdInGigabyte.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInGigabyte.standaardEenheid ;
+    sh:pattern "GBy" .
+
+imel:KwantWrdInGigabyte.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInGigabyte.waarde .
+
+imel:KwantWrdInInch.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInInch.standaardEenheid ;
+    sh:pattern "[in_i]" .
+
+imel:KwantWrdInInch.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInInch.waarde .
+
+imel:KwantWrdInJaar.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInJaar.standaardEenheid ;
+    sh:pattern "a" .
+
+imel:KwantWrdInJaar.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInJaar.waarde .
+
+imel:KwantWrdInKelvin.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKelvin.standaardEenheid ;
+    sh:pattern "K" .
+
+imel:KwantWrdInKelvin.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKelvin.waarde .
+
+imel:KwantWrdInKiloAmpere.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloAmpere.standaardEenheid ;
+    sh:pattern "kA" .
+
+imel:KwantWrdInKiloAmpere.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloAmpere.waarde .
+
+imel:KwantWrdInKiloNewtonPerMeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloNewtonPerMeter.standaardEenheid ;
+    sh:pattern "kN/m" .
+
+imel:KwantWrdInKiloNewtonPerMeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloNewtonPerMeter.waarde .
+
+imel:KwantWrdInKiloNewtonPerVierkanteMeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloNewtonPerVierkanteMeter.standaardEenheid ;
+    sh:pattern "kN/m2" .
+
+imel:KwantWrdInKiloNewtonPerVierkanteMeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloNewtonPerVierkanteMeter.waarde .
+
+imel:KwantWrdInKiloVolt.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloVolt.standaardEenheid ;
+    sh:pattern "kV" .
+
+imel:KwantWrdInKiloVolt.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloVolt.waarde .
+
+imel:KwantWrdInKiloVoltAmpere.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloVoltAmpere.standaardEenheid ;
+    sh:pattern "kVA*" .
+
+imel:KwantWrdInKiloVoltAmpere.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloVoltAmpere.waarde .
+
+imel:KwantWrdInKiloWatt.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloWatt.standaardEenheid ;
+    sh:pattern "kW" .
+
+imel:KwantWrdInKiloWatt.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKiloWatt.waarde .
+
+imel:KwantWrdInKilogramPerKubiekeMeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKilogramPerKubiekeMeter.standaardEenheid ;
+    sh:pattern "kg/m3" .
+
+imel:KwantWrdInKilogramPerKubiekeMeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKilogramPerKubiekeMeter.waarde .
+
+imel:KwantWrdInKubiekeCentimeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeCentimeter.standaardEenheid ;
+    sh:pattern "cm3" .
+
+imel:KwantWrdInKubiekeCentimeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeCentimeter.waarde .
+
+imel:KwantWrdInKubiekeCentimeterPerMeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeCentimeterPerMeter.standaardEenheid ;
+    sh:pattern "cm3/m" .
+
+imel:KwantWrdInKubiekeCentimeterPerMeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeCentimeterPerMeter.waarde .
+
+imel:KwantWrdInKubiekeMeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeMeter.standaardEenheid ;
+    sh:pattern "m3" .
+
+imel:KwantWrdInKubiekeMeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeMeter.waarde .
+
+imel:KwantWrdInKubiekeMeterPerSeconde.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeMeterPerSeconde.standaardEenheid ;
+    sh:pattern "m3/s" .
+
+imel:KwantWrdInKubiekeMeterPerSeconde.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeMeterPerSeconde.waarde .
+
+imel:KwantWrdInKubiekeMeterPerUur.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeMeterPerUur.standaardEenheid ;
+    sh:pattern "m3/u" .
+
+imel:KwantWrdInKubiekeMeterPerUur.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInKubiekeMeterPerUur.waarde .
+
+imel:KwantWrdInLiterPerMinuut.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInLiterPerMinuut.standaardEenheid ;
+    sh:pattern "l/min" .
+
+imel:KwantWrdInLiterPerMinuut.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInLiterPerMinuut.waarde .
+
+imel:KwantWrdInMaand.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMaand.standaardEenheid ;
+    sh:pattern "mo" .
+
+imel:KwantWrdInMaand.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMaand.waarde .
+
+imel:KwantWrdInMeterPerSeconde.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMeterPerSeconde.standaardEenheid ;
+    sh:pattern "m/s" .
+
+imel:KwantWrdInMeterPerSeconde.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMeterPerSeconde.waarde .
+
+imel:KwantWrdInMeterTAW.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMeterTAW.standaardEenheid ;
+    sh:pattern "m" .
+
+imel:KwantWrdInMeterTAW.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMeterTAW.waarde .
+
+imel:KwantWrdInMilliAmpere.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMilliAmpere.standaardEenheid ;
+    sh:pattern "mA" .
+
+imel:KwantWrdInMilliAmpere.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInMilliAmpere.waarde .
+
+imel:KwantWrdInOhm.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInOhm.standaardEenheid ;
+    sh:pattern "Ohm" .
+
+imel:KwantWrdInOhm.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInOhm.waarde .
+
+imel:KwantWrdInProcent.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInProcent.standaardEenheid ;
+    sh:pattern "%" .
+
+imel:KwantWrdInProcent.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInProcent.waarde .
+
+imel:KwantWrdInPromille.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInPromille.standaardEenheid ;
+    sh:pattern "‰" .
+
+imel:KwantWrdInPromille.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInPromille.waarde .
+
+imel:KwantWrdInRPM.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInRPM.standaardEenheid ;
+    sh:pattern "rpm" .
+
+imel:KwantWrdInRPM.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInRPM.waarde .
+
+imel:KwantWrdInVierkanteMeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInVierkanteMeter.standaardEenheid ;
+    sh:pattern "m2" .
+
+imel:KwantWrdInVierkanteMeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInVierkanteMeter.waarde .
+
+imel:KwantWrdInVierkanteMillimeter.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInVierkanteMillimeter.standaardEenheid ;
+    sh:pattern "kg/m3" .
+
+imel:KwantWrdInVierkanteMillimeter.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInVierkanteMillimeter.waarde .
+
+imel:KwantWrdInVoltAmpere.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInVoltAmpere.standaardEenheid ;
+    sh:pattern "VA" .
+
+imel:KwantWrdInVoltAmpere.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInVoltAmpere.waarde .
+
+imel:KwantWrdInWatt.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInWatt.standaardEenheid ;
+    sh:pattern "W" .
+
+imel:KwantWrdInWatt.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInWatt.waarde .
+
+imel:KwantWrdInkVARh.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInkVARh.standaardEenheid ;
+    sh:pattern "kVARh" .
+
+imel:KwantWrdInkVARh.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInkVARh.waarde .
+
+imel:KwantWrdInkWh.standaardEenheidShape a sh:PropertyShape ;
+    rdfs:label "standaard eenheid" ;
+    sh:datatype rdfs:Literal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "standaardEenheid" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInkWh.standaardEenheid ;
+    sh:pattern "kWh" .
+
+imel:KwantWrdInkWh.waardeShape a sh:PropertyShape ;
+    rdfs:label "waarde" ;
+    sh:datatype xsd:decimal ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "waarde" ;
+    sh:nodeKind sh:Literal ;
+    sh:path imel:KwantWrdInkWh.waarde .
+
+imel:NaampadObjectShape a sh:NodeShape ;
+    rdfs:label "Naampad object" ;
+    sh:property imel:NaampadObject.naampadShape ;
+    sh:targetClass imel:NaampadObject .
+
+imel:NietDirectioneleRelatieShape a sh:NodeShape ;
+    rdfs:label "Niet-directionele relatie" ;
+    sh:targetClass imel:NietDirectioneleRelatie .
+
+imel:PictogramShape a sh:NodeShape ;
+    rdfs:label "" ;
+    sh:property imel:Pictogram.afbeeldingShape ;
+    sh:targetClass imel:Pictogram .
+
+imel:RelatieObjectShape a sh:NodeShape ;
+    rdfs:label "Relatieobject" ;
+    sh:property imel:RelatieObject.assetIdShape,
+        imel:RelatieObject.bronAssetIdShape,
+        imel:RelatieObject.doelAssetIdShape,
+        imel:RelatieObject.typeURIShape ;
+    sh:targetClass imel:RelatieObject .
+
+imel:Template.variabeleShape a sh:PropertyShape ;
+    rdfs:label "" ;
+    rdfs:comment 
