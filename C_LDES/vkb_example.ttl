@@ -12,8 +12,8 @@
             imel:DtcAssetVersie.versienummer 1 ] ;
     imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HoortBij_-_bord_01_-_opstelling_01" ;
             imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
-    imel:RelatieObject.bron asset:HoortBij_-_bord_01_-_opstelling_01 ;
-    imel:RelatieObject.doel asset:HoortBij_-_bord_01_-_opstelling_01 .
+    imel:RelatieObject.bron asset:bord_01 ;
+    imel:RelatieObject.doel asset:opstelling_01 .
 
 <https://data.awvvlaanderen.be/id/asset/bord_01/v1> a onderdeel:RetroreflecterendVerkeersbord ;
     abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;

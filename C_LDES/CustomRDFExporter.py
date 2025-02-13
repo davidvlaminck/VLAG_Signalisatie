@@ -2,11 +2,9 @@ from typing import Iterable
 
 from otlmow_model.OtlmowModel.BaseClasses.FloatOrDecimalField import FloatOrDecimalField
 from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
+from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject, OTLAttribuut
 from otlmow_model.OtlmowModel.Helpers.OTLObjectHelper import is_relation
 from rdflib import Graph, FOAF, URIRef, RDF, BNode, Literal, XSD
-
-from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
 
 
 class CustomRDFExporter:
@@ -56,10 +54,10 @@ class CustomRDFExporter:
             if is_relation(instance):
                 g.add((asset,
                        URIRef('https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bron'),
-                       URIRef(asset_uri)))
+                       URIRef('https://data.awvvlaanderen.be/id/asset/' + instance.bronAssetId.identificator)))
                 g.add((asset,
                        URIRef('https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doel'),
-                       URIRef(asset_uri)))
+                       URIRef('https://data.awvvlaanderen.be/id/asset/' + instance.doelAssetId.identificator)))
                 instance.bronAssetId = None
                 instance.doelAssetId = None
                 instance.bron = None

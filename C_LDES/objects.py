@@ -2,12 +2,12 @@ import datetime
 
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from otlmow_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
+from otlmow_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 from otlmow_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
 from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
 from rdflib import Graph
 
 from CustomRDFExporter import CustomRDFExporter
-from VLAG_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 
 
 def return_graph_from_objects() -> Graph:
