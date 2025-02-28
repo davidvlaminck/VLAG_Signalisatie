@@ -1,14 +1,19 @@
 import datetime
+from pathlib import Path
 
-from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
-from otlmow_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
-from otlmow_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
-from otlmow_model.OtlmowModel.Helpers.RelationCreator import create_relation
+from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
+from VLAG_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
+from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftAanzicht import HeeftAanzicht
+from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
+from VLAG_model.OtlmowModel.Helpers.RelationCreator import create_relation
 from rdflib import Graph
 
 from CustomRDFExporter import CustomRDFExporter
+from VLAG_model.OtlmowModel.Classes.Installatie.AanzichtVerkeersbordopstelling import AanzichtVerkeersbordopstelling
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 
+
+model_dir = Path(__file__).parent.parent / 'VLAG_model'
 
 def return_graph_from_objects() -> Graph:
     """
@@ -35,6 +40,24 @@ def create_objects() -> [OTLObject]:
     opstelling.geometry = 'POINT Z (200000 200000 0)'
     list_of_objects.append(opstelling)
 
+    aanzicht = AanzichtVerkeersbordopstelling()
+    aanzicht.assetId.identificator = 'aanzicht_01'
+    aanzicht.assetVersie.context = 'DA_Init'
+    aanzicht.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    aanzicht.assetVersie.versienummer = 1
+    aanzicht.isActief = True
+    aanzicht.toestand = 'in-gebruik'
+    aanzicht.hoek = 1.0
+    list_of_objects.append(aanzicht)
+
+    aanzicht_opstelling = create_relation(source=opstelling, target=aanzicht, relation_type=HeeftAanzicht,
+                                          model_directory=model_dir)
+
+    aanzicht_opstelling.assetVersie.context = 'DA_Init'
+    aanzicht_opstelling.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    aanzicht_opstelling.assetVersie.versienummer = 1
+    list_of_objects.append(aanzicht_opstelling)
+
     bord = RetroreflecterendVerkeersbord()
     bord.assetId.identificator = 'bord_01'
     bord.assetVersie.context = 'DA_Init'
@@ -45,11 +68,11 @@ def create_objects() -> [OTLObject]:
     bord.afmeting.rond.diameter.waarde = 600
     list_of_objects.append(bord)
 
-    bord_opstelling = create_relation(source=bord, target=opstelling, relation_type=HoortBij)
-    bord_opstelling.assetVersie.context = 'DA_Init'
-    bord_opstelling.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
-    bord_opstelling.assetVersie.versienummer = 1
-    list_of_objects.append(bord_opstelling)
+    bord_aanzicht = create_relation(source=bord, target=aanzicht, relation_type=HoortBij, model_directory=model_dir)
+    bord_aanzicht.assetVersie.context = 'DA_Init'
+    bord_aanzicht.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    bord_aanzicht.assetVersie.versienummer = 1
+    list_of_objects.append(bord_aanzicht)
 
     bordv2 = RetroreflecterendVerkeersbord()
     bordv2.assetId.identificator = 'bord_01'

@@ -11,21 +11,47 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/ldes> a ldes:EventStream ;
-    tree:member <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01/v1>,
+    tree:member <https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/bord_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/bord_01/v2>,
         <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> .
 
-<https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01/v1> a onderdeel:HoortBij ;
-    dcterms:isVersionOf asset:HoortBij_-_bord_01_-_opstelling_01 ;
+<https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1> a onderdeel:HeeftAanzicht ;
+    dcterms:isVersionOf asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01 ;
     dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
-    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HoortBij_-_bord_01_-_opstelling_01" ;
+    imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling" ] ;
+    imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling" ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HeeftAanzicht_-_opstelling_01_-_aanzicht_01" ;
             imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
-    imel:RelatieObject.bron asset:HoortBij_-_bord_01_-_opstelling_01 ;
-    imel:RelatieObject.doel asset:HoortBij_-_bord_01_-_opstelling_01 .
+    imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
+    imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "aanzicht_01" ] .
+
+<https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1> a onderdeel:HoortBij ;
+    dcterms:isVersionOf asset:HoortBij_-_bord_01_-_aanzicht_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HoortBij_-_bord_01_-_aanzicht_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bron asset:HoortBij_-_bord_01_-_aanzicht_01 ;
+    imel:RelatieObject.doel asset:HoortBij_-_bord_01_-_aanzicht_01 .
+
+<https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1> a installatie:AanzichtVerkeersbordopstelling ;
+    dcterms:isVersionOf asset:aanzicht_01 ;
+    dcterms:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "aanzicht_01" ] ;
+    imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    installatie:AanzichtVerkeersbordopstelling.hoek 1.0 .
 
 <https://data.awvvlaanderen.be/id/asset/bord_01/v1> a onderdeel:RetroreflecterendVerkeersbord ;
     dcterms:isVersionOf asset:bord_01 ;

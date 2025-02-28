@@ -1,101 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
+  xmlns:imel="https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:abs="https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#"
   xmlns:onderdeel="https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#"
-  xmlns:imel="https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#"
-  xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:installatie="https://wegenenverkeer.data.vlaanderen.be/ns/installatie#"
-  xmlns:ldes="https://w3id.org/ldes#"
   xmlns:locn="http://www.w3.org/ns/locn#"
+  xmlns:installatie="https://wegenenverkeer.data.vlaanderen.be/ns/installatie#"
   xmlns:tree="https://w3id.org/tree#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:ldes="https://w3id.org/ldes#"
 >
   <ldes:EventStream rdf:about="https://example.com/ldes">
     <tree:member>
-      <installatie:Verkeersbordopstelling rdf:about="https://data.awvvlaanderen.be/id/asset/opstelling_01/v1">
-        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/opstelling_01"/>
+      <installatie:AanzichtVerkeersbordopstelling rdf:about="https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1">
+        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/aanzicht_01"/>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
+        <imel:AIMDBStatus.isActief rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</imel:AIMDBStatus.isActief>
         <imel:AIMToestand.toestand rdf:resource="https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"/>
+        <installatie:AanzichtVerkeersbordopstelling.hoek rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</installatie:AanzichtVerkeersbordopstelling.hoek>
         <imel:AIMObject.assetId>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db14">
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b9">
+            <imel:DtcIdentificator.identificator>aanzicht_01</imel:DtcIdentificator.identificator>
+          </rdf:Description>
+        </imel:AIMObject.assetId>
+        <imel:AIMVersie.assetVersie>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b10">
+            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
+            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
+            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
+          </rdf:Description>
+        </imel:AIMVersie.assetVersie>
+      </installatie:AanzichtVerkeersbordopstelling>
+    </tree:member>
+    <tree:member>
+      <onderdeel:HeeftAanzicht rdf:about="https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1">
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
+        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01"/>
+        <imel:DavieRelatieAttributes.bron>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b2">
+            <imel:AIMObject.typeURI>https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling</imel:AIMObject.typeURI>
+          </rdf:Description>
+        </imel:DavieRelatieAttributes.bron>
+        <imel:DavieRelatieAttributes.doel>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b3">
+            <imel:AIMObject.typeURI>https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling</imel:AIMObject.typeURI>
+          </rdf:Description>
+        </imel:DavieRelatieAttributes.doel>
+        <imel:RelatieObject.assetId>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b4">
+            <imel:DtcIdentificator.toegekendDoor>OTLMOW</imel:DtcIdentificator.toegekendDoor>
+            <imel:DtcIdentificator.identificator>HeeftAanzicht_-_opstelling_01_-_aanzicht_01</imel:DtcIdentificator.identificator>
+          </rdf:Description>
+        </imel:RelatieObject.assetId>
+        <imel:RelatieObject.doelAssetId>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b6">
+            <imel:DtcIdentificator.identificator>aanzicht_01</imel:DtcIdentificator.identificator>
+          </rdf:Description>
+        </imel:RelatieObject.doelAssetId>
+        <imel:AIMVersie.assetVersie>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b1">
+            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
+            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
+            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
+          </rdf:Description>
+        </imel:AIMVersie.assetVersie>
+        <imel:RelatieObject.bronAssetId>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b5">
+            <imel:DtcIdentificator.identificator>opstelling_01</imel:DtcIdentificator.identificator>
+          </rdf:Description>
+        </imel:RelatieObject.bronAssetId>
+      </onderdeel:HeeftAanzicht>
+    </tree:member>
+    <tree:member>
+      <onderdeel:HoortBij rdf:about="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1">
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
+        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01"/>
+        <imel:RelatieObject.assetId>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b8">
+            <imel:DtcIdentificator.toegekendDoor>OTLMOW</imel:DtcIdentificator.toegekendDoor>
+            <imel:DtcIdentificator.identificator>HoortBij_-_bord_01_-_aanzicht_01</imel:DtcIdentificator.identificator>
+          </rdf:Description>
+        </imel:RelatieObject.assetId>
+        <imel:RelatieObject.bron rdf:resource="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01"/>
+        <imel:RelatieObject.doel rdf:resource="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01"/>
+        <imel:AIMVersie.assetVersie>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b7">
+            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
+            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
+            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
+          </rdf:Description>
+        </imel:AIMVersie.assetVersie>
+      </onderdeel:HoortBij>
+    </tree:member>
+    <tree:member>
+      <installatie:Verkeersbordopstelling rdf:about="https://data.awvvlaanderen.be/id/asset/opstelling_01/v1">
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
+        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/opstelling_01"/>
+        <imel:AIMToestand.toestand rdf:resource="https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"/>
+        <imel:AIMVersie.assetVersie>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b23">
+            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
+            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
+            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
+          </rdf:Description>
+        </imel:AIMVersie.assetVersie>
+        <imel:AIMDBStatus.isActief rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</imel:AIMDBStatus.isActief>
+        <imel:AIMObject.assetId>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b22">
             <imel:DtcIdentificator.identificator>opstelling_01</imel:DtcIdentificator.identificator>
           </rdf:Description>
         </imel:AIMObject.assetId>
-        <imel:AIMDBStatus.isActief rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</imel:AIMDBStatus.isActief>
         <locn:geometry rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral"><![CDATA[<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)]]></locn:geometry>
-        <imel:AIMVersie.assetVersie>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db15">
-            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
-            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
-            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
-          </rdf:Description>
-        </imel:AIMVersie.assetVersie>
       </installatie:Verkeersbordopstelling>
-    </tree:member>
-    <tree:member>
-      <onderdeel:RetroreflecterendVerkeersbord rdf:about="https://data.awvvlaanderen.be/id/asset/bord_01/v1">
-        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/bord_01"/>
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
-        <imel:AIMObject.assetId>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db6">
-            <imel:DtcIdentificator.identificator>bord_01</imel:DtcIdentificator.identificator>
-          </rdf:Description>
-        </imel:AIMObject.assetId>
-        <imel:AIMDBStatus.isActief rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</imel:AIMDBStatus.isActief>
-        <imel:AIMToestand.toestand rdf:resource="https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-ontwerp"/>
-        <abs:Verkeersbord.afmeting>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db3">
-            <onderdeel:DtuAfmetingVerkeersbord.rond>
-              <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db4">
-                <imel:DtcAfmetingDiameterInMm.diameter>
-                  <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db5">
-                    <imel:KwantWrdInMillimeter.waarde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">600.0</imel:KwantWrdInMillimeter.waarde>
-                  </rdf:Description>
-                </imel:DtcAfmetingDiameterInMm.diameter>
-              </rdf:Description>
-            </onderdeel:DtuAfmetingVerkeersbord.rond>
-          </rdf:Description>
-        </abs:Verkeersbord.afmeting>
-        <imel:AIMVersie.assetVersie>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db7">
-            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
-            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
-            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
-          </rdf:Description>
-        </imel:AIMVersie.assetVersie>
-      </onderdeel:RetroreflecterendVerkeersbord>
-    </tree:member>
-    <tree:member>
-      <onderdeel:HoortBij rdf:about="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01/v1">
-        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
-        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01"/>
-        <imel:AIMVersie.assetVersie>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db1">
-            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
-            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
-            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
-          </rdf:Description>
-        </imel:AIMVersie.assetVersie>
-        <imel:RelatieObject.bron rdf:resource="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01"/>
-        <imel:RelatieObject.assetId>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db2">
-            <imel:DtcIdentificator.toegekendDoor>OTLMOW</imel:DtcIdentificator.toegekendDoor>
-            <imel:DtcIdentificator.identificator>HoortBij_-_bord_01_-_opstelling_01</imel:DtcIdentificator.identificator>
-          </rdf:Description>
-        </imel:RelatieObject.assetId>
-        <imel:RelatieObject.doel rdf:resource="https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_opstelling_01"/>
-      </onderdeel:HoortBij>
     </tree:member>
     <tree:member>
       <onderdeel:RetroreflecterendVerkeersbord rdf:about="https://data.awvvlaanderen.be/id/asset/bord_01/v2">
         <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/bord_01"/>
         <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-02T00:00:00+00:00</dcterms:issued>
         <abs:Verkeersbord.afmeting>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db8">
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b16">
             <onderdeel:DtuAfmetingVerkeersbord.rond>
-              <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db9">
+              <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b17">
                 <imel:DtcAfmetingDiameterInMm.diameter>
-                  <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db10">
+                  <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b18">
                     <imel:KwantWrdInMillimeter.waarde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">600.0</imel:KwantWrdInMillimeter.waarde>
                   </rdf:Description>
                 </imel:DtcAfmetingDiameterInMm.diameter>
@@ -103,25 +130,58 @@
             </onderdeel:DtuAfmetingVerkeersbord.rond>
           </rdf:Description>
         </abs:Verkeersbord.afmeting>
+        <imel:AIMDBStatus.isActief rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</imel:AIMDBStatus.isActief>
         <imel:AIMVersie.assetVersie>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db13">
-            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-02T00:00:00</imel:DtcAssetVersie.timestamp>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b21">
             <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</imel:DtcAssetVersie.versienummer>
             <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
+            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2025-02-02T00:00:00</imel:DtcAssetVersie.timestamp>
           </rdf:Description>
         </imel:AIMVersie.assetVersie>
-        <abs:Verkeersbord.opstelhoogte>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db11">
-            <imel:KwantWrdInMeter.waarde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.8</imel:KwantWrdInMeter.waarde>
-          </rdf:Description>
-        </abs:Verkeersbord.opstelhoogte>
+        <imel:AIMToestand.toestand rdf:resource="https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"/>
         <imel:AIMObject.assetId>
-          <rdf:Description rdf:nodeID="n8679aeb00a9a4c06a32e77181e97955db12">
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b20">
             <imel:DtcIdentificator.identificator>bord_01</imel:DtcIdentificator.identificator>
           </rdf:Description>
         </imel:AIMObject.assetId>
-        <imel:AIMToestand.toestand rdf:resource="https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"/>
+        <abs:Verkeersbord.opstelhoogte>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b19">
+            <imel:KwantWrdInMeter.waarde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.8</imel:KwantWrdInMeter.waarde>
+          </rdf:Description>
+        </abs:Verkeersbord.opstelhoogte>
+      </onderdeel:RetroreflecterendVerkeersbord>
+    </tree:member>
+    <tree:member>
+      <onderdeel:RetroreflecterendVerkeersbord rdf:about="https://data.awvvlaanderen.be/id/asset/bord_01/v1">
+        <dcterms:isVersionOf rdf:resource="https://data.awvvlaanderen.be/id/asset/bord_01"/>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00+00:00</dcterms:issued>
         <imel:AIMDBStatus.isActief rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</imel:AIMDBStatus.isActief>
+        <abs:Verkeersbord.afmeting>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b11">
+            <onderdeel:DtuAfmetingVerkeersbord.rond>
+              <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b12">
+                <imel:DtcAfmetingDiameterInMm.diameter>
+                  <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b13">
+                    <imel:KwantWrdInMillimeter.waarde rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">600.0</imel:KwantWrdInMillimeter.waarde>
+                  </rdf:Description>
+                </imel:DtcAfmetingDiameterInMm.diameter>
+              </rdf:Description>
+            </onderdeel:DtuAfmetingVerkeersbord.rond>
+          </rdf:Description>
+        </abs:Verkeersbord.afmeting>
+        <imel:AIMToestand.toestand rdf:resource="https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-ontwerp"/>
+        <imel:AIMObject.assetId>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b14">
+            <imel:DtcIdentificator.identificator>bord_01</imel:DtcIdentificator.identificator>
+          </rdf:Description>
+        </imel:AIMObject.assetId>
+        <imel:AIMVersie.assetVersie>
+          <rdf:Description rdf:nodeID="n8cd5a684aeef431b9c692b76d009cee5b15">
+            <imel:DtcAssetVersie.context>DA_Init</imel:DtcAssetVersie.context>
+            <imel:DtcAssetVersie.versienummer rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</imel:DtcAssetVersie.versienummer>
+            <imel:DtcAssetVersie.timestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-01-01T00:00:00</imel:DtcAssetVersie.timestamp>
+          </rdf:Description>
+        </imel:AIMVersie.assetVersie>
       </onderdeel:RetroreflecterendVerkeersbord>
     </tree:member>
   </ldes:EventStream>
