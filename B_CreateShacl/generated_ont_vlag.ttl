@@ -1,0 +1,324 @@
+@prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
+@prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.vlaanderen.be/ns/besluit#AanvullendReglement> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/besluit#Besluit> .
+
+<http://data.vlaanderen.be/ns/besluit#Voorwaarde> a owl:Class .
+
+dcterms:Agent a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus .
+
+skos:ConceptScheme a owl:Class .
+
+<https://data.vlaanderen.be/ns/besluit#Artikel> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Verkeerslichtconcept> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Wegmarkeringsconcept> a owl:Class ;
+    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Zone> a owl:Class .
+
+imel:Bijlage a owl:Class ;
+    rdfs:subClassOf abs:AbstracteAanvullendeGeometrie .
+
+imel:Derdenobject a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus,
+        imel:AIMToestand,
+        imel:AIMVersie .
+
+imel:NaampadObject a owl:Class ;
+    rdfs:subClassOf imel:AIMNaamObject .
+
+imel:Pictogram a owl:Class ;
+    rdfs:subClassOf skos:Concept .
+
+imel:Toegangsprocedure a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus,
+        imel:AIMToestand .
+
+<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling> a owl:Class ;
+    rdfs:subClassOf imel:AIMNaamObject .
+
+<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling> a owl:Class ;
+    rdfs:subClassOf abs:Signalisatie,
+        imel:AIMObject .
+
+onderdeel:AanvullendeGeometrie a owl:Class ;
+    rdfs:subClassOf abs:AbstracteAanvullendeGeometrie .
+
+onderdeel:BehoortTot a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:BekrachtigdBij a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Bekrachtigt a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:BevatOntwerp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:BevatOntwerpVoor a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:BevatVerkeersteken a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Bevestiging a owl:Class ;
+    rdfs:subClassOf imel:NietDirectioneleRelatie .
+
+onderdeel:Bijlage a owl:Class ;
+    rdfs:subClassOf abs:AbstracteAanvullendeGeometrie .
+
+onderdeel:Citeert a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Corrigeert a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:GecorrigeerdDoor a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftAanvullendeGeometrie a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftAanzicht a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftBeheer a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftBetrokkene a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftBijlage a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftDeel a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftGerelateerdVerkeersteken a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftGevolg a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftMaatregelconcept a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftMobiliteitsmaatregel a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftMogelijkOnderbord a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftNetwerkProtectie a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftNetwerktoegang a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftOnderbord a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftOntwerp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftSignalisatieplan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftToegangsprocedure a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftTransportLinkSet a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftVerkeersteken a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeeftVoorwaarde a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HeftOp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:HoortBij a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IngetrokkenBij a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IngevoegdBij a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsAdmOnderdeelVan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsDeelVan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsGebaseerdOp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsGerelateerdAan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsInspectieVan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsNetwerkECC a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsOnderdeelVan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsOntwerpVoor a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsSWGehostOp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:IsSWOnderdeelVan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:LigtOp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Omhult a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:OpgehevenBij a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Realiseert a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:RetroreflecterendVerkeersbord a owl:Class ;
+    rdfs:subClassOf abs:Verkeersbord,
+        imel:AIMNaamObject .
+
+onderdeel:RetroreflecterendeFolie a owl:Class ;
+    rdfs:subClassOf imel:AIMObject .
+
+onderdeel:SluitAanOp a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Sturing a owl:Class ;
+    rdfs:subClassOf imel:NietDirectioneleRelatie .
+
+onderdeel:TrektIn a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:VeranderdDoor a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Verandert a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Vereist a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Vergunt a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:VervangenBij a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Vervangt a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:VerwijstNaar a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:Voedt a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:VoedtAangestuurd a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:VoegtIn a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+onderdeel:WordtAangeduidDoor a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
+skos:Concept a owl:Class .
+
+<https://data.vlaanderen.be/ns/besluit#Besluit> a owl:Class .
+
+<https://wegenenverkeer.data.vlaanderen.be> a owl:Ontology ;
+    rdfs:comment """Met het programma Open Standaarden voor Linkende Organisaties (OSLO) zet de Vlaamse overheid in op een 
+            éénduidige standaard voor de uitwisseling van informatie. De objecttypenbibliotheek (OTL) specificeert 
+            een implementatiemodel voor de data-uitwisseling gedurende de volledige levenscyclus van onderdelen en 
+            installaties die in brede zin verband houden met wegen en verkeer zoals gespecificeerd in de 
+            verschillende Standaardbestekken 250, 260 en 270.""" ;
+    sh:declare [ sh:namespace <https://wegenenverkeer.data.vlaanderen.be> ;
+            sh:prefix "awv" ] .
+
+abs:Signalisatie a owl:Class .
+
+abs:Verkeersbord a owl:Class .
+
+imel:NietDirectioneleRelatie a owl:Class ;
+    rdfs:subClassOf imel:RelatieObject .
+
+imel:RelatieObject a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> a owl:Class .
+
+<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> a owl:Class .
+
+abs:AbstracteAanvullendeGeometrie a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus,
+        imel:AIMToestand,
+        imel:AIMVersie .
+
+imel:AIMNaamObject a owl:Class ;
+    rdfs:subClassOf imel:AIMObject .
+
+imel:AIMObject a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus,
+        imel:AIMToestand,
+        imel:AIMVersie .
+
+imel:AIMVersie a owl:Class .
+
+imel:AIMToestand a owl:Class .
+
+imel:AIMDBStatus a owl:Class .
+
+imel:DirectioneleRelatie a owl:Class ;
+    rdfs:subClassOf imel:RelatieObject .
+

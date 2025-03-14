@@ -27,7 +27,7 @@
     imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling" ] ;
     imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling" ] ;
     imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HeeftAanzicht_-_opstelling_01_-_aanzicht_01" ;
-            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+            imel:DtcIdentificator.toegekendDoor <https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOrganisaties/otlmow> ] ;
     imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
     imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "aanzicht_01" ] .
 
@@ -38,9 +38,9 @@
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
     imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "HoortBij_-_bord_01_-_aanzicht_01" ;
-            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
-    imel:RelatieObject.bron asset:HoortBij_-_bord_01_-_aanzicht_01 ;
-    imel:RelatieObject.doel asset:HoortBij_-_bord_01_-_aanzicht_01 .
+            imel:DtcIdentificator.toegekendDoor <https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlOrganisaties/otlmow> ] ;
+    imel:RelatieObject.bron asset:bord_01 ;
+    imel:RelatieObject.doel asset:aanzicht_01 .
 
 <https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1> a installatie:AanzichtVerkeersbordopstelling ;
     dcterms:isVersionOf asset:aanzicht_01 ;

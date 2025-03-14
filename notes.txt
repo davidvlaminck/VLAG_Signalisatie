@@ -1,0 +1,20 @@
+Issues stap A
+-------------
+assetId.toegekendDoor is een keuzelijst (moet een string zijn)
+RelatieObject erft niet over van AIMVersie
+OSLO classes ervan niet over van AIMObject en hebben dus geen assetId, assetVersie, status, toestand
+
+Issues stap B
+-------------
+ttl's van OSLO classes bestaan niet, er is nog geen code om deze leeg te genereren
+
+Issues stap C
+-------------
+ontbrekende attributen op OSLO classes zal de code doen falen
+niet duidelijk welke voorbeeld data er moet gegenereerd worden
+
+Issues stap D
+-------------
+Gebruikt nog de testclass i.p.v. echte klassen
+De keuzelijsten worden nog manueel afgehaald van de GitHub van de Vlaamse overheid
+Dit kan anders: via de aangeleverde ttl's van de OSLO classes en de all.ttl.zip die op de GitHub van de Vlaamse overheid staat
