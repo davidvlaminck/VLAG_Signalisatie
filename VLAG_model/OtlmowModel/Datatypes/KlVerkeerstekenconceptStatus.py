@@ -4,11 +4,11 @@ from otlmow_model.OtlmowModel.BaseClasses.KeuzelijstField import KeuzelijstField
 
 # Generated with OTLEnumerationCreator. To modify: extend, do not edit
 class KlVerkeerstekenconceptStatus(KeuzelijstField):
-    """"""
+    """TODO"""
     naam = 'KlVerkeerstekenconceptStatus'
-    label = ''
+    label = 'Verkeerstekenconcept status'
     objectUri = 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KlVerkeerstekenconceptStatus'
-    definition = ''
+    definition = 'TODO'
     status = 'https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAdmsStatus/ingebruik'
     codelist = 'https://wegenenverkeer.data.vlaanderen.be/id/conceptscheme/KlVerkeerstekenconceptStatus'
     options = {

@@ -10,8 +10,7 @@ from otlmow_model.OtlmowModel.Classes.Onderdeel.HeeftBetrokkene import HeeftBetr
 from otlmow_model.OtlmowModel.Exceptions.CouldNotCreateRelationError import CouldNotCreateRelationError
 from otlmow_model.OtlmowModel.Helpers.GenericHelper import get_ns_and_name_from_uri, validate_guid, encode_short_uri, \
     get_aim_id_from_uuid_and_typeURI
-
-from VLAG_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation
+from otlmow_model.OtlmowModel.Helpers.RelationValidator import is_valid_relation
 
 
 def create_relation(relation_type: type[RelatieObject], source: Optional[RelationInteractor] = None,
@@ -100,7 +99,7 @@ def create_relation(relation_type: type[RelatieObject], source: Optional[Relatio
                 target.assetId.toegekendDoor = 'AWV'
 
     if not (source_is_legacy or target_is_legacy):
-        valid = is_valid_relation(source=source, target=target, relation_type=relation_type, model_directory=model_directory)
+        valid = is_valid_relation(source=source, target=target, relation_type=relation_type)
         if not valid:
             raise CouldNotCreateRelationError("Can't create an invalid relation_type, please validate relations first")
 
