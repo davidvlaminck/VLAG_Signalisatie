@@ -1,12 +1,11 @@
 Issues stap A
 -------------
-assetId.toegekendDoor is een keuzelijst (moet een string zijn)
-RelatieObject erft niet over van AIMVersie
-OSLO classes ervan niet over van AIMObject en hebben dus geen assetId, assetVersie, status, toestand
+OSLO classes erven niet over van AIMObject en hebben dus geen assetId, assetVersie, status, toestand
 
 Issues stap B
 -------------
-ttl's van OSLO classes bestaan niet, er is nog geen code om deze leeg te genereren
+ttl's worden nu van de dev omgeving gehaald (niet perfecte data)
+keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten worden nog steeds toegevoegd)
 
 Issues stap C
 -------------
