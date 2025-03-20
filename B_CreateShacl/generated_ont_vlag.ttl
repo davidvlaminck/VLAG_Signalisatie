@@ -61,7 +61,7 @@ imel:NaampadObject a owl:Class ;
     rdfs:subClassOf imel:AIMNaamObject .
 
 imel:Pictogram a owl:Class ;
-    rdfs:subClassOf skos:Concept .
+    rdfs:subClassOf imel:Concept .
 
 imel:Toegangsprocedure a owl:Class ;
     rdfs:subClassOf imel:AIMDBStatus,
@@ -273,8 +273,6 @@ onderdeel:VoegtIn a owl:Class ;
 onderdeel:WordtAangeduidDoor a owl:Class ;
     rdfs:subClassOf imel:DirectioneleRelatie .
 
-skos:Concept a owl:Class .
-
 <https://data.vlaanderen.be/ns/besluit#Besluit> a owl:Class .
 
 <https://wegenenverkeer.data.vlaanderen.be> a owl:Ontology ;
@@ -290,11 +288,14 @@ abs:Signalisatie a owl:Class .
 
 abs:Verkeersbord a owl:Class .
 
+imel:Concept a owl:Class .
+
 imel:NietDirectioneleRelatie a owl:Class ;
     rdfs:subClassOf imel:RelatieObject .
 
 imel:RelatieObject a owl:Class ;
-    rdfs:subClassOf imel:AIMDBStatus .
+    rdfs:subClassOf imel:AIMDBStatus,
+        imel:AIMVersie .
 
 <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> a owl:Class .
 
@@ -313,9 +314,9 @@ imel:AIMObject a owl:Class ;
         imel:AIMToestand,
         imel:AIMVersie .
 
-imel:AIMVersie a owl:Class .
-
 imel:AIMToestand a owl:Class .
+
+imel:AIMVersie a owl:Class .
 
 imel:AIMDBStatus a owl:Class .
 

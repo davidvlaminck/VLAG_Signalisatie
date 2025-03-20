@@ -6,6 +6,7 @@ from typing import Iterable
 
 from rdflib import Graph, Namespace, URIRef, RDF, RDFS, OWL, Literal, SH, BNode, SKOS
 
+from B_CreateShacl.OTLEnumerationCreator import OTLEnumerationCreator
 from SQLDbReader import SQLDbReader
 
 
@@ -282,21 +283,8 @@ class OTLShaclGenerator:
         return OTLShaclGenerator.add_attributes_to_graph(g, rows, 'complex')
 
     @staticmethod
-    def get_enum_values_from_graph(keuzelijstnaam):
-        g = Graph()
-        keuzelijst_link = f"https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-wegenenverkeer/master/" \
-                          f"codelijsten/{keuzelijstnaam}.ttl"
-
-        if 'KlTestKeuzelijst' in keuzelijstnaam:
-            base_dir = os.path.dirname(os.path.realpath(__file__))
-            keuzelijst_link = Path(f'{base_dir}/UnitTests/KlTestKeuzelijst.ttl')
-            g.parse(keuzelijst_link, format="turtle")
-        else:
-            try:
-                g.parse(keuzelijst_link, format="turtle")
-            except:
-                print(f'failed getting the ttl for {keuzelijstnaam}')
-
+    def get_enum_values_from_graph(keuzelijstnaam: str, enum_creator: OTLEnumerationCreator):
+        g = enum_creator.get_graph(keuzelijstnaam, enum_creator.env)
         return g.subjects(predicate=RDF.type, object=SKOS.Concept)
 
     @staticmethod
@@ -305,10 +293,10 @@ class OTLShaclGenerator:
             '''SELECT name, uri, label_nl, codelist, deprecated_version FROM OSLOEnumeration;''', params={})
 
     @staticmethod
-    def add_enum_to_graph(enum_row: tuple, g: Graph):
+    def add_enum_to_graph(enum_row: tuple, g: Graph, enum_creator: OTLEnumerationCreator): # does not use adm status
         subjects = g.subjects(predicate=RDFS.comment, object=URIRef(enum_row[1]))
         for subj in subjects:
-            enum_values = OTLShaclGenerator.get_enum_values_from_graph(enum_row[0])
+            enum_values = OTLShaclGenerator.get_enum_values_from_graph(enum_row[0], enum_creator)
             if enum_values is not None:
                 enum_node_list = []
                 for enum_value in enum_values:
@@ -322,10 +310,12 @@ class OTLShaclGenerator:
 
     @staticmethod
     def add_enums_to_graph(g: Graph, rows: [tuple]) -> Graph:
-        executor = ThreadPoolExecutor(10)
-        futures = [executor.submit(OTLShaclGenerator.add_enum_to_graph, enum_row=enum_row, g=g)
-                   for enum_row in rows]
-        concurrent.futures.wait(futures)
+        with OTLEnumerationCreator(oslo_collector=None, env='dev') as enum_creator:
+            enum_creator.download_unzip_and_parse_to_dict(enum_creator.env)
+            executor = ThreadPoolExecutor(1)
+            futures = [executor.submit(OTLShaclGenerator.add_enum_to_graph, enum_row=enum_row, g=g, enum_creator=enum_creator)
+                       for enum_row in rows]
+            concurrent.futures.wait(futures)
 
         return g
 
