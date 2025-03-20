@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from otlmow_converter.OtlmowConverter import OtlmowConverter
 from rdflib import Graph, URIRef, Dataset, RDF, Literal, XSD, Namespace
 from rdflib.namespace import GEO
 
@@ -97,4 +98,10 @@ class LDESServer:
 if __name__ == '__main__':
     objects_graph = objects.return_graph_from_objects()
     objects_graph.serialize(Path(current_dir / 'vkb_example.ttl'))
+    objects_graph.serialize(Path(current_dir / 'vkb_example.jsonld'), format='json-ld')
     LDESServer(Path(current_dir / 'vkb_example.ttl'))
+
+    # inladen in converter werkt nog niet
+    # model_directory = Path(__file__).parent.parent / 'VLAG_model'
+    # objects = OtlmowConverter.from_file_to_objects(Path(current_dir / 'vkb_example.jsonld'),
+    #                                                model_directory=model_directory)
