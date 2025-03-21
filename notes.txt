@@ -9,10 +9,8 @@ keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten
 
 Issues stap C
 -------------
-Json-ld converter moet aangepast worden naar ModifiefJsonLdConverter
+Json-ld converter moet aangepast worden naar ModifiedJsonLdConverter
 
 Issues stap D
 -------------
-Gebruikt nog de testclass i.p.v. echte klassen
-De keuzelijsten worden nog manueel afgehaald van de GitHub van de Vlaamse overheid
-Dit kan anders: via de aangeleverde ttl's van de OSLO classes en de all.ttl.zip die op de GitHub van de Vlaamse overheid staat
+1 validatie fout in een relatie die geen fout zou mogen geven
