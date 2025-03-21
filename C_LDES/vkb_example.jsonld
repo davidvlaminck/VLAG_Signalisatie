@@ -1,0 +1,231 @@
+{
+    "@context": {
+        "brick": "https://brickschema.org/schema/Brick#",
+        "csvw": "http://www.w3.org/ns/csvw#",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcmitype": "http://purl.org/dc/dcmitype/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "dcam": "http://purl.org/dc/dcam/",
+        "doap": "http://usefulinc.com/ns/doap#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "geo": "http://www.opengis.net/ont/geosparql#",
+        "odrl": "http://www.w3.org/ns/odrl/2/",
+        "org": "http://www.w3.org/ns/org#",
+        "prof": "http://www.w3.org/ns/dx/prof/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "qb": "http://purl.org/linked-data/cube#",
+        "schema": "https://schema.org/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "sosa": "http://www.w3.org/ns/sosa/",
+        "ssn": "http://www.w3.org/ns/ssn/",
+        "time": "http://www.w3.org/2006/time#",
+        "vann": "http://purl.org/vocab/vann/",
+        "void": "http://rdfs.org/ns/void#",
+        "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "xml": "http://www.w3.org/XML/1998/namespace",
+        "imel": "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#",
+        "asset": "https://data.awvvlaanderen.be/id/asset/",
+        "assetrelatie": "https://data.awvvlaanderen.be/id/assetrelatie/",
+        "onderdeel": "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#",
+        "installatie": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#",
+        "keuzelijst": "https://wegenenverkeer.data.vlaanderen.be/id/concept/",
+        "abs": "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#",
+        "pem": "https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#",
+        "loc": "https://loc.data.wegenenverkeer.be/ns/implementatieelement#"
+    },
+    "@graph": [
+        {
+            "@id": "asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1",
+            "@type": "onderdeel:HeeftAanzicht",
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "imel:DavieRelatieAttributes.bron": {
+                "imel:AIMObject.typeURI": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling"
+            },
+            "imel:DavieRelatieAttributes.doel": {
+                "imel:AIMObject.typeURI": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling"
+            },
+            "imel:RelatieObject.assetId": {
+                "imel:DtcIdentificator.identificator": "HeeftAanzicht_-_opstelling_01_-_aanzicht_01",
+                "imel:DtcIdentificator.toegekendDoor": "OTLMOW"
+            },
+            "imel:RelatieObject.bronAssetId": {
+                "imel:DtcIdentificator.identificator": "opstelling_01"
+            },
+            "imel:RelatieObject.doelAssetId": {
+                "imel:DtcIdentificator.identificator": "aanzicht_01"
+            }
+        },
+        {
+            "@id": "asset:HoortBij_-_bord_01_-_aanzicht_01/v1",
+            "@type": "onderdeel:HoortBij",
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "imel:RelatieObject.assetId": {
+                "imel:DtcIdentificator.identificator": "HoortBij_-_bord_01_-_aanzicht_01",
+                "imel:DtcIdentificator.toegekendDoor": "OTLMOW"
+            },
+            "imel:RelatieObject.bron": {
+                "@id": "asset:bord_01"
+            },
+            "imel:RelatieObject.doel": {
+                "@id": "asset:aanzicht_01"
+            }
+        },
+        {
+            "@id": "asset:aanzicht_01/v1",
+            "@type": "installatie:AanzichtVerkeersbordopstelling",
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "aanzicht_01"
+            },
+            "imel:AIMToestand.toestand": {
+                "@id": "keuzelijst:KlAIMToestand/in-gebruik"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "installatie:AanzichtVerkeersbordopstelling.hoek": {
+                "@type": "xsd:decimal",
+                "@value": "1.0"
+            }
+        },
+        {
+            "@id": "asset:bord_01/v1",
+            "@type": "onderdeel:RetroreflecterendVerkeersbord",
+            "abs:Verkeersbord.afmeting": {
+                "onderdeel:DtuAfmetingVerkeersbord.rond": {
+                    "imel:DtcAfmetingDiameterInMm.diameter": {
+                        "imel:KwantWrdInMillimeter.waarde": {
+                            "@type": "xsd:decimal",
+                            "@value": "600.0"
+                        }
+                    }
+                }
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "bord_01"
+            },
+            "imel:AIMToestand.toestand": {
+                "@id": "keuzelijst:KlAIMToestand/in-ontwerp"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            }
+        },
+        {
+            "@id": "asset:bord_01/v2",
+            "@type": "onderdeel:RetroreflecterendVerkeersbord",
+            "abs:Verkeersbord.afmeting": {
+                "onderdeel:DtuAfmetingVerkeersbord.rond": {
+                    "imel:DtcAfmetingDiameterInMm.diameter": {
+                        "imel:KwantWrdInMillimeter.waarde": {
+                            "@type": "xsd:decimal",
+                            "@value": "600.0"
+                        }
+                    }
+                }
+            },
+            "abs:Verkeersbord.opstelhoogte": {
+                "imel:KwantWrdInMeter.waarde": {
+                    "@type": "xsd:decimal",
+                    "@value": "1.8"
+                }
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "bord_01"
+            },
+            "imel:AIMToestand.toestand": {
+                "@id": "keuzelijst:KlAIMToestand/in-gebruik"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2025-02-02T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 2
+                }
+            }
+        },
+        {
+            "@id": "asset:opstelling_01/v1",
+            "@type": "installatie:Verkeersbordopstelling",
+            "loc:Locatie.geometrie": "POINT Z (200000 200000 0)",
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "opstelling_01"
+            },
+            "imel:AIMToestand.toestand": {
+                "@id": "keuzelijst:KlAIMToestand/in-gebruik"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            }
+        }
+    ]
+}

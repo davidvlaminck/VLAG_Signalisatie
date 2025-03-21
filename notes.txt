@@ -9,8 +9,7 @@ keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten
 
 Issues stap C
 -------------
-ontbrekende attributen op OSLO classes zal de code doen falen
-niet duidelijk welke voorbeeld data er moet gegenereerd worden
+Json-ld converter moet aangepast worden naar ModifiefJsonLdConverter
 
 Issues stap D
 -------------

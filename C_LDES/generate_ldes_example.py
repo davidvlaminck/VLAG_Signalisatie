@@ -1,5 +1,7 @@
+import json
 from pathlib import Path
 
+import pyld
 from otlmow_converter.OtlmowConverter import OtlmowConverter
 from rdflib import Graph, URIRef, Dataset, RDF, Literal, XSD, Namespace
 from rdflib.namespace import GEO
@@ -95,13 +97,37 @@ class LDESServer:
         g.serialize(destination=Path(current_dir / 'ldes_example.xml'), format='pretty-xml')
 
 
+def create_better_json_ld(jsonld_file_path: Path, objects_graph: Graph):
+    namespace_dict = {}
+    for ns_prefix, namespace in objects_graph.namespaces():
+        namespace_dict[ns_prefix] = namespace
+    type_lijst = []
+    for row in objects_graph.query("SELECT ?o WHERE { ?s a ?o }"):
+        if not str(row.o).startswith('http://www.opengis.net/ont/sf'):
+            type_lijst.append(str(row.o))
+    with open(str(jsonld_file_path)) as jsonld_file:
+        json_ld = json.load(jsonld_file)
+    compacted = pyld.jsonld.compact(json_ld, {}, options={'graph': False})
+    compacted = pyld.jsonld.frame(compacted, {
+        '@context': namespace_dict,
+        '@type': type_lijst})
+    with open(str(jsonld_file_path), "w") as out_file:
+        json.dump(obj=compacted, fp=out_file, indent=4)
+
+
 if __name__ == '__main__':
+    jsonld_file_path = Path(current_dir / 'vkb_example.jsonld')
     objects_graph = objects.return_graph_from_objects()
     objects_graph.serialize(Path(current_dir / 'vkb_example.ttl'))
-    objects_graph.serialize(Path(current_dir / 'vkb_example.jsonld'), format='json-ld')
+    objects_graph.serialize(jsonld_file_path, format='json-ld')
+
+    create_better_json_ld(jsonld_file_path=jsonld_file_path, objects_graph=objects_graph)
+
     LDESServer(Path(current_dir / 'vkb_example.ttl'))
 
-    # inladen in converter werkt nog niet
-    # model_directory = Path(__file__).parent.parent / 'VLAG_model'
-    # objects = OtlmowConverter.from_file_to_objects(Path(current_dir / 'vkb_example.jsonld'),
-    #                                                model_directory=model_directory)
+    model_directory = Path(__file__).parent.parent / 'VLAG_model'
+    objects = OtlmowConverter.from_file_to_objects(Path(current_dir / 'vkb_example.jsonld'),
+                                                   model_directory=model_directory)
+    OtlmowConverter.from_objects_to_file(file_path=Path(current_dir / 'vkb_example.xlsx'),
+                                         sequence_of_objects=objects,
+                                         model_directory=model_directory)
