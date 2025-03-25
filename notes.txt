@@ -1,11 +1,12 @@
 Issues stap A
 -------------
-OSLO classes erven niet over van AIMObject en hebben dus geen assetId, assetVersie, status, toestand
+-
 
 Issues stap B
 -------------
 ttl's worden nu van de dev omgeving gehaald (niet perfecte data)
 keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten worden nog steeds toegevoegd)
+uris mobiliteit zijn inconsistent
 
 Issues stap C
 -------------

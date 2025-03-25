@@ -55,6 +55,8 @@ class LDESServer:
         g.bind('kl', Namespace('https://wegenenverkeer.data.vlaanderen.be/id/concept/'))
         g.bind('onderdeel', Namespace('https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#'))
         g.bind('wegcode', Namespace('https://www.wegcode.be/media/image/orig/'))
+        g.bind('mob', Namespace('https://data.vlaanderen.be/ns/mobiliteit#'))
+        g.bind('besluit', Namespace('https://data.vlaanderen.be/ns/besluit#'))
 
         self.print_graph(graph_data)
 

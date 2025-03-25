@@ -1,227 +1,5 @@
 [
   {
-    "@id": "https://data.awvvlaanderen.be/id/asset/bord_01/v2",
-    "@type": [
-      "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord"
-    ],
-    "http://purl.org/dc/terms/isVersionOf": [
-      {
-        "@id": "https://data.awvvlaanderen.be/id/asset/bord_01"
-      }
-    ],
-    "http://purl.org/dc/terms/issued": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2025-02-02T00:00:00+00:00"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord.afmeting": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b16"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord.opstelhoogte": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b19"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
-        "@value": true
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b20"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand": [
-      {
-        "@id": "https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b21"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b16",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtuAfmetingVerkeersbord.rond": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b17"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b17",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAfmetingDiameterInMm.diameter": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b18"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b18",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInMillimeter.waarde": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
-        "@value": "600.0"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b21",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
-      {
-        "@value": "DA_Init"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.timestamp": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2025-02-02T00:00:00"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.versienummer": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 2
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b19",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInMeter.waarde": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
-        "@value": "1.8"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b20",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
-      {
-        "@value": "bord_01"
-      }
-    ]
-  },
-  {
-    "@id": "https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1",
-    "@type": [
-      "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht"
-    ],
-    "http://purl.org/dc/terms/isVersionOf": [
-      {
-        "@id": "https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01"
-      }
-    ],
-    "http://purl.org/dc/terms/issued": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2021-01-01T00:00:00+00:00"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b1"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DavieRelatieAttributes.bron": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b2"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DavieRelatieAttributes.doel": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b3"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.assetId": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b4"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bronAssetId": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b5"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doelAssetId": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b6"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b3",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI": [
-      {
-        "@value": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b1",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
-      {
-        "@value": "DA_Init"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.timestamp": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2021-01-01T00:00:00"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.versienummer": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b6",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
-      {
-        "@value": "aanzicht_01"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b5",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
-      {
-        "@value": "opstelling_01"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b2",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI": [
-      {
-        "@value": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b4",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
-      {
-        "@value": "HeeftAanzicht_-_opstelling_01_-_aanzicht_01"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.toegekendDoor": [
-      {
-        "@value": "OTLMOW"
-      }
-    ]
-  },
-  {
     "@id": "https://data.awvvlaanderen.be/id/asset/bord_01/v1",
     "@type": [
       "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord"
@@ -239,7 +17,7 @@
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord.afmeting": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b11"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b11"
       }
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief": [
@@ -250,7 +28,7 @@
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b14"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b14"
       }
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand": [
@@ -260,28 +38,36 @@
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b15"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b15"
       }
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b11",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b14",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
+      {
+        "@value": "bord_01"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b11",
     "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtuAfmetingVerkeersbord.rond": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b12"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b12"
       }
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b12",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b12",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAfmetingDiameterInMm.diameter": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b13"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b13"
       }
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b13",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b13",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInMillimeter.waarde": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#decimal",
@@ -290,15 +76,7 @@
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b14",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
-      {
-        "@value": "bord_01"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b15",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b15",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
       {
         "@value": "DA_Init"
@@ -318,13 +96,13 @@
     ]
   },
   {
-    "@id": "https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1",
+    "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1",
     "@type": [
-      "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij"
+      "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling"
     ],
     "http://purl.org/dc/terms/isVersionOf": [
       {
-        "@id": "https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01"
+        "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01"
       }
     ],
     "http://purl.org/dc/terms/issued": [
@@ -333,42 +111,44 @@
         "@value": "2021-01-01T00:00:00+00:00"
       }
     ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b9"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand": [
+      {
+        "@id": "https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"
+      }
+    ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b7"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b10"
       }
     ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.assetId": [
+    "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.hoek": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b8"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bron": [
-      {
-        "@id": "https://data.awvvlaanderen.be/id/asset/bord_01"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doel": [
-      {
-        "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01"
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "1.0"
       }
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b8",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b9",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
       {
-        "@value": "HoortBij_-_bord_01_-_aanzicht_01"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.toegekendDoor": [
-      {
-        "@value": "OTLMOW"
+        "@value": "aanzicht_01"
       }
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b7",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b10",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
       {
         "@value": "DA_Init"
@@ -394,6 +174,12 @@
     ],
     "https://w3id.org/tree#member": [
       {
+        "@id": "https://data.awvvlaanderen.be/id/asset/bord_01/v1"
+      },
+      {
+        "@id": "https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1"
+      },
+      {
         "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1"
       },
       {
@@ -403,13 +189,299 @@
         "@id": "https://data.awvvlaanderen.be/id/asset/bord_01/v2"
       },
       {
-        "@id": "https://data.awvvlaanderen.be/id/asset/bord_01/v1"
-      },
-      {
         "@id": "https://data.awvvlaanderen.be/id/asset/opstelling_01/v1"
-      },
+      }
+    ]
+  },
+  {
+    "@id": "https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1",
+    "@type": [
+      "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HoortBij"
+    ],
+    "http://purl.org/dc/terms/isVersionOf": [
       {
-        "@id": "https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1"
+        "@id": "https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01"
+      }
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2021-01-01T00:00:00+00:00"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b7"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.assetId": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b8"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bron": [
+      {
+        "@id": "https://data.awvvlaanderen.be/id/asset/bord_01"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doel": [
+      {
+        "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b8",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
+      {
+        "@value": "HoortBij_-_bord_01_-_aanzicht_01"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.toegekendDoor": [
+      {
+        "@value": "OTLMOW"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b7",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
+      {
+        "@value": "DA_Init"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.timestamp": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2021-01-01T00:00:00"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.versienummer": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "https://data.awvvlaanderen.be/id/asset/bord_01/v2",
+    "@type": [
+      "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord"
+    ],
+    "http://purl.org/dc/terms/isVersionOf": [
+      {
+        "@id": "https://data.awvvlaanderen.be/id/asset/bord_01"
+      }
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2025-02-02T00:00:00+00:00"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord.afmeting": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b16"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Verkeersbord.opstelhoogte": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b19"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": true
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b20"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand": [
+      {
+        "@id": "https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b21"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b16",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#DtuAfmetingVerkeersbord.rond": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b17"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b17",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAfmetingDiameterInMm.diameter": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b18"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b18",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInMillimeter.waarde": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "600.0"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b21",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
+      {
+        "@value": "DA_Init"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.timestamp": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2025-02-02T00:00:00"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.versienummer": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 2
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b20",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
+      {
+        "@value": "bord_01"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b19",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInMeter.waarde": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+        "@value": "1.8"
+      }
+    ]
+  },
+  {
+    "@id": "https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1",
+    "@type": [
+      "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftAanzicht"
+    ],
+    "http://purl.org/dc/terms/isVersionOf": [
+      {
+        "@id": "https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01"
+      }
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2021-01-01T00:00:00+00:00"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b1"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DavieRelatieAttributes.bron": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b2"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DavieRelatieAttributes.doel": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b3"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.assetId": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b4"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bronAssetId": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b5"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doelAssetId": [
+      {
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b6"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b2",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI": [
+      {
+        "@value": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b6",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
+      {
+        "@value": "aanzicht_01"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b5",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
+      {
+        "@value": "opstelling_01"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b1",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
+      {
+        "@value": "DA_Init"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.timestamp": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "@value": "2021-01-01T00:00:00"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.versienummer": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#integer",
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b4",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
+      {
+        "@value": "HeeftAanzicht_-_opstelling_01_-_aanzicht_01"
+      }
+    ],
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.toegekendDoor": [
+      {
+        "@value": "OTLMOW"
+      }
+    ]
+  },
+  {
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b3",
+    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.typeURI": [
+      {
+        "@value": "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling"
       }
     ]
   },
@@ -443,7 +515,7 @@
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b22"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b22"
       }
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand": [
@@ -453,32 +525,12 @@
     ],
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
       {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b23"
+        "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b23"
       }
     ]
   },
   {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b23",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
-      {
-        "@value": "DA_Init"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.timestamp": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2021-01-01T00:00:00"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.versienummer": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b22",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b22",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
       {
         "@value": "opstelling_01"
@@ -486,51 +538,7 @@
     ]
   },
   {
-    "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1",
-    "@type": [
-      "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling"
-    ],
-    "http://purl.org/dc/terms/isVersionOf": [
-      {
-        "@id": "https://data.awvvlaanderen.be/id/asset/aanzicht_01"
-      }
-    ],
-    "http://purl.org/dc/terms/issued": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2021-01-01T00:00:00+00:00"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMDBStatus.isActief": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
-        "@value": true
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMObject.assetId": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b9"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMToestand.toestand": [
-      {
-        "@id": "https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#AIMVersie.assetVersie": [
-      {
-        "@id": "_:n70a9044a449f4f24a21d80706bb20565b10"
-      }
-    ],
-    "https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.hoek": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#decimal",
-        "@value": "1.0"
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b10",
+    "@id": "_:n073aff33a5c94daf873f7e84e9b3a171b23",
     "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcAssetVersie.context": [
       {
         "@value": "DA_Init"
@@ -546,14 +554,6 @@
       {
         "@type": "http://www.w3.org/2001/XMLSchema#integer",
         "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:n70a9044a449f4f24a21d80706bb20565b9",
-    "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#DtcIdentificator.identificator": [
-      {
-        "@value": "aanzicht_01"
       }
     ]
   }

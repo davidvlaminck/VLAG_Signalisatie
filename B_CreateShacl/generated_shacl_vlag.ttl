@@ -1,6 +1,9 @@
 @prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
+@prefix besluit: <https://data.vlaanderen.be/ns/besluit#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
+@prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
+@prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
 @prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -39,129 +42,129 @@ skos:ConceptSchemeShape a sh:NodeShape ;
         skos:ConceptScheme.naamShape ;
     sh:targetClass skos:ConceptScheme .
 
-<https://data.vlaanderen.be/ns/besluit#ArtikelShape> a sh:NodeShape ;
+besluit:ArtikelShape a sh:NodeShape ;
     rdfs:label "Artikel" ;
-    sh:property <https://data.vlaanderen.be/ns/besluit#Artikel.nummerShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/besluit#Artikel> .
+    sh:property besluit:Artikel.nummerShape ;
+    sh:targetClass besluit:Artikel .
 
-<https://data.vlaanderen.be/ns/besluit#BesluitShape> a sh:NodeShape ;
+besluit:BesluitShape a sh:NodeShape ;
     rdfs:label "Besluit" ;
-    sh:property <https://data.vlaanderen.be/ns/besluit#Besluit.beschrijvingShape>,
-        <https://data.vlaanderen.be/ns/besluit#Besluit.citeeropschriftShape>,
-        <https://data.vlaanderen.be/ns/besluit#Besluit.motiveringShape>,
-        <https://data.vlaanderen.be/ns/besluit#Besluit.publicatiedatumShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/besluit#Besluit> .
+    sh:property besluit:Besluit.beschrijvingShape,
+        besluit:Besluit.citeeropschriftShape,
+        besluit:Besluit.motiveringShape,
+        besluit:Besluit.publicatiedatumShape ;
+    sh:targetClass besluit:Besluit .
 
-<https://data.vlaanderen.be/ns/besluit#heeftVoorwaardeRelationConstraint> a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/besluit#Besluit> ;
+besluit:heeftVoorwaardeRelationConstraint a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class besluit:Besluit ;
                             sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#Voorwaarde> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/besluit#Artikel> ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class besluit:Artikel ;
                             sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#Voorwaarde> ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
-    sh:targetClass <https://data.vlaanderen.be/ns/besluit#heeftVoorwaarde> .
+    sh:targetClass besluit:heeftVoorwaarde .
 
-<https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerpShape> a sh:NodeShape ;
+mob:AanvullendReglementOntwerpShape a sh:NodeShape ;
     rdfs:label "Aanvullend reglement ontwerp" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp.naamShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> .
+    sh:property mob:AanvullendReglementOntwerp.naamShape ;
+    sh:targetClass mob:AanvullendReglementOntwerp .
 
-<https://data.vlaanderen.be/ns/mobiliteit#MobiliteitsmaatregelShape> a sh:NodeShape ;
+mob:MobiliteitsmaatregelShape a sh:NodeShape ;
     rdfs:label "Mobiliteitsmaatregel" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.adresVoorstellingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.beschrijvingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.doelgroepShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.identificatorShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.periodeShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.plaatsbepalingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.tijdschemaShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.typeShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.zoneShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> .
+    sh:property mob:Mobiliteitsmaatregel.adresVoorstellingShape,
+        mob:Mobiliteitsmaatregel.beschrijvingShape,
+        mob:Mobiliteitsmaatregel.doelgroepShape,
+        mob:Mobiliteitsmaatregel.identificatorShape,
+        mob:Mobiliteitsmaatregel.periodeShape,
+        mob:Mobiliteitsmaatregel.plaatsbepalingShape,
+        mob:Mobiliteitsmaatregel.tijdschemaShape,
+        mob:Mobiliteitsmaatregel.typeShape,
+        mob:Mobiliteitsmaatregel.zoneShape ;
+    sh:targetClass mob:Mobiliteitsmaatregel .
 
-<https://data.vlaanderen.be/ns/mobiliteit#MobiliteitsmaatregelconceptShape> a sh:NodeShape ;
+mob:MobiliteitsmaatregelconceptShape a sh:NodeShape ;
     rdfs:label "Mobiliteitsmaatregelconcept" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.labelShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.templateShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.variabeleSignalisatieShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept> .
+    sh:property mob:Mobiliteitsmaatregelconcept.labelShape,
+        mob:Mobiliteitsmaatregelconcept.templateShape,
+        mob:Mobiliteitsmaatregelconcept.variabeleSignalisatieShape ;
+    sh:targetClass mob:Mobiliteitsmaatregelconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeerstekenShape> a sh:NodeShape ;
+mob:OntwerpVerkeerstekenShape a sh:NodeShape ;
     rdfs:label "Ontwerp voor verkeersteken" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken.statusShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken> .
+    sh:property mob:OntwerpVerkeersteken.statusShape ;
+    sh:targetClass mob:OntwerpVerkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerpShape> a sh:NodeShape ;
+mob:SignalisatieOntwerpShape a sh:NodeShape ;
     rdfs:label "Signalisatie ontwerp" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.datumShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.naamShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> .
+    sh:property mob:SignalisatieOntwerp.datumShape,
+        mob:SignalisatieOntwerp.naamShape ;
+    sh:targetClass mob:SignalisatieOntwerp .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeerstekenShape> a sh:NodeShape ;
+mob:VerkeersbordVerkeerstekenShape a sh:NodeShape ;
     rdfs:label "Verkeersbord-verkeersteken" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isBeginZoneShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isEindeZoneShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> .
+    sh:property mob:VerkeersbordVerkeersteken.isBeginZoneShape,
+        mob:VerkeersbordVerkeersteken.isEindeZoneShape ;
+    sh:targetClass mob:VerkeersbordVerkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordconceptShape> a sh:NodeShape ;
+mob:VerkeersbordconceptShape a sh:NodeShape ;
     rdfs:label "Verkeersbordconcept" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.classificatieShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.mogelijkeVormShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.zonaliteitShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> .
+    sh:property mob:Verkeersbordconcept.classificatieShape,
+        mob:Verkeersbordconcept.mogelijkeVormShape,
+        mob:Verkeersbordconcept.zonaliteitShape ;
+    sh:targetClass mob:Verkeersbordconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeerstekenShape> a sh:NodeShape ;
+mob:VerkeerslichtVerkeerstekenShape a sh:NodeShape ;
     rdfs:label "Verkeerslicht verkeersteken" ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> .
+    sh:targetClass mob:VerkeerslichtVerkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtconceptShape> a sh:NodeShape ;
+mob:VerkeerslichtconceptShape a sh:NodeShape ;
     rdfs:label "Verkeerslichtconcept" ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeerslichtconcept> .
+    sh:targetClass mob:Verkeerslichtconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeerstekenShape> a sh:NodeShape ;
+mob:VerkeerstekenShape a sh:NodeShape ;
     rdfs:label "Verkeersteken" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.adresVoorstellingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.afbeeldingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.buitenwerkingtredingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.inwerkingstijdShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.locatieShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.plaatsbepalingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.variabeleShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.wettelijkeStatusShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+    sh:property mob:Verkeersteken.adresVoorstellingShape,
+        mob:Verkeersteken.afbeeldingShape,
+        mob:Verkeersteken.buitenwerkingtredingShape,
+        mob:Verkeersteken.inwerkingstijdShape,
+        mob:Verkeersteken.locatieShape,
+        mob:Verkeersteken.plaatsbepalingShape,
+        mob:Verkeersteken.variabeleShape,
+        mob:Verkeersteken.wettelijkeStatusShape ;
+    sh:targetClass mob:Verkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeerstekenconceptShape> a sh:NodeShape ;
+mob:VerkeerstekenconceptShape a sh:NodeShape ;
     rdfs:label "Verkeerstekenconcept" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.afbeeldingShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.betekenisShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.heeftInstructieShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.statusShape>,
-        <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.verkeersbordcodeShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+    sh:property mob:Verkeerstekenconcept.afbeeldingShape,
+        mob:Verkeerstekenconcept.betekenisShape,
+        mob:Verkeerstekenconcept.heeftInstructieShape,
+        mob:Verkeerstekenconcept.statusShape,
+        mob:Verkeerstekenconcept.verkeersbordcodeShape ;
+    sh:targetClass mob:Verkeerstekenconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeerstekenShape> a sh:NodeShape ;
+mob:WegmarkeringVerkeerstekenShape a sh:NodeShape ;
     rdfs:label "Wegmarkering verkeersteken" ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> .
+    sh:targetClass mob:WegmarkeringVerkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringsconceptShape> a sh:NodeShape ;
+mob:WegmarkeringsconceptShape a sh:NodeShape ;
     rdfs:label "Wegmarkeringsconcept" ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Wegmarkeringsconcept> .
+    sh:targetClass mob:Wegmarkeringsconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#ZoneShape> a sh:NodeShape ;
+mob:ZoneShape a sh:NodeShape ;
     rdfs:label "Zone" ;
-    sh:property <https://data.vlaanderen.be/ns/mobiliteit#Zone.typeShape> ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#Zone> .
+    sh:property mob:Zone.typeShape ;
+    sh:targetClass mob:Zone .
 
-<https://data.vlaanderen.be/ns/mobiliteit#heeftGerelateerdVerkeerstekenRelationConstraint> a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+mob:heeftGerelateerdVerkeerstekenRelationConstraint a sh:NodeShape ;
+    sh:or ( [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:VerkeersbordVerkeersteken ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:WegmarkeringVerkeersteken ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:VerkeerslichtVerkeersteken ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersteken ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
-    sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#heeftGerelateerdVerkeersteken> .
+    sh:targetClass mob:heeftGerelateerdVerkeersteken .
 
 abs:AIMLinkObjectShape a sh:NodeShape ;
     rdfs:label "AIM link object" ;
@@ -1741,205 +1744,205 @@ imel:ToegangsprocedureShape a sh:NodeShape ;
         imel:Toegangsprocedure.typeURIShape ;
     sh:targetClass imel:Toegangsprocedure .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstellingShape> a sh:NodeShape ;
+installatie:AanzichtVerkeersbordopstellingShape a sh:NodeShape ;
     rdfs:label "Aanzicht verkeersbordopstelling" ;
-    sh:property <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.fotoShape>,
-        <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.hoekShape>,
-        <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.kaartvoorstellingShape>,
-        <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.technischeVoorstellingShape> ;
-    sh:targetClass <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling> .
+    sh:property installatie:AanzichtVerkeersbordopstelling.fotoShape,
+        installatie:AanzichtVerkeersbordopstelling.hoekShape,
+        installatie:AanzichtVerkeersbordopstelling.kaartvoorstellingShape,
+        installatie:AanzichtVerkeersbordopstelling.technischeVoorstellingShape ;
+    sh:targetClass installatie:AanzichtVerkeersbordopstelling .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcAardingsstelsel.attestDNBShape> a sh:PropertyShape ;
+installatie:DtcAardingsstelsel.attestDNBShape a sh:PropertyShape ;
     rdfs:label "attest distributienetbeheerder" ;
     rdfs:comment imel:DtcDocument ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "attestDNB" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcAardingsstelsel.attestDNB> ;
+    sh:path installatie:DtcAardingsstelsel.attestDNB ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcAardingsstelsel.typeShape> a sh:PropertyShape ;
+installatie:DtcAardingsstelsel.typeShape a sh:PropertyShape ;
     rdfs:label "type" ;
-    rdfs:comment <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlAardingAardingsstelsel> ;
+    rdfs:comment installatie:KlAardingAardingsstelsel ;
     sh:in ( <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAardingAardingsstelsel/gemeenschappelijk> <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAardingAardingsstelsel/gemeenschappelijk---globaal> <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAardingAardingsstelsel/gemeenschappelijk-globaal> <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlAardingAardingsstelsel/gescheiden> ) ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "type" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcAardingsstelsel.type> .
+    sh:path installatie:DtcAardingsstelsel.type .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcBurgerlijkeKlasseBrug.astypeShape> a sh:PropertyShape ;
+installatie:DtcBurgerlijkeKlasseBrug.astypeShape a sh:PropertyShape ;
     rdfs:label "astype" ;
     rdfs:comment imel:KwantWrdInKiloNewton ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "astype" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcBurgerlijkeKlasseBrug.astype> ;
+    sh:path installatie:DtcBurgerlijkeKlasseBrug.astype ;
     sh:property imel:KwantWrdInKiloNewton.standaardEenheidShape,
         imel:KwantWrdInKiloNewton.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcBurgerlijkeKlasseBrug.totaleLastShape> a sh:PropertyShape ;
+installatie:DtcBurgerlijkeKlasseBrug.totaleLastShape a sh:PropertyShape ;
     rdfs:label "totale last" ;
     rdfs:comment imel:KwantWrdInKiloNewton ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "totaleLast" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcBurgerlijkeKlasseBrug.totaleLast> ;
+    sh:path installatie:DtcBurgerlijkeKlasseBrug.totaleLast ;
     sh:property imel:KwantWrdInKiloNewton.standaardEenheidShape,
         imel:KwantWrdInKiloNewton.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcBurgerlijkeKlasseBrug.voorwaardenShape> a sh:PropertyShape ;
+installatie:DtcBurgerlijkeKlasseBrug.voorwaardenShape a sh:PropertyShape ;
     rdfs:label "voorwaarden" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "voorwaarden" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcBurgerlijkeKlasseBrug.voorwaarden> .
+    sh:path installatie:DtcBurgerlijkeKlasseBrug.voorwaarden .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleBreedteShape> a sh:PropertyShape ;
+installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleBreedteShape a sh:PropertyShape ;
     rdfs:label "maximale breedte" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "maximaleBreedte" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleBreedte> ;
+    sh:path installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleBreedte ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleDiepgangShape> a sh:PropertyShape ;
+installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleDiepgangShape a sh:PropertyShape ;
     rdfs:label "maximale diepgang" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "maximaleDiepgang" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleDiepgang> ;
+    sh:path installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleDiepgang ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleHoogteShape> a sh:PropertyShape ;
+installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleHoogteShape a sh:PropertyShape ;
     rdfs:label "maximale hoogte" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "maximaleHoogte" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleHoogte> ;
+    sh:path installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleHoogte ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleLengteShape> a sh:PropertyShape ;
+installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleLengteShape a sh:PropertyShape ;
     rdfs:label "maximale lengte" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "maximaleLengte" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcDVWtoelaatbareSchipsafemetingen.maximaleLengte> ;
+    sh:path installatie:DtcDVWtoelaatbareSchipsafemetingen.maximaleLengte ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcMeteoFoto.beschrijvingShape> a sh:PropertyShape ;
+installatie:DtcMeteoFoto.beschrijvingShape a sh:PropertyShape ;
     rdfs:label "beschrijving" ;
-    rdfs:comment <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlMeteoFotoBeschrijving> ;
+    rdfs:comment installatie:KlMeteoFotoBeschrijving ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "beschrijving" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcMeteoFoto.beschrijving> .
+    sh:path installatie:DtcMeteoFoto.beschrijving .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcMeteoFoto.fotobestandShape> a sh:PropertyShape ;
+installatie:DtcMeteoFoto.fotobestandShape a sh:PropertyShape ;
     rdfs:label "fotobestand" ;
     rdfs:comment imel:DtcDocument ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "fotobestand" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcMeteoFoto.fotobestand> ;
+    sh:path installatie:DtcMeteoFoto.fotobestand ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.breedteShape> a sh:PropertyShape ;
+installatie:DtcOntwerpSchip.breedteShape a sh:PropertyShape ;
     rdfs:label "breedte" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "breedte" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.breedte> ;
+    sh:path installatie:DtcOntwerpSchip.breedte ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.diepgangShape> a sh:PropertyShape ;
+installatie:DtcOntwerpSchip.diepgangShape a sh:PropertyShape ;
     rdfs:label "diepgang" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "diepgang" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.diepgang> ;
+    sh:path installatie:DtcOntwerpSchip.diepgang ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.gewichtShape> a sh:PropertyShape ;
+installatie:DtcOntwerpSchip.gewichtShape a sh:PropertyShape ;
     rdfs:label "gewicht" ;
     rdfs:comment imel:KwantWrdInTon ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "gewicht" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.gewicht> ;
+    sh:path installatie:DtcOntwerpSchip.gewicht ;
     sh:property imel:KwantWrdInTon.standaardEenheidShape,
         imel:KwantWrdInTon.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.lengteShape> a sh:PropertyShape ;
+installatie:DtcOntwerpSchip.lengteShape a sh:PropertyShape ;
     rdfs:label "lengte" ;
     rdfs:comment imel:KwantWrdInMeter ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "lengte" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcOntwerpSchip.lengte> ;
+    sh:path installatie:DtcOntwerpSchip.lengte ;
     sh:property imel:KwantWrdInMeter.standaardEenheidShape,
         imel:KwantWrdInMeter.waardeShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcTypeBWC.typeConceptShape> a sh:PropertyShape ;
+installatie:DtcTypeBWC.typeConceptShape a sh:PropertyShape ;
     rdfs:label "type concept" ;
-    rdfs:comment <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlTypeConcept> ;
+    rdfs:comment installatie:KlTypeConcept ;
     sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/cilinder> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/draai> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/glij> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/hef> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/jaloezieofspiegel> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/klep> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/punt> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/rol> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/sector> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/segment> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/vlinder> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/waaier> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/wiel> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlTypeConcept/zink> ) ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "typeConcept" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcTypeBWC.typeConcept> .
+    sh:path installatie:DtcTypeBWC.typeConcept .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcTypeBWC.typeConstructieShape> a sh:PropertyShape ;
+installatie:DtcTypeBWC.typeConstructieShape a sh:PropertyShape ;
     rdfs:label "type constructie" ;
-    rdfs:comment <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#KlConstructie> ;
+    rdfs:comment installatie:KlConstructie ;
     sh:in ( <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructie/deur> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructie/klep> <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlConstructie/schuif> ) ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "typeConstructie" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#DtcTypeBWC.typeConstructie> .
+    sh:path installatie:DtcTypeBWC.typeConstructie .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#VerkeersbordopstellingShape> a sh:NodeShape ;
+installatie:VerkeersbordopstellingShape a sh:NodeShape ;
     rdfs:label "Verkeersbordopstelling" ;
-    sh:property <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.positieTovRijwegShape>,
-        <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.wegSegmentShape> ;
-    sh:targetClass <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling> .
+    sh:property installatie:Verkeersbordopstelling.positieTovRijwegShape,
+        installatie:Verkeersbordopstelling.wegSegmentShape ;
+    sh:targetClass installatie:Verkeersbordopstelling .
 
 <https://wegenenverkeer.data.vlaanderen.be/ns/levenscyclus#DtcMaaien.frequentieShape> a sh:PropertyShape ;
     rdfs:label "frequentie" ;
@@ -2030,10 +2033,10 @@ onderdeel:BekrachtigtShape a sh:NodeShape ;
     sh:targetClass onderdeel:Bekrachtigt .
 
 onderdeel:BevatOntwerpRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> ;
+    sh:or ( [ sh:and ( [ sh:class mob:SignalisatieOntwerp ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:AanvullendReglementOntwerp ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:SignalisatieOntwerp ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:BevatOntwerp .
 
@@ -2042,8 +2045,8 @@ onderdeel:BevatOntwerpShape a sh:NodeShape ;
     sh:targetClass onderdeel:BevatOntwerp .
 
 onderdeel:BevatOntwerpVoorRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> ;
+    sh:or ( [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregel ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:BevatOntwerpVoor .
 
@@ -2052,8 +2055,8 @@ onderdeel:BevatOntwerpVoorShape a sh:NodeShape ;
     sh:targetClass onderdeel:BevatOntwerpVoor .
 
 onderdeel:BevatVerkeerstekenRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken> ;
+    sh:or ( [ sh:and ( [ sh:class mob:SignalisatieOntwerp ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:OntwerpVerkeersteken ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:BevatVerkeersteken .
 
@@ -3158,8 +3161,8 @@ onderdeel:HeeftAanvullendeGeometrieShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftAanvullendeGeometrie .
 
 onderdeel:HeeftAanzichtRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling> ;
+    sh:or ( [ sh:and ( [ sh:class installatie:Verkeersbordopstelling ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class installatie:AanzichtVerkeersbordopstelling ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HeeftAanzicht .
 
@@ -3172,7 +3175,7 @@ onderdeel:HeeftBeheerShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftBeheer .
 
 onderdeel:HeeftBetrokkeneRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> ;
+    sh:or ( [ sh:and ( [ sh:class mob:SignalisatieOntwerp ;
                             sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
                             sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
                             sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
@@ -3220,8 +3223,8 @@ onderdeel:HeeftGevolgShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftGevolg .
 
 onderdeel:HeeftMaatregelconceptRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept> ;
+    sh:or ( [ sh:and ( [ sh:class mob:Verkeerstekenconcept ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregelconcept ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HeeftMaatregelconcept .
 
@@ -3230,8 +3233,8 @@ onderdeel:HeeftMaatregelconceptShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftMaatregelconcept .
 
 onderdeel:HeeftMobiliteitsmaatregelRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/besluit#Artikel> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> ;
+    sh:or ( [ sh:and ( [ sh:class besluit:Artikel ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregel ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HeeftMobiliteitsmaatregel .
 
@@ -3240,8 +3243,8 @@ onderdeel:HeeftMobiliteitsmaatregelShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftMobiliteitsmaatregel .
 
 onderdeel:HeeftMogelijkOnderbordRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> ;
+    sh:or ( [ sh:and ( [ sh:class mob:Verkeersbordconcept ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersbordconcept ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HeeftMogelijkOnderbord .
 
@@ -3258,8 +3261,8 @@ onderdeel:HeeftNetwerktoegangShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftNetwerktoegang .
 
 onderdeel:HeeftOnderbordRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> ;
+    sh:or ( [ sh:and ( [ sh:class mob:VerkeersbordVerkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:VerkeersbordVerkeersteken ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HeeftOnderbord .
 
@@ -3292,8 +3295,8 @@ onderdeel:HeeftTransportLinkSetShape a sh:NodeShape ;
     sh:targetClass onderdeel:HeeftTransportLinkSet .
 
 onderdeel:HeeftVerkeerstekenRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+    sh:or ( [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersteken ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HeeftVerkeersteken .
 
@@ -3311,7 +3314,7 @@ onderdeel:HeftOpShape a sh:NodeShape ;
 
 onderdeel:HoortBijRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling> ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class installatie:AanzichtVerkeersbordopstelling ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:HoortBij .
 
@@ -3336,14 +3339,14 @@ onderdeel:IsDeelVanShape a sh:NodeShape ;
     sh:targetClass onderdeel:IsDeelVan .
 
 onderdeel:IsGebaseerdOpRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Wegmarkeringsconcept> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeerslichtconcept> ;
+    sh:or ( [ sh:and ( [ sh:class mob:VerkeersbordVerkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersbordconcept ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Mobiliteitsmaatregel ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregelconcept ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:WegmarkeringVerkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Wegmarkeringsconcept ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:VerkeerslichtVerkeersteken ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeerslichtconcept ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:IsGebaseerdOp .
 
@@ -3364,8 +3367,8 @@ onderdeel:IsNetwerkECCShape a sh:NodeShape ;
     sh:targetClass onderdeel:IsNetwerkECC .
 
 onderdeel:IsOnderdeelVanRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/besluit#Artikel> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/besluit#Besluit> ;
+    sh:or ( [ sh:and ( [ sh:class besluit:Artikel ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class besluit:Besluit ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:IsOnderdeelVan .
 
@@ -3374,7 +3377,7 @@ onderdeel:IsOnderdeelVanShape a sh:NodeShape ;
     sh:targetClass onderdeel:IsOnderdeelVan .
 
 onderdeel:IsOntwerpVoorRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> ;
+    sh:or ( [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
                             sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#AanvullendReglement> ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:IsOntwerpVoor .
@@ -3412,9 +3415,9 @@ onderdeel:OpgehevenBijShape a sh:NodeShape ;
     sh:targetClass onderdeel:OpgehevenBij .
 
 onderdeel:RealiseertRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+    sh:or ( [ sh:and ( [ sh:class mob:Verkeersteken ;
                             sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
                             sh:path imel:RelatieObject.bron ] [ sh:class abs:Verkeersbord ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:Realiseert .
@@ -3514,8 +3517,8 @@ onderdeel:VoegtInShape a sh:NodeShape ;
     sh:targetClass onderdeel:VoegtIn .
 
 onderdeel:WordtAangeduidDoorRelationConstraint a sh:NodeShape ;
-    sh:or ( [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> ;
+    sh:or ( [ sh:and ( [ sh:class mob:Mobiliteitsmaatregel ;
+                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersteken ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass onderdeel:WordtAangeduidDoor .
 
@@ -3684,67 +3687,67 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
     sh:nodeKind sh:Literal ;
     sh:path <http://www.w3.org/ns/locn#Geometry.wkt> .
 
-<https://data.vlaanderen.be/ns/besluit#Artikel.nummerShape> a sh:PropertyShape ;
+besluit:Artikel.nummerShape a sh:PropertyShape ;
     rdfs:label "nummer" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "nummer" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/besluit#Artikel.nummer> .
+    sh:path besluit:Artikel.nummer .
 
-<https://data.vlaanderen.be/ns/besluit#Besluit.beschrijvingShape> a sh:PropertyShape ;
+besluit:Besluit.beschrijvingShape a sh:PropertyShape ;
     rdfs:label "beschrijving" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "beschrijving" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/besluit#Besluit.beschrijving> .
+    sh:path besluit:Besluit.beschrijving .
 
-<https://data.vlaanderen.be/ns/besluit#Besluit.citeeropschriftShape> a sh:PropertyShape ;
+besluit:Besluit.citeeropschriftShape a sh:PropertyShape ;
     rdfs:label "korte titel" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "citeeropschrift" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/besluit#Besluit.citeeropschrift> .
+    sh:path besluit:Besluit.citeeropschrift .
 
-<https://data.vlaanderen.be/ns/besluit#Besluit.motiveringShape> a sh:PropertyShape ;
+besluit:Besluit.motiveringShape a sh:PropertyShape ;
     rdfs:label "motivering" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "motivering" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/besluit#Besluit.motivering> .
+    sh:path besluit:Besluit.motivering .
 
-<https://data.vlaanderen.be/ns/besluit#Besluit.publicatiedatumShape> a sh:PropertyShape ;
+besluit:Besluit.publicatiedatumShape a sh:PropertyShape ;
     rdfs:label "datum publicatie" ;
     sh:datatype xsd:date ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "publicatiedatum" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/besluit#Besluit.publicatiedatum> .
+    sh:path besluit:Besluit.publicatiedatum .
 
-<https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp.naamShape> a sh:PropertyShape ;
+mob:AanvullendReglementOntwerp.naamShape a sh:PropertyShape ;
     rdfs:label "naam" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "naam" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp.naam> .
+    sh:path mob:AanvullendReglementOntwerp.naam .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.adresVoorstellingShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.adresVoorstellingShape a sh:PropertyShape ;
     rdfs:label "adresvoorstelling" ;
     rdfs:comment imel:DtcAdres ;
     sh:minCount 0 ;
     sh:name "adresVoorstelling" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.adresVoorstelling> ;
+    sh:path mob:Mobiliteitsmaatregel.adresVoorstelling ;
     sh:property imel:DtcAdres.busShape,
         imel:DtcAdres.gemeenteShape,
         imel:DtcAdres.huisnummerShape,
@@ -3752,60 +3755,60 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
         imel:DtcAdres.provincieShape,
         imel:DtcAdres.straatnaamShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.beschrijvingShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.beschrijvingShape a sh:PropertyShape ;
     rdfs:label "beschrijving" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "beschrijving" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.beschrijving> .
+    sh:path mob:Mobiliteitsmaatregel.beschrijving .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.doelgroepShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.doelgroepShape a sh:PropertyShape ;
     rdfs:label "doelgroep" ;
     rdfs:comment imel:KlCode ;
     sh:minCount 0 ;
     sh:name "doelgroep" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.doelgroep> .
+    sh:path mob:Mobiliteitsmaatregel.doelgroep .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.identificatorShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.identificatorShape a sh:PropertyShape ;
     rdfs:label "identificator" ;
     rdfs:comment imel:DtcIdentificator ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "identificator" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.identificator> ;
+    sh:path mob:Mobiliteitsmaatregel.identificator ;
     sh:property imel:DtcIdentificator.identificatorShape,
         imel:DtcIdentificator.toegekendDoorShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.periodeShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.periodeShape a sh:PropertyShape ;
     rdfs:label "periode" ;
     rdfs:comment <http://data.europa.eu/m8g/PeriodOfTime> ;
     sh:minCount 0 ;
     sh:name "periode" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.periode> ;
+    sh:path mob:Mobiliteitsmaatregel.periode ;
     sh:property <http://data.europa.eu/m8g/PeriodOfTime.beginShape>,
         <http://data.europa.eu/m8g/PeriodOfTime.eindeShape> .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.plaatsbepalingShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.plaatsbepalingShape a sh:PropertyShape ;
     rdfs:label "plaatsbepaling" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "plaatsbepaling" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.plaatsbepaling> .
+    sh:path mob:Mobiliteitsmaatregel.plaatsbepaling .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.tijdschemaShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.tijdschemaShape a sh:PropertyShape ;
     rdfs:label "tijdschema" ;
     rdfs:comment schema:Schedule ;
     sh:minCount 0 ;
     sh:name "tijdschema" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.tijdschema> ;
+    sh:path mob:Mobiliteitsmaatregel.tijdschema ;
     sh:property schema:Schedule.aantalShape,
         schema:Schedule.duurShape,
         schema:Schedule.einddatumShape,
@@ -3819,135 +3822,135 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
         schema:Schedule.starttijdShape,
         schema:Schedule.uitzonderingsdatumShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.typeShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.typeShape a sh:PropertyShape ;
     rdfs:label "type" ;
     rdfs:comment imel:KlCode ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "type" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.type> .
+    sh:path mob:Mobiliteitsmaatregel.type .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.zoneShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregel.zoneShape a sh:PropertyShape ;
     rdfs:label "zone" ;
     rdfs:comment imel:DtcZone ;
     sh:minCount 0 ;
     sh:name "zone" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel.zone> ;
+    sh:path mob:Mobiliteitsmaatregel.zone ;
     sh:property imel:DtcZone.geometrieShape,
         imel:DtcZone.typeShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.labelShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregelconcept.labelShape a sh:PropertyShape ;
     rdfs:label "label" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "label" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.label> .
+    sh:path mob:Mobiliteitsmaatregelconcept.label .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.templateShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregelconcept.templateShape a sh:PropertyShape ;
     rdfs:label "template" ;
     rdfs:comment imel:DtcTemplate ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "template" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.template> ;
+    sh:path mob:Mobiliteitsmaatregelconcept.template ;
     sh:property imel:DtcTemplate.variabeleShape,
         imel:DtcTemplate.waardeShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.variabeleSignalisatieShape> a sh:PropertyShape ;
+mob:Mobiliteitsmaatregelconcept.variabeleSignalisatieShape a sh:PropertyShape ;
     rdfs:label "variabele signalisatie" ;
     sh:datatype xsd:boolean ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "variabeleSignalisatie" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept.variabeleSignalisatie> .
+    sh:path mob:Mobiliteitsmaatregelconcept.variabeleSignalisatie .
 
-<https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken.statusShape> a sh:PropertyShape ;
+mob:OntwerpVerkeersteken.statusShape a sh:PropertyShape ;
     rdfs:label "status" ;
     rdfs:comment imel:KlVerkeersbordcategorie ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "status" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken.status> .
+    sh:path mob:OntwerpVerkeersteken.status .
 
-<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.datumShape> a sh:PropertyShape ;
+mob:SignalisatieOntwerp.datumShape a sh:PropertyShape ;
     rdfs:label "datum" ;
     sh:datatype xsd:dateTime ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "datum" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.datum> .
+    sh:path mob:SignalisatieOntwerp.datum .
 
-<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.naamShape> a sh:PropertyShape ;
+mob:SignalisatieOntwerp.naamShape a sh:PropertyShape ;
     rdfs:label "naam" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "naam" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp.naam> .
+    sh:path mob:SignalisatieOntwerp.naam .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isBeginZoneShape> a sh:PropertyShape ;
+mob:VerkeersbordVerkeersteken.isBeginZoneShape a sh:PropertyShape ;
     rdfs:label "is begin zone" ;
     sh:datatype xsd:boolean ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "isBeginZone" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isBeginZone> .
+    sh:path mob:VerkeersbordVerkeersteken.isBeginZone .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isEindeZoneShape> a sh:PropertyShape ;
+mob:VerkeersbordVerkeersteken.isEindeZoneShape a sh:PropertyShape ;
     rdfs:label "is einde zone" ;
     sh:datatype xsd:boolean ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "isEindeZone" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken.isEindeZone> .
+    sh:path mob:VerkeersbordVerkeersteken.isEindeZone .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.classificatieShape> a sh:PropertyShape ;
+mob:Verkeersbordconcept.classificatieShape a sh:PropertyShape ;
     rdfs:label "classificatie" ;
     rdfs:comment imel:KlVerkeersbordcategorie ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "classificatie" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.classificatie> .
+    sh:path mob:Verkeersbordconcept.classificatie .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.mogelijkeVormShape> a sh:PropertyShape ;
+mob:Verkeersbordconcept.mogelijkeVormShape a sh:PropertyShape ;
     rdfs:label "mogelijke vorm" ;
     rdfs:comment imel:DtcVorm ;
     sh:minCount 0 ;
     sh:name "mogelijkeVorm" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.mogelijkeVorm> ;
+    sh:path mob:Verkeersbordconcept.mogelijkeVorm ;
     sh:property imel:DtcVorm.dimensieShape,
         imel:DtcVorm.vormTypeShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.zonaliteitShape> a sh:PropertyShape ;
+mob:Verkeersbordconcept.zonaliteitShape a sh:PropertyShape ;
     rdfs:label "zonaliteit" ;
     rdfs:comment imel:KlZonaliteit ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "zonaliteit" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept.zonaliteit> .
+    sh:path mob:Verkeersbordconcept.zonaliteit .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.adresVoorstellingShape> a sh:PropertyShape ;
+mob:Verkeersteken.adresVoorstellingShape a sh:PropertyShape ;
     rdfs:label "adresvoorstelling" ;
     rdfs:comment imel:DtcAdres ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "adresVoorstelling" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.adresVoorstelling> ;
+    sh:path mob:Verkeersteken.adresVoorstelling ;
     sh:property imel:DtcAdres.busShape,
         imel:DtcAdres.gemeenteShape,
         imel:DtcAdres.huisnummerShape,
@@ -3955,26 +3958,26 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
         imel:DtcAdres.provincieShape,
         imel:DtcAdres.straatnaamShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.afbeeldingShape> a sh:PropertyShape ;
+mob:Verkeersteken.afbeeldingShape a sh:PropertyShape ;
     rdfs:label "afbeelding" ;
     rdfs:comment imel:DtcDocument ;
     sh:minCount 0 ;
     sh:name "afbeelding" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.afbeelding> ;
+    sh:path mob:Verkeersteken.afbeelding ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.buitenwerkingtredingShape> a sh:PropertyShape ;
+mob:Verkeersteken.buitenwerkingtredingShape a sh:PropertyShape ;
     rdfs:label "buitenwerkingtreding" ;
     rdfs:comment schema:Schedule ;
     sh:minCount 0 ;
     sh:name "buitenwerkingtreding" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.buitenwerkingtreding> ;
+    sh:path mob:Verkeersteken.buitenwerkingtreding ;
     sh:property schema:Schedule.aantalShape,
         schema:Schedule.duurShape,
         schema:Schedule.einddatumShape,
@@ -3988,13 +3991,13 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
         schema:Schedule.starttijdShape,
         schema:Schedule.uitzonderingsdatumShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.inwerkingstijdShape> a sh:PropertyShape ;
+mob:Verkeersteken.inwerkingstijdShape a sh:PropertyShape ;
     rdfs:label "inwerkingtreding" ;
     rdfs:comment schema:Schedule ;
     sh:minCount 0 ;
     sh:name "inwerkingstijd" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.inwerkingstijd> ;
+    sh:path mob:Verkeersteken.inwerkingstijd ;
     sh:property schema:Schedule.aantalShape,
         schema:Schedule.duurShape,
         schema:Schedule.einddatumShape,
@@ -4008,98 +4011,98 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
         schema:Schedule.starttijdShape,
         schema:Schedule.uitzonderingsdatumShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.locatieShape> a sh:PropertyShape ;
+mob:Verkeersteken.locatieShape a sh:PropertyShape ;
     rdfs:label "locatie" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "locatie" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.locatie> .
+    sh:path mob:Verkeersteken.locatie .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.plaatsbepalingShape> a sh:PropertyShape ;
+mob:Verkeersteken.plaatsbepalingShape a sh:PropertyShape ;
     rdfs:label "plaatsbepaling" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "plaatsbepaling" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.plaatsbepaling> .
+    sh:path mob:Verkeersteken.plaatsbepaling .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.variabeleShape> a sh:PropertyShape ;
+mob:Verkeersteken.variabeleShape a sh:PropertyShape ;
     rdfs:label "variabele" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:name "variabele" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.variabele> .
+    sh:path mob:Verkeersteken.variabele .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.wettelijkeStatusShape> a sh:PropertyShape ;
+mob:Verkeersteken.wettelijkeStatusShape a sh:PropertyShape ;
     rdfs:label "wettelijke status" ;
     rdfs:comment onderdeel:KlVerkeerstekenWettelijkeStatus ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "wettelijkeStatus" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken.wettelijkeStatus> .
+    sh:path mob:Verkeersteken.wettelijkeStatus .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.afbeeldingShape> a sh:PropertyShape ;
+mob:Verkeerstekenconcept.afbeeldingShape a sh:PropertyShape ;
     rdfs:label "afbeelding" ;
     rdfs:comment imel:DtcDocument ;
     sh:minCount 0 ;
     sh:name "afbeelding" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.afbeelding> ;
+    sh:path mob:Verkeerstekenconcept.afbeelding ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.betekenisShape> a sh:PropertyShape ;
+mob:Verkeerstekenconcept.betekenisShape a sh:PropertyShape ;
     rdfs:label "betekenis" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "betekenis" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.betekenis> .
+    sh:path mob:Verkeerstekenconcept.betekenis .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.heeftInstructieShape> a sh:PropertyShape ;
+mob:Verkeerstekenconcept.heeftInstructieShape a sh:PropertyShape ;
     rdfs:label "instructie" ;
     rdfs:comment imel:DtcTemplate ;
     sh:minCount 0 ;
     sh:name "heeftInstructie" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.heeftInstructie> ;
+    sh:path mob:Verkeerstekenconcept.heeftInstructie ;
     sh:property imel:DtcTemplate.variabeleShape,
         imel:DtcTemplate.waardeShape .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.statusShape> a sh:PropertyShape ;
+mob:Verkeerstekenconcept.statusShape a sh:PropertyShape ;
     rdfs:label "status" ;
     rdfs:comment imel:KlVerkeerstekenconceptStatus ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "status" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.status> .
+    sh:path mob:Verkeerstekenconcept.status .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.verkeersbordcodeShape> a sh:PropertyShape ;
+mob:Verkeerstekenconcept.verkeersbordcodeShape a sh:PropertyShape ;
     rdfs:label "verkeersbordcode" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "verkeersbordcode" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept.verkeersbordcode> .
+    sh:path mob:Verkeerstekenconcept.verkeersbordcode .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Zone.typeShape> a sh:PropertyShape ;
+mob:Zone.typeShape a sh:PropertyShape ;
     rdfs:label "type" ;
     rdfs:comment imel:KlZonetype ;
     sh:minCount 0 ;
     sh:name "type" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://data.vlaanderen.be/ns/mobiliteit#Zone.type> .
+    sh:path mob:Zone.type .
 
 schema:OpeningHoursSpecification.openingstijdShape a sh:PropertyShape ;
     rdfs:label "openingstijd" ;
@@ -5161,58 +5164,58 @@ imel:Toegangsprocedure.typeURIShape a sh:PropertyShape ;
     sh:nodeKind sh:Literal ;
     sh:path imel:Toegangsprocedure.typeURI .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.fotoShape> a sh:PropertyShape ;
+installatie:AanzichtVerkeersbordopstelling.fotoShape a sh:PropertyShape ;
     rdfs:label "foto" ;
     rdfs:comment imel:DtcDocument ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "foto" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.foto> ;
+    sh:path installatie:AanzichtVerkeersbordopstelling.foto ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.hoekShape> a sh:PropertyShape ;
+installatie:AanzichtVerkeersbordopstelling.hoekShape a sh:PropertyShape ;
     rdfs:label "hoek" ;
     sh:datatype xsd:decimal ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "hoek" ;
     sh:nodeKind sh:Literal ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.hoek> .
+    sh:path installatie:AanzichtVerkeersbordopstelling.hoek .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.kaartvoorstellingShape> a sh:PropertyShape ;
+installatie:AanzichtVerkeersbordopstelling.kaartvoorstellingShape a sh:PropertyShape ;
     rdfs:label "kaartvoorstelling" ;
     rdfs:comment imel:DtcDocument ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "kaartvoorstelling" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.kaartvoorstelling> ;
+    sh:path installatie:AanzichtVerkeersbordopstelling.kaartvoorstelling ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.technischeVoorstellingShape> a sh:PropertyShape ;
+installatie:AanzichtVerkeersbordopstelling.technischeVoorstellingShape a sh:PropertyShape ;
     rdfs:label "technische voorstelling" ;
     rdfs:comment imel:DtcDocument ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "technischeVoorstelling" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling.technischeVoorstelling> ;
+    sh:path installatie:AanzichtVerkeersbordopstelling.technischeVoorstelling ;
     sh:property imel:DtcDocument.bestandsnaamShape,
         imel:DtcDocument.mimeTypeShape,
         imel:DtcDocument.omschrijvingShape,
         imel:DtcDocument.opmaakdatumShape,
         imel:DtcDocument.uriShape .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.positieTovRijwegShape> a sh:PropertyShape ;
+installatie:Verkeersbordopstelling.positieTovRijwegShape a sh:PropertyShape ;
     rdfs:label "positie ten opzichte van de rijweg" ;
     rdfs:comment onderdeel:KlPositieSoort ;
     sh:in ( <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlPositieSoort/linkerrand> <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlPositieSoort/midden> <https://wegenenverkeer-test.data.vlaanderen.be/id/concept/KlPositieSoort/rechterrand> ) ;
@@ -5220,15 +5223,15 @@ imel:Toegangsprocedure.typeURIShape a sh:PropertyShape ;
     sh:minCount 0 ;
     sh:name "positieTovRijweg" ;
     sh:nodeKind sh:IRI ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.positieTovRijweg> .
+    sh:path installatie:Verkeersbordopstelling.positieTovRijweg .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.wegSegmentShape> a sh:PropertyShape ;
+installatie:Verkeersbordopstelling.wegSegmentShape a sh:PropertyShape ;
     rdfs:label "wegsegment" ;
     rdfs:comment onderdeel:DtcExterneReferentie ;
     sh:minCount 0 ;
     sh:name "wegSegment" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling.wegSegment> ;
+    sh:path installatie:Verkeersbordopstelling.wegSegment ;
     sh:property onderdeel:DtcExterneReferentie.externReferentienummerShape,
         onderdeel:DtcExterneReferentie.externePartijShape .
 

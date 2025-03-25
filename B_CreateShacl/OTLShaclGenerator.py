@@ -85,6 +85,9 @@ class OTLShaclGenerator:
         g.bind('asset', 'https://data.awvvlaanderen.be/id/asset/')
         g.bind('imel', 'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#')
         g.bind('onderdeel', 'https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#')
+        g.bind('installatie', 'https://wegenenverkeer.data.vlaanderen.be/ns/installatie#')
+        g.bind('mob', 'https://data.vlaanderen.be/ns/mobiliteit#')
+        g.bind('besluit', 'https://data.vlaanderen.be/ns/besluit#')
         g.bind('abs', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#')
         g.bind('kl', 'https://wegenenverkeer.data.vlaanderen.be/id/concept/')
 

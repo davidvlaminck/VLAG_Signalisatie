@@ -1,6 +1,9 @@
 @prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
+@prefix besluit: <https://data.vlaanderen.be/ns/besluit#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
+@prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
+@prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
 @prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8,7 +11,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <http://data.vlaanderen.be/ns/besluit#AanvullendReglement> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/besluit#Besluit> .
+    rdfs:subClassOf besluit:Besluit .
 
 <http://data.vlaanderen.be/ns/besluit#Voorwaarde> a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
@@ -19,43 +22,43 @@ dcterms:Agent a owl:Class ;
 skos:ConceptScheme a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/besluit#Artikel> a owl:Class ;
+besluit:Artikel a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp> a owl:Class ;
+mob:AanvullendReglementOntwerp a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> a owl:Class ;
+mob:Mobiliteitsmaatregel a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept> a owl:Class ;
+mob:Mobiliteitsmaatregelconcept a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken> a owl:Class ;
+mob:OntwerpVerkeersteken a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp> a owl:Class ;
+mob:SignalisatieOntwerp a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+mob:VerkeersbordVerkeersteken a owl:Class ;
+    rdfs:subClassOf mob:Verkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+mob:Verkeersbordconcept a owl:Class ;
+    rdfs:subClassOf mob:Verkeerstekenconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#VerkeerslichtVerkeersteken> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+mob:VerkeerslichtVerkeersteken a owl:Class ;
+    rdfs:subClassOf mob:Verkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerslichtconcept> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+mob:Verkeerslichtconcept a owl:Class ;
+    rdfs:subClassOf mob:Verkeerstekenconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#WegmarkeringVerkeersteken> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> .
+mob:WegmarkeringVerkeersteken a owl:Class ;
+    rdfs:subClassOf mob:Verkeersteken .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Wegmarkeringsconcept> a owl:Class ;
-    rdfs:subClassOf <https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> .
+mob:Wegmarkeringsconcept a owl:Class ;
+    rdfs:subClassOf mob:Verkeerstekenconcept .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Zone> a owl:Class ;
+mob:Zone a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
 imel:Bijlage a owl:Class ;
@@ -76,10 +79,10 @@ imel:Toegangsprocedure a owl:Class ;
     rdfs:subClassOf imel:AIMDBStatus,
         imel:AIMToestand .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling> a owl:Class ;
+installatie:AanzichtVerkeersbordopstelling a owl:Class ;
     rdfs:subClassOf imel:AIMNaamObject .
 
-<https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling> a owl:Class ;
+installatie:Verkeersbordopstelling a owl:Class ;
     rdfs:subClassOf abs:Signalisatie,
         imel:AIMObject .
 
@@ -282,7 +285,7 @@ onderdeel:VoegtIn a owl:Class ;
 onderdeel:WordtAangeduidDoor a owl:Class ;
     rdfs:subClassOf imel:DirectioneleRelatie .
 
-<https://data.vlaanderen.be/ns/besluit#Besluit> a owl:Class ;
+besluit:Besluit a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
 <https://wegenenverkeer.data.vlaanderen.be> a owl:Ontology ;
@@ -308,10 +311,10 @@ imel:RelatieObject a owl:Class ;
     rdfs:subClassOf imel:AIMDBStatus,
         imel:AIMVersie .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken> a owl:Class ;
+mob:Verkeersteken a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
-<https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept> a owl:Class ;
+mob:Verkeerstekenconcept a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
 abs:AbstracteAanvullendeGeometrie a owl:Class ;
