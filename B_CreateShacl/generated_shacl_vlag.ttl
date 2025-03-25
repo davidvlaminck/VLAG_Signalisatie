@@ -163,6 +163,10 @@ skos:ConceptSchemeShape a sh:NodeShape ;
                             sh:path imel:RelatieObject.doel ] ) ] ) ;
     sh:targetClass <https://data.vlaanderen.be/ns/mobiliteit#heeftGerelateerdVerkeersteken> .
 
+abs:AIMLinkObjectShape a sh:NodeShape ;
+    rdfs:label "AIM link object" ;
+    sh:targetClass abs:AIMLinkObject .
+
 abs:AbstracteAanvullendeGeometrieShape a sh:NodeShape ;
     rdfs:label "Abstracte aanvullende geometrie" ;
     sh:property abs:AbstracteAanvullendeGeometrie.assetIdShape,
@@ -3175,8 +3179,6 @@ onderdeel:HeeftBetrokkeneRelationConstraint a sh:NodeShape ;
                             sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Toegangsprocedure ;
                             sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
                             sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel> ;
                             sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
                             sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
                             sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
