@@ -17,7 +17,7 @@ class AanvullendReglementOntwerp(AIMLinkObject):
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BevatOntwerp', target='https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp', direction='u')  # u = unidirectional
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#BevatOntwerpVoor', target='https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#HeeftVerkeersteken', target='https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken', direction='o')  # o = direction: outgoing
-        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsOntwerpVoor', target='http://data.vlaanderen.be/ns/besluit#AanvullendReglement', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsOntwerpVoor', target='https://data.vlaanderen.be/ns/besluit#AanvullendReglement', direction='o')  # o = direction: outgoing
 
         self._naam = OTLAttribuut(field=StringField,
                                   naam='naam',

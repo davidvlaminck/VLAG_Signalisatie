@@ -16,7 +16,7 @@ class Besluit(AIMLinkObject):
     def __init__(self):
         super().__init__()
 
-        self.add_valid_relation(relation='https://data.vlaanderen.be/ns/besluit#heeftVoorwaarde', target='http://data.vlaanderen.be/ns/besluit#Voorwaarde', direction='o')  # o = direction: outgoing
+        self.add_valid_relation(relation='https://data.vlaanderen.be/ns/besluit#heeftVoorwaarde', target='https://data.vlaanderen.be/ns/besluit#Voorwaarde', direction='o')  # o = direction: outgoing
         self.add_valid_relation(relation='https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#IsOnderdeelVan', target='https://data.vlaanderen.be/ns/besluit#Artikel', direction='i')  # i = direction: incoming
 
         self._beschrijving = OTLAttribuut(field=StringField,

@@ -188,20 +188,6 @@
         }
     },
     "classes": {
-        "http://data.vlaanderen.be/ns/besluit#AanvullendReglement": {
-            "abstract": false,
-            "name": "AanvullendReglement",
-            "label": "Aanvullend Reglement",
-            "deprecated_version": "",
-            "direct_subclasses": []
-        },
-        "http://data.vlaanderen.be/ns/besluit#Voorwaarde": {
-            "abstract": false,
-            "name": "Voorwaarde",
-            "label": "Voorwaarde",
-            "deprecated_version": "",
-            "direct_subclasses": []
-        },
         "http://purl.org/dc/terms/Agent": {
             "abstract": false,
             "name": "Agent",
@@ -209,10 +195,10 @@
             "deprecated_version": "",
             "direct_subclasses": []
         },
-        "http://www.w3.org/2004/02/skos/core#ConceptScheme": {
+        "https://data.vlaanderen.be/ns/besluit#AanvullendReglement": {
             "abstract": false,
-            "name": "Codelijst",
-            "label": "Codelijst",
+            "name": "AanvullendReglement",
+            "label": "Aanvullend Reglement",
             "deprecated_version": "",
             "direct_subclasses": []
         },
@@ -229,8 +215,15 @@
             "label": "Besluit",
             "deprecated_version": "",
             "direct_subclasses": [
-                "http://data.vlaanderen.be/ns/besluit#AanvullendReglement"
+                "https://data.vlaanderen.be/ns/besluit#AanvullendReglement"
             ]
+        },
+        "https://data.vlaanderen.be/ns/besluit#Voorwaarde": {
+            "abstract": false,
+            "name": "Voorwaarde",
+            "label": "Voorwaarde",
+            "deprecated_version": "",
+            "direct_subclasses": []
         },
         "https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp": {
             "abstract": false,
@@ -344,10 +337,9 @@
             "label": "AIM link object",
             "deprecated_version": "",
             "direct_subclasses": [
-                "http://data.vlaanderen.be/ns/besluit#Voorwaarde",
-                "http://www.w3.org/2004/02/skos/core#ConceptScheme",
                 "https://data.vlaanderen.be/ns/besluit#Artikel",
                 "https://data.vlaanderen.be/ns/besluit#Besluit",
+                "https://data.vlaanderen.be/ns/besluit#Voorwaarde",
                 "https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp",
                 "https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel",
                 "https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregelconcept",
@@ -356,7 +348,8 @@
                 "https://data.vlaanderen.be/ns/mobiliteit#Verkeersteken",
                 "https://data.vlaanderen.be/ns/mobiliteit#Verkeerstekenconcept",
                 "https://data.vlaanderen.be/ns/mobiliteit#Zone",
-                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Concept"
+                "https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#Concept",
+                "https://www.w3.org/2004/02/skos/core#ConceptScheme"
             ]
         },
         "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#AbstracteAanvullendeGeometrie": {
@@ -1054,6 +1047,13 @@
             "abstract": false,
             "name": "WordtAangeduidDoor",
             "label": "Wordt aangeduid door",
+            "deprecated_version": "",
+            "direct_subclasses": []
+        },
+        "https://www.w3.org/2004/02/skos/core#ConceptScheme": {
+            "abstract": false,
+            "name": "Codelijst",
+            "label": "Codelijst",
             "deprecated_version": "",
             "direct_subclasses": []
         }
