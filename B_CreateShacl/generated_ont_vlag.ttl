@@ -1,6 +1,6 @@
 @prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
 @prefix besluit: <https://data.vlaanderen.be/ns/besluit#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
 @prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
@@ -8,21 +8,18 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos1: <https://www.w3.org/2004/02/skos/core#> .
 
-<http://data.vlaanderen.be/ns/besluit#AanvullendReglement> a owl:Class ;
-    rdfs:subClassOf besluit:Besluit .
-
-<http://data.vlaanderen.be/ns/besluit#Voorwaarde> a owl:Class ;
-    rdfs:subClassOf abs:AIMLinkObject .
-
-dcterms:Agent a owl:Class ;
+dct:Agent a owl:Class ;
     rdfs:subClassOf imel:AIMDBStatus .
 
-skos:ConceptScheme a owl:Class ;
-    rdfs:subClassOf abs:AIMLinkObject .
+besluit:AanvullendReglement a owl:Class ;
+    rdfs:subClassOf besluit:Besluit .
 
 besluit:Artikel a owl:Class ;
+    rdfs:subClassOf abs:AIMLinkObject .
+
+besluit:Voorwaarde a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
 mob:AanvullendReglementOntwerp a owl:Class ;
@@ -284,6 +281,9 @@ onderdeel:VoegtIn a owl:Class ;
 
 onderdeel:WordtAangeduidDoor a owl:Class ;
     rdfs:subClassOf imel:DirectioneleRelatie .
+
+skos1:ConceptScheme a owl:Class ;
+    rdfs:subClassOf abs:AIMLinkObject .
 
 besluit:Besluit a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .

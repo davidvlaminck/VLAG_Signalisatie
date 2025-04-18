@@ -90,6 +90,8 @@ class OTLShaclGenerator:
         g.bind('besluit', 'https://data.vlaanderen.be/ns/besluit#')
         g.bind('abs', 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#')
         g.bind('kl', 'https://wegenenverkeer.data.vlaanderen.be/id/concept/')
+        g.bind('skos1', 'https://www.w3.org/2004/02/skos/core#')
+        g.bind('dct', 'http://purl.org/dc/terms/')
 
         return g
 
@@ -408,15 +410,29 @@ class OTLShaclGenerator:
                 or_node_list.append(and_node)
                 bron_node = BNode()
                 doel_node = BNode()
+                bron_path_node = BNode()
+                bron_path_node2 = BNode()
+                doel_path_node = BNode()
+                doel_path_node2 = BNode()
 
-                g.add((bron_node, SH.path,
-                       URIRef(
-                           'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bron')))
+                g.add((bron_node, SH.path, bron_path_node))
                 g.add((bron_node, URIRef('http://www.w3.org/ns/shacl#class'), URIRef(bron)))
-                g.add((doel_node, SH.path,
-                       URIRef(
-                           'https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doel')))
+                g.add((bron_path_node, RDF.first, URIRef('https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.bron')))
+                g.add((bron_path_node, RDF.rest, bron_path_node2))
+                g.add((bron_path_node2, RDF.first, URIRef('http://purl.org/dc/terms/isVersionOf')))
+                g.add((bron_path_node2, RDF.rest, RDF.nil))
+
+                g.add((doel_node, SH.path, doel_path_node))
                 g.add((doel_node, URIRef('http://www.w3.org/ns/shacl#class'), URIRef(doel)))
+                g.add((doel_path_node, RDF.first,
+                       URIRef('https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#RelatieObject.doel')))
+                g.add((doel_path_node, RDF.rest, doel_path_node2))
+                g.add((doel_path_node2, RDF.first, URIRef('http://purl.org/dc/terms/isVersionOf')))
+                g.add((doel_path_node2, RDF.rest, RDF.nil))
+
+
+
+
                 and_node_list = [bron_node, doel_node]
                 and_node_list = OTLShaclGenerator.create_shacl_list(and_node_list, g)
                 g.add((and_node, URIRef('http://www.w3.org/ns/shacl#and'), and_node_list[0]))

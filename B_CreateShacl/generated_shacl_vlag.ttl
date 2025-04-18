@@ -1,6 +1,6 @@
 @prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
 @prefix besluit: <https://data.vlaanderen.be/ns/besluit#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
 @prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
@@ -10,7 +10,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos1: <https://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <RelatieObjectConstraint> a sh:NodeShape ;
@@ -19,28 +19,17 @@
                 sh:path imel:RelatieObject.doel ] ) ;
     sh:targetClass imel:RelatieObject .
 
-<http://data.vlaanderen.be/ns/besluit#AanvullendReglementShape> a sh:NodeShape ;
-    rdfs:label "Aanvullend Reglement" ;
-    sh:property <http://data.vlaanderen.be/ns/besluit#AanvullendReglement.tijdsintervalShape> ;
-    sh:targetClass <http://data.vlaanderen.be/ns/besluit#AanvullendReglement> .
-
-<http://data.vlaanderen.be/ns/besluit#VoorwaardeShape> a sh:NodeShape ;
-    rdfs:label "Voorwaarde" ;
-    sh:property <http://data.vlaanderen.be/ns/besluit#Voorwaarde.beschrijvingShape> ;
-    sh:targetClass <http://data.vlaanderen.be/ns/besluit#Voorwaarde> .
-
-dcterms:AgentShape a sh:NodeShape ;
+dct:AgentShape a sh:NodeShape ;
     rdfs:label "Agent" ;
-    sh:property dcterms:Agent.agentIdShape,
-        dcterms:Agent.contactinfoShape,
-        dcterms:Agent.naamShape ;
-    sh:targetClass dcterms:Agent .
+    sh:property dct:Agent.agentIdShape,
+        dct:Agent.contactinfoShape,
+        dct:Agent.naamShape ;
+    sh:targetClass dct:Agent .
 
-skos:ConceptSchemeShape a sh:NodeShape ;
-    rdfs:label "Codelijst" ;
-    sh:property skos:ConceptScheme.codelijstTypeShape,
-        skos:ConceptScheme.naamShape ;
-    sh:targetClass skos:ConceptScheme .
+besluit:AanvullendReglementShape a sh:NodeShape ;
+    rdfs:label "Aanvullend Reglement" ;
+    sh:property besluit:AanvullendReglement.tijdsintervalShape ;
+    sh:targetClass besluit:AanvullendReglement .
 
 besluit:ArtikelShape a sh:NodeShape ;
     rdfs:label "Artikel" ;
@@ -55,12 +44,17 @@ besluit:BesluitShape a sh:NodeShape ;
         besluit:Besluit.publicatiedatumShape ;
     sh:targetClass besluit:Besluit .
 
+besluit:VoorwaardeShape a sh:NodeShape ;
+    rdfs:label "Voorwaarde" ;
+    sh:property besluit:Voorwaarde.beschrijvingShape ;
+    sh:targetClass besluit:Voorwaarde .
+
 besluit:heeftVoorwaardeRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class besluit:Besluit ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#Voorwaarde> ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class besluit:Artikel ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#Voorwaarde> ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class besluit:Voorwaarde ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class besluit:Artikel ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class besluit:Voorwaarde ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass besluit:heeftVoorwaarde .
 
 mob:AanvullendReglementOntwerpShape a sh:NodeShape ;
@@ -156,14 +150,14 @@ mob:ZoneShape a sh:NodeShape ;
 
 mob:heeftGerelateerdVerkeerstekenRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:VerkeersbordVerkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:WegmarkeringVerkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:VerkeerslichtVerkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:VerkeersbordVerkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:WegmarkeringVerkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:VerkeerslichtVerkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass mob:heeftGerelateerdVerkeersteken .
 
 abs:AIMLinkObjectShape a sh:NodeShape ;
@@ -2014,10 +2008,10 @@ onderdeel:AanvullendeGeometrieShape a sh:NodeShape ;
 
 onderdeel:BehoortTotRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:Concept ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class skos:ConceptScheme ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class skos:ConceptScheme ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Concept ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class skos1:ConceptScheme ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class skos1:ConceptScheme ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Concept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:BehoortTot .
 
 onderdeel:BehoortTotShape a sh:NodeShape ;
@@ -2034,10 +2028,10 @@ onderdeel:BekrachtigtShape a sh:NodeShape ;
 
 onderdeel:BevatOntwerpRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:SignalisatieOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:AanvullendReglementOntwerp ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:SignalisatieOntwerp ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:AanvullendReglementOntwerp ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:SignalisatieOntwerp ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:BevatOntwerp .
 
 onderdeel:BevatOntwerpShape a sh:NodeShape ;
@@ -2046,8 +2040,8 @@ onderdeel:BevatOntwerpShape a sh:NodeShape ;
 
 onderdeel:BevatOntwerpVoorRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregel ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Mobiliteitsmaatregel ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:BevatOntwerpVoor .
 
 onderdeel:BevatOntwerpVoorShape a sh:NodeShape ;
@@ -2056,8 +2050,8 @@ onderdeel:BevatOntwerpVoorShape a sh:NodeShape ;
 
 onderdeel:BevatVerkeerstekenRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:SignalisatieOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:OntwerpVerkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:OntwerpVerkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:BevatVerkeersteken .
 
 onderdeel:BevatVerkeerstekenShape a sh:NodeShape ;
@@ -2066,14 +2060,14 @@ onderdeel:BevatVerkeerstekenShape a sh:NodeShape ;
 
 onderdeel:BevestigingRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:RetroreflecterendeFolie ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class onderdeel:RetroreflecterendeFolie ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class onderdeel:RetroreflecterendeFolie ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class onderdeel:RetroreflecterendeFolie ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:Bevestiging .
 
 onderdeel:BevestigingShape a sh:NodeShape ;
@@ -3152,8 +3146,8 @@ onderdeel:GecorrigeerdDoorShape a sh:NodeShape ;
 
 onderdeel:HeeftAanvullendeGeometrieRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:AanvullendeGeometrie ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class onderdeel:AanvullendeGeometrie ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftAanvullendeGeometrie .
 
 onderdeel:HeeftAanvullendeGeometrieShape a sh:NodeShape ;
@@ -3162,8 +3156,8 @@ onderdeel:HeeftAanvullendeGeometrieShape a sh:NodeShape ;
 
 onderdeel:HeeftAanzichtRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class installatie:Verkeersbordopstelling ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class installatie:AanzichtVerkeersbordopstelling ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class installatie:AanzichtVerkeersbordopstelling ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftAanzicht .
 
 onderdeel:HeeftAanzichtShape a sh:NodeShape ;
@@ -3176,18 +3170,18 @@ onderdeel:HeeftBeheerShape a sh:NodeShape ;
 
 onderdeel:HeeftBetrokkeneRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:SignalisatieOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Toegangsprocedure ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class abs:AbstracteAanvullendeGeometrie ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class dcterms:Agent ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:Toegangsprocedure ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class abs:AbstracteAanvullendeGeometrie ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class dct:Agent ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftBetrokkene .
 
 onderdeel:HeeftBetrokkeneShape a sh:NodeShape ;
@@ -3200,10 +3194,10 @@ onderdeel:HeeftBetrokkeneShape a sh:NodeShape ;
 
 onderdeel:HeeftBijlageRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Bijlage ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:Bijlage ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Bijlage ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class onderdeel:Bijlage ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftBijlage .
 
 onderdeel:HeeftBijlageShape a sh:NodeShape ;
@@ -3224,8 +3218,8 @@ onderdeel:HeeftGevolgShape a sh:NodeShape ;
 
 onderdeel:HeeftMaatregelconceptRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:Verkeerstekenconcept ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregelconcept ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Mobiliteitsmaatregelconcept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftMaatregelconcept .
 
 onderdeel:HeeftMaatregelconceptShape a sh:NodeShape ;
@@ -3234,8 +3228,8 @@ onderdeel:HeeftMaatregelconceptShape a sh:NodeShape ;
 
 onderdeel:HeeftMobiliteitsmaatregelRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class besluit:Artikel ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregel ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Mobiliteitsmaatregel ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftMobiliteitsmaatregel .
 
 onderdeel:HeeftMobiliteitsmaatregelShape a sh:NodeShape ;
@@ -3244,8 +3238,9 @@ onderdeel:HeeftMobiliteitsmaatregelShape a sh:NodeShape ;
 
 onderdeel:HeeftMogelijkOnderbordRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:Verkeersbordconcept ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersbordconcept ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ]
+                       [ sh:class mob:Verkeersbordconcept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftMogelijkOnderbord .
 
 onderdeel:HeeftMogelijkOnderbordShape a sh:NodeShape ;
@@ -3262,8 +3257,8 @@ onderdeel:HeeftNetwerktoegangShape a sh:NodeShape ;
 
 onderdeel:HeeftOnderbordRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:VerkeersbordVerkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:VerkeersbordVerkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:VerkeersbordVerkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftOnderbord .
 
 onderdeel:HeeftOnderbordShape a sh:NodeShape ;
@@ -3280,10 +3275,10 @@ onderdeel:HeeftSignalisatieplanShape a sh:NodeShape ;
 
 onderdeel:HeeftToegangsprocedureRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Toegangsprocedure ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Toegangsprocedure ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Toegangsprocedure ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Toegangsprocedure ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftToegangsprocedure .
 
 onderdeel:HeeftToegangsprocedureShape a sh:NodeShape ;
@@ -3296,8 +3291,8 @@ onderdeel:HeeftTransportLinkSetShape a sh:NodeShape ;
 
 onderdeel:HeeftVerkeerstekenRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HeeftVerkeersteken .
 
 onderdeel:HeeftVerkeerstekenShape a sh:NodeShape ;
@@ -3314,8 +3309,9 @@ onderdeel:HeftOpShape a sh:NodeShape ;
 
 onderdeel:HoortBijRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class installatie:AanzichtVerkeersbordopstelling ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ]
+                       [ sh:class installatie:AanzichtVerkeersbordopstelling ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:HoortBij .
 
 onderdeel:HoortBijShape a sh:NodeShape ;
@@ -3340,14 +3336,14 @@ onderdeel:IsDeelVanShape a sh:NodeShape ;
 
 onderdeel:IsGebaseerdOpRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:VerkeersbordVerkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersbordconcept ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Mobiliteitsmaatregel ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Mobiliteitsmaatregelconcept ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:WegmarkeringVerkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Wegmarkeringsconcept ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:VerkeerslichtVerkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeerslichtconcept ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Verkeersbordconcept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:Mobiliteitsmaatregel ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Mobiliteitsmaatregelconcept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:WegmarkeringVerkeersteken ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Wegmarkeringsconcept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:VerkeerslichtVerkeersteken ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Verkeerslichtconcept ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:IsGebaseerdOp .
 
 onderdeel:IsGebaseerdOpShape a sh:NodeShape ;
@@ -3368,8 +3364,8 @@ onderdeel:IsNetwerkECCShape a sh:NodeShape ;
 
 onderdeel:IsOnderdeelVanRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class besluit:Artikel ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class besluit:Besluit ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class besluit:Besluit ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:IsOnderdeelVan .
 
 onderdeel:IsOnderdeelVanShape a sh:NodeShape ;
@@ -3378,8 +3374,8 @@ onderdeel:IsOnderdeelVanShape a sh:NodeShape ;
 
 onderdeel:IsOntwerpVoorRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:AanvullendReglementOntwerp ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class <http://data.vlaanderen.be/ns/besluit#AanvullendReglement> ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class besluit:AanvullendReglement ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:IsOntwerpVoor .
 
 onderdeel:IsOntwerpVoorShape a sh:NodeShape ;
@@ -3396,10 +3392,10 @@ onderdeel:IsSWOnderdeelVanShape a sh:NodeShape ;
 
 onderdeel:LigtOpRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:LigtOp .
 
 onderdeel:LigtOpShape a sh:NodeShape ;
@@ -3416,10 +3412,10 @@ onderdeel:OpgehevenBijShape a sh:NodeShape ;
 
 onderdeel:RealiseertRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class abs:Verkeersbord ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class onderdeel:RetroreflecterendVerkeersbord ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class abs:Verkeersbord ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:Realiseert .
 
 onderdeel:RealiseertShape a sh:NodeShape ;
@@ -3440,10 +3436,10 @@ onderdeel:RetroreflecterendeFolieShape a sh:NodeShape ;
 
 onderdeel:SluitAanOpRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:SluitAanOp .
 
 onderdeel:SluitAanOpShape a sh:NodeShape ;
@@ -3452,10 +3448,10 @@ onderdeel:SluitAanOpShape a sh:NodeShape ;
 
 onderdeel:SturingRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:Sturing .
 
 onderdeel:SturingShape a sh:NodeShape ;
@@ -3500,10 +3496,10 @@ onderdeel:VoedtAangestuurdShape a sh:NodeShape ;
 
 onderdeel:VoedtRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.doel ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class imel:Derdenobject ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] [ sh:and ( [ sh:class imel:AIMObject ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class imel:Derdenobject ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:Voedt .
 
 onderdeel:VoedtShape a sh:NodeShape ;
@@ -3518,8 +3514,8 @@ onderdeel:VoegtInShape a sh:NodeShape ;
 
 onderdeel:WordtAangeduidDoorRelationConstraint a sh:NodeShape ;
     sh:or ( [ sh:and ( [ sh:class mob:Mobiliteitsmaatregel ;
-                            sh:path imel:RelatieObject.bron ] [ sh:class mob:Verkeersteken ;
-                            sh:path imel:RelatieObject.doel ] ) ] ) ;
+                            sh:path ( imel:RelatieObject.bron dct:isVersionOf ) ] [ sh:class mob:Verkeersteken ;
+                            sh:path ( imel:RelatieObject.doel dct:isVersionOf ) ] ) ] ) ;
     sh:targetClass onderdeel:WordtAangeduidDoor .
 
 onderdeel:WordtAangeduidDoorShape a sh:NodeShape ;
@@ -3596,43 +3592,30 @@ onderdeel:WordtAangeduidDoorShape a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
     sh:path <https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#DtcGeluidstestRapport.type> .
 
-<http://data.vlaanderen.be/ns/besluit#AanvullendReglement.tijdsintervalShape> a sh:PropertyShape ;
-    rdfs:label "tijdsinterval" ;
-    rdfs:comment <http://data.europa.eu/m8g/PeriodOfTime> ;
-    sh:minCount 0 ;
-    sh:name "tijdsinterval" ;
-    sh:nodeKind sh:BlankNode ;
-    sh:path <http://data.vlaanderen.be/ns/besluit#AanvullendReglement.tijdsinterval> ;
-    sh:property <http://data.europa.eu/m8g/PeriodOfTime.beginShape>,
-        <http://data.europa.eu/m8g/PeriodOfTime.eindeShape> .
+skos1:ConceptSchemeShape a sh:NodeShape ;
+    rdfs:label "Codelijst" ;
+    sh:property skos1:ConceptScheme.codelijstTypeShape,
+        skos1:ConceptScheme.naamShape ;
+    sh:targetClass skos1:ConceptScheme .
 
-<http://data.vlaanderen.be/ns/besluit#Voorwaarde.beschrijvingShape> a sh:PropertyShape ;
-    rdfs:label "beschrijving" ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 0 ;
-    sh:name "beschrijving" ;
-    sh:nodeKind sh:Literal ;
-    sh:path <http://data.vlaanderen.be/ns/besluit#Voorwaarde.beschrijving> .
-
-dcterms:Agent.agentIdShape a sh:PropertyShape ;
+dct:Agent.agentIdShape a sh:PropertyShape ;
     rdfs:label "agent identificatie" ;
     rdfs:comment imel:DtcIdentificator ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "agentId" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path dcterms:Agent.agentId ;
+    sh:path dct:Agent.agentId ;
     sh:property imel:DtcIdentificator.identificatorShape,
         imel:DtcIdentificator.toegekendDoorShape .
 
-dcterms:Agent.contactinfoShape a sh:PropertyShape ;
+dct:Agent.contactinfoShape a sh:PropertyShape ;
     rdfs:label "contactinfo" ;
     rdfs:comment schema:ContactPoint ;
     sh:minCount 0 ;
     sh:name "contactinfo" ;
     sh:nodeKind sh:BlankNode ;
-    sh:path dcterms:Agent.contactinfo ;
+    sh:path dct:Agent.contactinfo ;
     sh:property schema:ContactPoint.adresShape,
         schema:ContactPoint.beschikbaarheidShape,
         schema:ContactPoint.contactnaamShape,
@@ -3642,32 +3625,14 @@ dcterms:Agent.contactinfoShape a sh:PropertyShape ;
         schema:ContactPoint.telefoonShape,
         schema:ContactPoint.websiteShape .
 
-dcterms:Agent.naamShape a sh:PropertyShape ;
+dct:Agent.naamShape a sh:PropertyShape ;
     rdfs:label "naam" ;
     sh:datatype xsd:string ;
     sh:maxCount 1 ;
     sh:minCount 0 ;
     sh:name "naam" ;
     sh:nodeKind sh:Literal ;
-    sh:path dcterms:Agent.naam .
-
-skos:ConceptScheme.codelijstTypeShape a sh:PropertyShape ;
-    rdfs:label "codelijstType" ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 0 ;
-    sh:name "codelijstType" ;
-    sh:nodeKind sh:Literal ;
-    sh:path skos:ConceptScheme.codelijstType .
-
-skos:ConceptScheme.naamShape a sh:PropertyShape ;
-    rdfs:label "naam" ;
-    sh:datatype xsd:string ;
-    sh:maxCount 1 ;
-    sh:minCount 0 ;
-    sh:name "naam" ;
-    sh:nodeKind sh:Literal ;
-    sh:path skos:ConceptScheme.naam .
+    sh:path dct:Agent.naam .
 
 <http://www.w3.org/ns/locn#Geometry.gmlShape> a sh:PropertyShape ;
     rdfs:label "als GML" ;
@@ -3686,6 +3651,16 @@ skos:ConceptScheme.naamShape a sh:PropertyShape ;
     sh:name "wkt" ;
     sh:nodeKind sh:Literal ;
     sh:path <http://www.w3.org/ns/locn#Geometry.wkt> .
+
+besluit:AanvullendReglement.tijdsintervalShape a sh:PropertyShape ;
+    rdfs:label "tijdsinterval" ;
+    rdfs:comment <http://data.europa.eu/m8g/PeriodOfTime> ;
+    sh:minCount 0 ;
+    sh:name "tijdsinterval" ;
+    sh:nodeKind sh:BlankNode ;
+    sh:path besluit:AanvullendReglement.tijdsinterval ;
+    sh:property <http://data.europa.eu/m8g/PeriodOfTime.beginShape>,
+        <http://data.europa.eu/m8g/PeriodOfTime.eindeShape> .
 
 besluit:Artikel.nummerShape a sh:PropertyShape ;
     rdfs:label "nummer" ;
@@ -3731,6 +3706,15 @@ besluit:Besluit.publicatiedatumShape a sh:PropertyShape ;
     sh:name "publicatiedatum" ;
     sh:nodeKind sh:Literal ;
     sh:path besluit:Besluit.publicatiedatum .
+
+besluit:Voorwaarde.beschrijvingShape a sh:PropertyShape ;
+    rdfs:label "beschrijving" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "beschrijving" ;
+    sh:nodeKind sh:Literal ;
+    sh:path besluit:Voorwaarde.beschrijving .
 
 mob:AanvullendReglementOntwerp.naamShape a sh:PropertyShape ;
     rdfs:label "naam" ;
@@ -5467,6 +5451,24 @@ onderdeel:Voedt.aansluitvermogenShape a sh:PropertyShape ;
     sh:path onderdeel:Voedt.aansluitvermogen ;
     sh:property imel:KwantWrdInVolt.standaardEenheidShape,
         imel:KwantWrdInVolt.waardeShape .
+
+skos1:ConceptScheme.codelijstTypeShape a sh:PropertyShape ;
+    rdfs:label "codelijstType" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "codelijstType" ;
+    sh:nodeKind sh:Literal ;
+    sh:path skos1:ConceptScheme.codelijstType .
+
+skos1:ConceptScheme.naamShape a sh:PropertyShape ;
+    rdfs:label "naam" ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 0 ;
+    sh:name "naam" ;
+    sh:nodeKind sh:Literal ;
+    sh:path skos1:ConceptScheme.naam .
 
 <http://data.europa.eu/m8g/PeriodOfTime.beginShape> a sh:PropertyShape ;
     rdfs:label "begin" ;
