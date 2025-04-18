@@ -1,5 +1,6 @@
 @prefix abs: <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#> .
 @prefix asset: <https://data.awvvlaanderen.be/id/asset/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
 @prefix loc: <https://loc.data.wegenenverkeer.be/ns/implementatieelement#> .
@@ -7,6 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1> a onderdeel:HeeftAanzicht ;
+    dct:isVersionOf asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01 ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -18,6 +20,7 @@
     imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "aanzicht_01" ] .
 
 <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1> a onderdeel:HoortBij ;
+    dct:isVersionOf asset:HoortBij_-_bord_01_-_aanzicht_01 ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -27,6 +30,7 @@
     imel:RelatieObject.doel asset:aanzicht_01 .
 
 <https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1> a installatie:AanzichtVerkeersbordopstelling ;
+    dct:isVersionOf asset:aanzicht_01 ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "aanzicht_01" ] ;
     imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
@@ -36,6 +40,7 @@
     installatie:AanzichtVerkeersbordopstelling.hoek 1.0 .
 
 <https://data.awvvlaanderen.be/id/asset/bord_01/v1> a onderdeel:RetroreflecterendVerkeersbord ;
+    dct:isVersionOf asset:bord_01 ;
     abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "bord_01" ] ;
@@ -45,6 +50,7 @@
             imel:DtcAssetVersie.versienummer 1 ] .
 
 <https://data.awvvlaanderen.be/id/asset/bord_01/v2> a onderdeel:RetroreflecterendVerkeersbord ;
+    dct:isVersionOf asset:bord_01 ;
     abs:Verkeersbord.afmeting [ onderdeel:DtuAfmetingVerkeersbord.rond [ imel:DtcAfmetingDiameterInMm.diameter [ imel:KwantWrdInMillimeter.waarde 600.0 ] ] ] ;
     abs:Verkeersbord.opstelhoogte [ imel:KwantWrdInMeter.waarde 1.8 ] ;
     imel:AIMDBStatus.isActief true ;
@@ -55,6 +61,7 @@
             imel:DtcAssetVersie.versienummer 2 ] .
 
 <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
+    dct:isVersionOf asset:opstelling_01 ;
     loc:Locatie.geometrie "POINT Z (200000 200000 0)" ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;

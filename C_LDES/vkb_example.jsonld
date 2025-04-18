@@ -5,7 +5,6 @@
         "dc": "http://purl.org/dc/elements/1.1/",
         "dcat": "http://www.w3.org/ns/dcat#",
         "dcmitype": "http://purl.org/dc/dcmitype/",
-        "dcterms": "http://purl.org/dc/terms/",
         "dcam": "http://purl.org/dc/dcam/",
         "doap": "http://usefulinc.com/ns/doap#",
         "foaf": "http://xmlns.com/foaf/0.1/",
@@ -37,12 +36,16 @@
         "keuzelijst": "https://wegenenverkeer.data.vlaanderen.be/id/concept/",
         "abs": "https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#",
         "pem": "https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#",
-        "loc": "https://loc.data.wegenenverkeer.be/ns/implementatieelement#"
+        "loc": "https://loc.data.wegenenverkeer.be/ns/implementatieelement#",
+        "dct": "http://purl.org/dc/terms/"
     },
     "@graph": [
         {
             "@id": "asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1",
             "@type": "onderdeel:HeeftAanzicht",
+            "dct:isVersionOf": {
+                "@id": "asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01"
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -74,6 +77,9 @@
         {
             "@id": "asset:HoortBij_-_bord_01_-_aanzicht_01/v1",
             "@type": "onderdeel:HoortBij",
+            "dct:isVersionOf": {
+                "@id": "asset:HoortBij_-_bord_01_-_aanzicht_01"
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -99,6 +105,9 @@
         {
             "@id": "asset:aanzicht_01/v1",
             "@type": "installatie:AanzichtVerkeersbordopstelling",
+            "dct:isVersionOf": {
+                "@id": "asset:aanzicht_01"
+            },
             "imel:AIMDBStatus.isActief": {
                 "@type": "xsd:boolean",
                 "@value": true
@@ -128,6 +137,9 @@
         {
             "@id": "asset:bord_01/v1",
             "@type": "onderdeel:RetroreflecterendVerkeersbord",
+            "dct:isVersionOf": {
+                "@id": "asset:bord_01"
+            },
             "abs:Verkeersbord.afmeting": {
                 "onderdeel:DtuAfmetingVerkeersbord.rond": {
                     "imel:DtcAfmetingDiameterInMm.diameter": {
@@ -163,6 +175,9 @@
         {
             "@id": "asset:bord_01/v2",
             "@type": "onderdeel:RetroreflecterendVerkeersbord",
+            "dct:isVersionOf": {
+                "@id": "asset:bord_01"
+            },
             "abs:Verkeersbord.afmeting": {
                 "onderdeel:DtuAfmetingVerkeersbord.rond": {
                     "imel:DtcAfmetingDiameterInMm.diameter": {
@@ -204,6 +219,9 @@
         {
             "@id": "asset:opstelling_01/v1",
             "@type": "installatie:Verkeersbordopstelling",
+            "dct:isVersionOf": {
+                "@id": "asset:opstelling_01"
+            },
             "loc:Locatie.geometrie": "POINT Z (200000 200000 0)",
             "imel:AIMDBStatus.isActief": {
                 "@type": "xsd:boolean",

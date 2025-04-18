@@ -32,7 +32,8 @@ class CustomRDFExporter:
                               'keuzelijst': 'https://wegenenverkeer.data.vlaanderen.be/id/concept/',
                               'abs': 'https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#',
                               'pem': 'https://wegenenverkeer.data.vlaanderen.be/ns/proefenmeting#',
-                              'loc': 'https://loc.data.wegenenverkeer.be/ns/implementatieelement#'}.items():
+                              'loc': 'https://loc.data.wegenenverkeer.be/ns/implementatieelement#',
+                              'dct': 'http://purl.org/dc/terms/'}.items():
             g.bind(ns, namespace)
 
         for instance in list_of_objects:
@@ -50,6 +51,7 @@ class CustomRDFExporter:
             asset = URIRef(versioned_uri)
             type_node = URIRef(instance.typeURI)
             g.add((asset, RDF.type, type_node))
+            g.add((asset, URIRef('http://purl.org/dc/terms/isVersionOf'), URIRef(asset_uri)))
 
             if is_relation(instance):
                 g.add((asset,
