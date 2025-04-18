@@ -3,17 +3,12 @@
 # https://shacl.org/playground/
 # http://www.validatingrdf.com/
 # https://15926.org/topics/SHACL/index.htm
-import concurrent.futures
-import os
 
 import time
-from os.path import abspath
 from pathlib import Path
 
-from rdflib import Graph, Namespace, URIRef, RDF, RDFS, OWL, Literal, SH, BNode, SKOS
 from pyshacl import validate
-
-from SQLDbReader import SQLDbReader
+from rdflib import Graph
 
 if __name__ == '__main__':
     # load the SHACL graphs
