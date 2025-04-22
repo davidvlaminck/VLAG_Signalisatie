@@ -8,6 +8,7 @@ ttl's worden nu van de dev omgeving gehaald (niet perfecte data)
 keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten worden nog steeds toegevoegd)
 keuzelijsten gebruiken "test" in uri
 uris mobiliteit zijn inconsistent
+hoe heeftbetrokkene leggen met een agent
 
 Issues stap C
 -------------
