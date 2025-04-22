@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: auto;
+                 background-color: #ffffff;
+                 border: 0px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div   style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              // text to html element
+              function htmlTitle(html) {
+                const container = document.createElement("div");
+                container.innerHTML = html;
+                return container;
+              }
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#454554", "id": "opstelling_01", "label": "Verkeersbordopstelling_opstelling_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">Verkeersbordopstelling\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://wegenenverkeer.data.vlaanderen.be/ns/installatie#Verkeersbordopstelling<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;opstelling_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;geometry\u0026nbsp;:\u0026nbsp;POINT\u0026nbsp;Z\u0026nbsp;(200000\u0026nbsp;200000\u0026nbsp;0)<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;toestand\u0026nbsp;:\u0026nbsp;in-gebruik</div>")}, {"color": "#998FA3", "id": "aanzicht_01", "label": "aanzicht_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">AanzichtVerkeersbordopstelling\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://wegenenverkeer.data.vlaanderen.be/ns/installatie#AanzichtVerkeersbordopstelling<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;aanzicht_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;hoek\u0026nbsp;:\u0026nbsp;1.0<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;toestand\u0026nbsp;:\u0026nbsp;in-gebruik</div>")}, {"color": "#AD8599", "id": "bord_01", "label": "bord_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">RetroreflecterendVerkeersbord\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;afmeting\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;rond\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;diameter\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;waarde\u0026nbsp;:\u0026nbsp;600.0<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;bord_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;toestand\u0026nbsp;:\u0026nbsp;in-ontwerp</div>")}, {"color": "#990000", "id": "folie_01", "label": "RetroreflecterendeFolie_folie_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">RetroreflecterendeFolie\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendeFolie<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;folie_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;folietype\u0026nbsp;:\u0026nbsp;folietype-3a<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;toestand\u0026nbsp;:\u0026nbsp;in-gebruik</div>")}, {"color": "#C2A3A3", "id": "teken_01", "label": "VerkeersbordVerkeersteken_teken_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">VerkeersbordVerkeersteken\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;teken_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True</div>")}, {"color": "#0000FF", "id": "concept_01", "label": "Verkeersbordconcept_concept_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">Verkeersbordconcept\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://data.vlaanderen.be/ns/mobiliteit#Verkeersbordconcept<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;concept_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;verkeersbordcode\u0026nbsp;:\u0026nbsp;C3</div>")}, {"color": "#99FFFF", "id": "aro_01", "label": "Aanvullend Reglement - Ontwerp", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">AanvullendReglementOntwerp\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;aro_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;naam\u0026nbsp;:\u0026nbsp;Aanvullend\u0026nbsp;Reglement\u0026nbsp;-\u0026nbsp;Ontwerp</div>")}, {"color": "#363663", "id": "mobm_01", "label": "Mobiliteitsmaatregel_mobm_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">Mobiliteitsmaatregel\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitsmaatregel<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;mobm_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;beschrijving\u0026nbsp;:\u0026nbsp;Mobiliteitsmaatregel<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;zone\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;[0]\u0026nbsp;geometrie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;[0]\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;wkt\u0026nbsp;:\u0026nbsp;POINT\u0026nbsp;Z\u0026nbsp;(200000\u0026nbsp;200000\u0026nbsp;0)</div>")}, {"color": "#5C7070", "id": "sigo_01", "label": "Signalisatie Ontwerp", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">SignalisatieOntwerp\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;sigo_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;datum\u0026nbsp;:\u0026nbsp;2020-06-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;naam\u0026nbsp;:\u0026nbsp;Signalisatie\u0026nbsp;Ontwerp</div>")}, {"color": "#9EFAFA", "id": "o_teken_01", "label": "OntwerpVerkeersteken_o_teken_01", "shape": "square", "size": 20, "title": htmlTitle("<div style=\"font-family: monospace;\">OntwerpVerkeersteken\u0026nbsp;object<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;typeURI\u0026nbsp;:\u0026nbsp;https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetId\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;identificator\u0026nbsp;:\u0026nbsp;o_teken_01<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;assetVersie\u0026nbsp;:<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;context\u0026nbsp;:\u0026nbsp;DA_Init<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;timestamp\u0026nbsp;:\u0026nbsp;2021-01-01\u0026nbsp;00:00:00<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;versienummer\u0026nbsp;:\u0026nbsp;1<br/>\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;isActief\u0026nbsp;:\u0026nbsp;True</div>")}]);
+edges = new vis.DataSet([{"arrowStrikethrough": false, "arrows": "to", "color": "f08080", "from": "opstelling_01", "to": "aanzicht_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "cc5416", "from": "bord_01", "to": "aanzicht_01", "width": 2}, {"arrowStrikethrough": false, "arrows": null, "color": "000000", "from": "folie_01", "to": "bord_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "#9952E0", "from": "teken_01", "to": "bord_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "#D6CCC2", "from": "teken_01", "to": "concept_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "ff0000", "from": "aro_01", "to": "teken_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "#7F40BF", "from": "mobm_01", "to": "teken_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "#E6E6B3", "from": "aro_01", "to": "mobm_01", "width": 2}, {"arrowStrikethrough": false, "arrows": null, "color": "#D9D926", "from": "aro_01", "to": "sigo_01", "width": 2}, {"arrowStrikethrough": false, "arrows": "to", "color": "#E68019", "from": "sigo_01", "to": "o_teken_01", "width": 2}]);
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"bold": {"size": 18}}}, "interaction": {"dragView": true}, "physics": {"solver": "barnesHut", "stabilization": true, "barnesHut": {"centralGravity": 0, "springLength": 100, "avoidOverlap": 0.05, "gravitationalConstant": -2500}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
