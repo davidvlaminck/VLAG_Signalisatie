@@ -9,6 +9,7 @@ keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten
 keuzelijsten gebruiken "test" in uri
 uris mobiliteit zijn inconsistent
 hoe heeftbetrokkene leggen met een agent
+omvormen van geometrie voor zone op Mobiliteitsmaatregel werkt niet
 
 Issues stap C
 -------------
@@ -16,4 +17,4 @@ Json-ld converter moet aangepast worden naar ModifiedJsonLdConverter
 
 Issues stap D
 -------------
-validation voor het geometrie attribuut zit nog niet correct in de shacl?
+validatie voor het geometrie attribuut zit nog niet correct in de shacl?

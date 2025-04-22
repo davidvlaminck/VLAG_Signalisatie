@@ -3,12 +3,19 @@ from pathlib import Path
 
 from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from VLAG_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
+from VLAG_model.OtlmowModel.Classes.Mobiliteit.AanvullendReglementOntwerp import AanvullendReglementOntwerp
+from VLAG_model.OtlmowModel.Classes.Mobiliteit.Mobiliteitsmaatregel import Mobiliteitsmaatregel
 from VLAG_model.OtlmowModel.Classes.Mobiliteit.VerkeersbordVerkeersteken import VerkeersbordVerkeersteken
+from VLAG_model.OtlmowModel.Classes.Mobiliteit.Verkeersbordconcept import Verkeersbordconcept
+from VLAG_model.OtlmowModel.Classes.Onderdeel.BevatOntwerpVoor import BevatOntwerpVoor
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftAanzicht import HeeftAanzicht
+from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftVerkeersteken import HeeftVerkeersteken
+from VLAG_model.OtlmowModel.Classes.Onderdeel.IsGebaseerdOp import IsGebaseerdOp
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Realiseert import Realiseert
 from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
 from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendeFolie import RetroreflecterendeFolie
+from VLAG_model.OtlmowModel.Classes.Onderdeel.WordtAangeduidDoor import WordtAangeduidDoor
 from VLAG_model.OtlmowModel.Helpers.RelationCreator import create_relation
 from rdflib import Graph
 
@@ -28,6 +35,17 @@ def return_graph_from_objects() -> Graph:
     g = CustomRDFExporter(dotnotation_settings={'waarde_shortcut': False}).create_graph(list_of_objects=objects)
     return g
 
+def add_versie_attributen(object: OTLObject) -> None:
+    """
+    Add version attributes to an object
+    :param object: OTLObject
+    :return: None
+    """
+    object.assetVersie.context = 'DA_Init'
+    object.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    object.assetVersie.versienummer = 1
+    object.isActief = True
+
 def create_objects() -> [OTLObject]:
     """
     Generate a list of objects to be used in the test LDES
@@ -36,30 +54,21 @@ def create_objects() -> [OTLObject]:
     list_of_objects = []
     opstelling = Verkeersbordopstelling()
     opstelling.assetId.identificator = 'opstelling_01'
-    opstelling.assetVersie.context = 'DA_Init'
-    opstelling.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
-    opstelling.assetVersie.versienummer = 1
-    opstelling.isActief = True
+    add_versie_attributen(opstelling)
     opstelling.toestand = 'in-gebruik'
     opstelling.geometry = 'POINT Z (200000 200000 0)'
     list_of_objects.append(opstelling)
 
     aanzicht = AanzichtVerkeersbordopstelling()
     aanzicht.assetId.identificator = 'aanzicht_01'
-    aanzicht.assetVersie.context = 'DA_Init'
-    aanzicht.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
-    aanzicht.assetVersie.versienummer = 1
-    aanzicht.isActief = True
+    add_versie_attributen(aanzicht)
     aanzicht.toestand = 'in-gebruik'
     aanzicht.hoek = 1.0
     list_of_objects.append(aanzicht)
 
     aanzicht_opstelling = create_relation(source=opstelling, target=aanzicht, relation_type=HeeftAanzicht,
                                           model_directory=model_dir)
-
-    aanzicht_opstelling.assetVersie.context = 'DA_Init'
-    aanzicht_opstelling.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
-    aanzicht_opstelling.assetVersie.versienummer = 1
+    add_versie_attributen(aanzicht_opstelling)
     list_of_objects.append(aanzicht_opstelling)
 
     bord = RetroreflecterendVerkeersbord()
@@ -111,7 +120,6 @@ def create_objects() -> [OTLObject]:
     teken.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
     teken.assetVersie.versienummer = 1
     teken.isActief = True
-    teken.toestand = 'in-gebruik'
     list_of_objects.append(teken)
 
     bord_teken = create_relation(source=teken, target=bord, relation_type=Realiseert, model_directory=model_dir)
@@ -119,5 +127,57 @@ def create_objects() -> [OTLObject]:
     bord_teken.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
     bord_teken.assetVersie.versienummer = 1
     list_of_objects.append(bord_teken)
+
+    concept = Verkeersbordconcept()
+    concept.assetId.identificator = 'concept_01'
+    concept.assetVersie.context = 'DA_Init'
+    concept.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    concept.assetVersie.versienummer = 1
+    concept.isActief = True
+    concept.verkeersbordcode = 'C3'
+    list_of_objects.append(concept)
+
+    teken_concept = create_relation(source=teken, target=concept, relation_type=IsGebaseerdOp, model_directory=model_dir)
+    teken_concept.assetVersie.context = 'DA_Init'
+    teken_concept.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    teken_concept.assetVersie.versienummer = 1
+    list_of_objects.append(teken_concept)
+
+    aro = AanvullendReglementOntwerp()
+    aro.assetId.identificator = 'aro_01'
+    aro.assetVersie.context = 'DA_Init'
+    aro.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    aro.assetVersie.versienummer = 1
+    aro.isActief = True
+    aro.naam = 'Aanvullend Reglement - Ontwerp'
+    list_of_objects.append(aro)
+
+    teken_aro = create_relation(source=aro, target=teken, relation_type=HeeftVerkeersteken, model_directory=model_dir)
+    teken_aro.assetVersie.context = 'DA_Init'
+    teken_aro.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    teken_aro.assetVersie.versienummer = 1
+    list_of_objects.append(teken_aro)
+
+    mobm = Mobiliteitsmaatregel()
+    mobm.assetId.identificator = 'mobm_01'
+    mobm.assetVersie.context = 'DA_Init'
+    mobm.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    mobm.assetVersie.versienummer = 1
+    mobm.isActief = True
+    mobm.zone[0].geometrie.wkt = 'POINT Z (200000 200000 0)'
+    mobm.beschrijving = 'Mobiliteitsmaatregel'
+    list_of_objects.append(mobm)
+
+    mobm_teken = create_relation(source=mobm, target=teken, relation_type=WordtAangeduidDoor, model_directory=model_dir)
+    mobm_teken.assetVersie.context = 'DA_Init'
+    mobm_teken.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    mobm_teken.assetVersie.versienummer = 1
+    list_of_objects.append(mobm_teken)
+
+    aro_mobm = create_relation(source=aro, target=mobm, relation_type=BevatOntwerpVoor, model_directory=model_dir)
+    aro_mobm.assetVersie.context = 'DA_Init'
+    aro_mobm.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    aro_mobm.assetVersie.versienummer = 1
+    list_of_objects.append(aro_mobm)
 
     return list_of_objects
