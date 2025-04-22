@@ -14,6 +14,8 @@ from C_LDES.objects import create_objects
 
 if __name__ == '__main__':
     objects = create_objects()
+    o = next(o for o in objects if o.assetId.identificator == 'bord_01' and o.assetVersie.versienummer == 1)
+    objects.remove(o)
     model_dir = Path(__file__).parent.parent / 'VLAG_model'
     # requires modification of the PyVisWrapper to use the model directory
     # and color the relations
