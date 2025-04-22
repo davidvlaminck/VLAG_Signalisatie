@@ -5,11 +5,16 @@ from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from VLAG_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
 from VLAG_model.OtlmowModel.Classes.Mobiliteit.AanvullendReglementOntwerp import AanvullendReglementOntwerp
 from VLAG_model.OtlmowModel.Classes.Mobiliteit.Mobiliteitsmaatregel import Mobiliteitsmaatregel
+from VLAG_model.OtlmowModel.Classes.Mobiliteit.OntwerpVerkeersteken import OntwerpVerkeersteken
+from VLAG_model.OtlmowModel.Classes.Mobiliteit.SignalisatieOntwerp import SignalisatieOntwerp
 from VLAG_model.OtlmowModel.Classes.Mobiliteit.VerkeersbordVerkeersteken import VerkeersbordVerkeersteken
 from VLAG_model.OtlmowModel.Classes.Mobiliteit.Verkeersbordconcept import Verkeersbordconcept
+from VLAG_model.OtlmowModel.Classes.Onderdeel.BevatOntwerp import BevatOntwerp
 from VLAG_model.OtlmowModel.Classes.Onderdeel.BevatOntwerpVoor import BevatOntwerpVoor
+from VLAG_model.OtlmowModel.Classes.Onderdeel.BevatVerkeersteken import BevatVerkeersteken
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftAanzicht import HeeftAanzicht
+from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftOntwerp import HeeftOntwerp
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftVerkeersteken import HeeftVerkeersteken
 from VLAG_model.OtlmowModel.Classes.Onderdeel.IsGebaseerdOp import IsGebaseerdOp
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Realiseert import Realiseert
@@ -17,11 +22,12 @@ from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord impo
 from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendeFolie import RetroreflecterendeFolie
 from VLAG_model.OtlmowModel.Classes.Onderdeel.WordtAangeduidDoor import WordtAangeduidDoor
 from VLAG_model.OtlmowModel.Helpers.RelationCreator import create_relation
+from VLAG_model.OtlmowModel.Classes.Installatie.AanzichtVerkeersbordopstelling import AanzichtVerkeersbordopstelling
+from VLAG_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
+
 from rdflib import Graph
 
 from CustomRDFExporter import CustomRDFExporter
-from VLAG_model.OtlmowModel.Classes.Installatie.AanzichtVerkeersbordopstelling import AanzichtVerkeersbordopstelling
-from VLAG_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 
 
 model_dir = Path(__file__).parent.parent / 'VLAG_model'
@@ -147,5 +153,30 @@ def create_objects() -> [OTLObject]:
     aro_mobm = create_relation(source=aro, target=mobm, relation_type=BevatOntwerpVoor, model_directory=model_dir)
     add_versie_attributen(aro_mobm)
     list_of_objects.append(aro_mobm)
+
+    sigo = SignalisatieOntwerp()
+    sigo.assetId.identificator = 'sigo_01'
+    add_versie_attributen(sigo)
+    sigo.naam = 'Signalisatie Ontwerp'
+    sigo.datum = datetime.datetime(2020, 6, 1)
+    list_of_objects.append(sigo)
+
+    sigo_aro = create_relation(source=sigo, target=aro, relation_type=BevatOntwerp, model_directory=model_dir)
+    add_versie_attributen(sigo_aro)
+    list_of_objects.append(sigo_aro)
+
+    o_teken = OntwerpVerkeersteken()
+    o_teken.assetId.identificator = 'o_teken_01'
+    add_versie_attributen(o_teken)
+    list_of_objects.append(o_teken)
+
+    sigo_teken = create_relation(source=sigo, target=o_teken, relation_type=BevatVerkeersteken, model_directory=model_dir)
+    add_versie_attributen(sigo_teken)
+    list_of_objects.append(sigo_teken)
+
+    # missing in model
+    # oteken_teken = create_relation(source=teken, target=o_teken, relation_type=HeeftOntwerp, model_directory=model_dir)
+    # add_versie_attributen(oteken_teken)
+    # list_of_objects.append(oteken_teken)
 
     return list_of_objects

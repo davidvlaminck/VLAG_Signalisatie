@@ -10,6 +10,7 @@ keuzelijsten gebruiken "test" in uri
 uris mobiliteit zijn inconsistent
 hoe heeftbetrokkene leggen met een agent
 omvormen van geometrie voor zone op Mobiliteitsmaatregel werkt niet
+ontbrekende relatie tussen ontwerpverkeersteken en verkeersteken
 
 Issues stap C
 -------------

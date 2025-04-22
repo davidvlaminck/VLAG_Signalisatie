@@ -81,6 +81,82 @@
             }
         },
         {
+            "@id": "asset:BevatOntwerp_-_sigo_01_-_aro_01/v1",
+            "@type": "onderdeel:BevatOntwerp",
+            "dct:isVersionOf": {
+                "@id": "asset:BevatOntwerp_-_sigo_01_-_aro_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "imel:DavieRelatieAttributes.bron": {
+                "imel:AIMObject.typeURI": "https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp"
+            },
+            "imel:DavieRelatieAttributes.doel": {
+                "imel:AIMObject.typeURI": "https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp"
+            },
+            "imel:RelatieObject.assetId": {
+                "imel:DtcIdentificator.identificator": "BevatOntwerp_-_sigo_01_-_aro_01",
+                "imel:DtcIdentificator.toegekendDoor": "OTLMOW"
+            },
+            "imel:RelatieObject.bronAssetId": {
+                "imel:DtcIdentificator.identificator": "sigo_01"
+            },
+            "imel:RelatieObject.doelAssetId": {
+                "imel:DtcIdentificator.identificator": "aro_01"
+            }
+        },
+        {
+            "@id": "asset:BevatVerkeersteken_-_sigo_01_-_o_teken_01/v1",
+            "@type": "onderdeel:BevatVerkeersteken",
+            "dct:isVersionOf": {
+                "@id": "asset:BevatVerkeersteken_-_sigo_01_-_o_teken_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "imel:DavieRelatieAttributes.bron": {
+                "imel:AIMObject.typeURI": "https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp"
+            },
+            "imel:DavieRelatieAttributes.doel": {
+                "imel:AIMObject.typeURI": "https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken"
+            },
+            "imel:RelatieObject.assetId": {
+                "imel:DtcIdentificator.identificator": "BevatVerkeersteken_-_sigo_01_-_o_teken_01",
+                "imel:DtcIdentificator.toegekendDoor": "OTLMOW"
+            },
+            "imel:RelatieObject.bronAssetId": {
+                "imel:DtcIdentificator.identificator": "sigo_01"
+            },
+            "imel:RelatieObject.doelAssetId": {
+                "imel:DtcIdentificator.identificator": "o_teken_01"
+            }
+        },
+        {
             "@id": "asset:Bevestiging_-_bord_01_-_folie_01/v1",
             "@type": "onderdeel:Bevestiging",
             "dct:isVersionOf": {
@@ -563,6 +639,31 @@
             }
         },
         {
+            "@id": "asset:o_teken_01/v1",
+            "@type": "ns1:OntwerpVerkeersteken",
+            "dct:isVersionOf": {
+                "@id": "asset:o_teken_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "o_teken_01"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            }
+        },
+        {
             "@id": "asset:opstelling_01/v1",
             "@type": "installatie:Verkeersbordopstelling",
             "dct:isVersionOf": {
@@ -578,6 +679,36 @@
             },
             "imel:AIMToestand.toestand": {
                 "@id": "keuzelijst:KlAIMToestand/in-gebruik"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            }
+        },
+        {
+            "@id": "asset:sigo_01/v1",
+            "@type": "ns1:SignalisatieOntwerp",
+            "dct:isVersionOf": {
+                "@id": "asset:sigo_01"
+            },
+            "ns1:SignalisatieOntwerp.datum": {
+                "@type": "xsd:dateTime",
+                "@value": "2020-06-01T00:00:00"
+            },
+            "ns1:SignalisatieOntwerp.naam": "Signalisatie Ontwerp",
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "sigo_01"
             },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",

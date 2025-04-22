@@ -5,14 +5,16 @@
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
 @prefix ldes: <https://w3id.org/ldes#> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
-@prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
+@prefix ns1: <https://data.vlaanderen.be/ns/mobiliteit#> .
+@prefix ns2: <http://www.w3.org/ns/locn#> .
 @prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
 @prefix tree: <https://w3id.org/tree#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.com/ldes> a ldes:EventStream ;
     tree:member <https://data.awvvlaanderen.be/id/asset/BevatOntwerpVoor_-_aro_01_-_mobm_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/BevatOntwerp_-_sigo_01_-_aro_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/BevatVerkeersteken_-_sigo_01_-_o_teken_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/HeeftVerkeersteken_-_aro_01_-_teken_01/v1>,
@@ -27,7 +29,9 @@
         <https://data.awvvlaanderen.be/id/asset/concept_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/folie_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/mobm_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/o_teken_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/sigo_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/teken_01/v1> .
 
 <https://data.awvvlaanderen.be/id/asset/BevatOntwerpVoor_-_aro_01_-_mobm_01/v1> a onderdeel:BevatOntwerpVoor ;
@@ -43,6 +47,34 @@
             imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
     imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "aro_01" ] ;
     imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "mobm_01" ] .
+
+<https://data.awvvlaanderen.be/id/asset/BevatOntwerp_-_sigo_01_-_aro_01/v1> a onderdeel:BevatOntwerp ;
+    dct:isVersionOf asset:BevatOntwerp_-_sigo_01_-_aro_01 ;
+    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp" ] ;
+    imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp" ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "BevatOntwerp_-_sigo_01_-_aro_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "sigo_01" ] ;
+    imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "aro_01" ] .
+
+<https://data.awvvlaanderen.be/id/asset/BevatVerkeersteken_-_sigo_01_-_o_teken_01/v1> a onderdeel:BevatVerkeersteken ;
+    dct:isVersionOf asset:BevatVerkeersteken_-_sigo_01_-_o_teken_01 ;
+    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp" ] ;
+    imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken" ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "BevatVerkeersteken_-_sigo_01_-_o_teken_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "sigo_01" ] ;
+    imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "o_teken_01" ] .
 
 <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1> a onderdeel:Bevestiging ;
     dct:isVersionOf asset:Bevestiging_-_bord_01_-_folie_01 ;
@@ -149,10 +181,10 @@
             imel:DtcAssetVersie.versienummer 1 ] ;
     installatie:AanzichtVerkeersbordopstelling.hoek 1.0 .
 
-<https://data.awvvlaanderen.be/id/asset/aro_01/v1> a mob:AanvullendReglementOntwerp ;
+<https://data.awvvlaanderen.be/id/asset/aro_01/v1> a ns1:AanvullendReglementOntwerp ;
     dct:isVersionOf asset:aro_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    mob:AanvullendReglementOntwerp.naam "Aanvullend Reglement - Ontwerp" ;
+    ns1:AanvullendReglementOntwerp.naam "Aanvullend Reglement - Ontwerp" ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "aro_01" ] ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
@@ -182,10 +214,10 @@
             imel:DtcAssetVersie.timestamp "2025-02-02T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 2 ] .
 
-<https://data.awvvlaanderen.be/id/asset/concept_01/v1> a mob:Verkeersbordconcept ;
+<https://data.awvvlaanderen.be/id/asset/concept_01/v1> a ns1:Verkeersbordconcept ;
     dct:isVersionOf asset:concept_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    mob:Verkeerstekenconcept.verkeersbordcode "C3" ;
+    ns1:Verkeerstekenconcept.verkeersbordcode "C3" ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "concept_01" ] ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
@@ -203,13 +235,22 @@
             imel:DtcAssetVersie.versienummer 1 ] ;
     onderdeel:RetroreflecterendeFolie.folietype <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFolieType/folietype-3a> .
 
-<https://data.awvvlaanderen.be/id/asset/mobm_01/v1> a mob:Mobiliteitsmaatregel ;
+<https://data.awvvlaanderen.be/id/asset/mobm_01/v1> a ns1:Mobiliteitsmaatregel ;
     dct:isVersionOf asset:mobm_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    mob:Mobiliteitsmaatregel.beschrijving "Mobiliteitsmaatregel" ;
-    mob:Mobiliteitsmaatregel.zone [ imel:DtcZone.geometrie [ locn:Geometry.wkt "POINT Z (200000 200000 0)" ] ] ;
+    ns1:Mobiliteitsmaatregel.beschrijving "Mobiliteitsmaatregel" ;
+    ns1:Mobiliteitsmaatregel.zone [ imel:DtcZone.geometrie [ ns2:Geometry.wkt "POINT Z (200000 200000 0)" ] ] ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "mobm_01" ] ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+
+<https://data.awvvlaanderen.be/id/asset/o_teken_01/v1> a ns1:OntwerpVerkeersteken ;
+    dct:isVersionOf asset:o_teken_01 ;
+    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "o_teken_01" ] ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] .
@@ -217,7 +258,7 @@
 <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
     dct:isVersionOf asset:opstelling_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    locn:geometry "<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)"^^geo:wktLiteral ;
+    ns2:geometry "<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)"^^geo:wktLiteral ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
     imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
@@ -225,7 +266,18 @@
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] .
 
-<https://data.awvvlaanderen.be/id/asset/teken_01/v1> a mob:VerkeersbordVerkeersteken ;
+<https://data.awvvlaanderen.be/id/asset/sigo_01/v1> a ns1:SignalisatieOntwerp ;
+    dct:isVersionOf asset:sigo_01 ;
+    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    ns1:SignalisatieOntwerp.datum "2020-06-01T00:00:00"^^xsd:dateTime ;
+    ns1:SignalisatieOntwerp.naam "Signalisatie Ontwerp" ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "sigo_01" ] ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+
+<https://data.awvvlaanderen.be/id/asset/teken_01/v1> a ns1:VerkeersbordVerkeersteken ;
     dct:isVersionOf asset:teken_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     imel:AIMDBStatus.isActief true ;

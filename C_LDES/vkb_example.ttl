@@ -22,6 +22,32 @@
     imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "aro_01" ] ;
     imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "mobm_01" ] .
 
+<https://data.awvvlaanderen.be/id/asset/BevatOntwerp_-_sigo_01_-_aro_01/v1> a onderdeel:BevatOntwerp ;
+    dct:isVersionOf asset:BevatOntwerp_-_sigo_01_-_aro_01 ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp" ] ;
+    imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#AanvullendReglementOntwerp" ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "BevatOntwerp_-_sigo_01_-_aro_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "sigo_01" ] ;
+    imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "aro_01" ] .
+
+<https://data.awvvlaanderen.be/id/asset/BevatVerkeersteken_-_sigo_01_-_o_teken_01/v1> a onderdeel:BevatVerkeersteken ;
+    dct:isVersionOf asset:BevatVerkeersteken_-_sigo_01_-_o_teken_01 ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#SignalisatieOntwerp" ] ;
+    imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#OntwerpVerkeersteken" ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "BevatVerkeersteken_-_sigo_01_-_o_teken_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "sigo_01" ] ;
+    imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "o_teken_01" ] .
+
 <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1> a onderdeel:Bevestiging ;
     dct:isVersionOf asset:Bevestiging_-_bord_01_-_folie_01 ;
     imel:AIMDBStatus.isActief true ;
@@ -178,12 +204,30 @@
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] .
 
+<https://data.awvvlaanderen.be/id/asset/o_teken_01/v1> a ns1:OntwerpVerkeersteken ;
+    dct:isVersionOf asset:o_teken_01 ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "o_teken_01" ] ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+
 <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
     dct:isVersionOf asset:opstelling_01 ;
     loc:Locatie.geometrie "POINT Z (200000 200000 0)" ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
     imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+
+<https://data.awvvlaanderen.be/id/asset/sigo_01/v1> a ns1:SignalisatieOntwerp ;
+    dct:isVersionOf asset:sigo_01 ;
+    ns1:SignalisatieOntwerp.datum "2020-06-01T00:00:00"^^xsd:dateTime ;
+    ns1:SignalisatieOntwerp.naam "Signalisatie Ontwerp" ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "sigo_01" ] ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] .
