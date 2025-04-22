@@ -1,6 +1,7 @@
 import datetime
 from pathlib import Path
 
+from C_LDES.CustomRDFExporter import CustomRDFExporter
 from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from VLAG_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
 from VLAG_model.OtlmowModel.Classes.Mobiliteit.AanvullendReglementOntwerp import AanvullendReglementOntwerp
@@ -14,7 +15,6 @@ from VLAG_model.OtlmowModel.Classes.Onderdeel.BevatOntwerpVoor import BevatOntwe
 from VLAG_model.OtlmowModel.Classes.Onderdeel.BevatVerkeersteken import BevatVerkeersteken
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftAanzicht import HeeftAanzicht
-from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftOntwerp import HeeftOntwerp
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftVerkeersteken import HeeftVerkeersteken
 from VLAG_model.OtlmowModel.Classes.Onderdeel.IsGebaseerdOp import IsGebaseerdOp
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Realiseert import Realiseert
@@ -27,7 +27,7 @@ from VLAG_model.OtlmowModel.Classes.Onderdeel.HoortBij import HoortBij
 
 from rdflib import Graph
 
-from CustomRDFExporter import CustomRDFExporter
+
 
 
 model_dir = Path(__file__).parent.parent / 'VLAG_model'
