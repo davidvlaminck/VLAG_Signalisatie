@@ -6,6 +6,7 @@ Issues stap B
 -------------
 ttl's worden nu van de dev omgeving gehaald (niet perfecte data)
 keuzelijsten houden geen rekening met de adm status (=> verwijderde keuzelijsten worden nog steeds toegevoegd)
+keuzelijsten gebruiken "test" in uri
 uris mobiliteit zijn inconsistent
 
 Issues stap C
@@ -14,4 +15,3 @@ Json-ld converter moet aangepast worden naar ModifiedJsonLdConverter
 
 Issues stap D
 -------------
-1 validatie fout in een relatie die geen fout zou mogen geven
