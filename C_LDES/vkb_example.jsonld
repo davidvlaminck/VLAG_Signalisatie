@@ -131,6 +131,40 @@
             }
         },
         {
+            "@id": "asset:Realiseert_-_teken_01_-_bord_01/v1",
+            "@type": "onderdeel:Realiseert",
+            "dct:isVersionOf": {
+                "@id": "asset:Realiseert_-_teken_01_-_bord_01"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "imel:DavieRelatieAttributes.bron": {
+                "imel:AIMObject.typeURI": "https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken"
+            },
+            "imel:DavieRelatieAttributes.doel": {
+                "imel:AIMObject.typeURI": "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord"
+            },
+            "imel:RelatieObject.assetId": {
+                "imel:DtcIdentificator.identificator": "Realiseert_-_teken_01_-_bord_01",
+                "imel:DtcIdentificator.toegekendDoor": "OTLMOW"
+            },
+            "imel:RelatieObject.bronAssetId": {
+                "imel:DtcIdentificator.identificator": "teken_01"
+            },
+            "imel:RelatieObject.doelAssetId": {
+                "imel:DtcIdentificator.identificator": "bord_01"
+            }
+        },
+        {
             "@id": "asset:aanzicht_01/v1",
             "@type": "installatie:AanzichtVerkeersbordopstelling",
             "dct:isVersionOf": {
@@ -257,6 +291,9 @@
             "imel:AIMObject.assetId": {
                 "imel:DtcIdentificator.identificator": "folie_01"
             },
+            "imel:AIMToestand.toestand": {
+                "@id": "keuzelijst:KlAIMToestand/in-gebruik"
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -285,6 +322,34 @@
             },
             "imel:AIMObject.assetId": {
                 "imel:DtcIdentificator.identificator": "opstelling_01"
+            },
+            "imel:AIMToestand.toestand": {
+                "@id": "keuzelijst:KlAIMToestand/in-gebruik"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            }
+        },
+        {
+            "@id": "asset:teken_01/v1",
+            "@type": "https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken",
+            "dct:isVersionOf": {
+                "@id": "asset:teken_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "teken_01"
             },
             "imel:AIMToestand.toestand": {
                 "@id": "keuzelijst:KlAIMToestand/in-gebruik"

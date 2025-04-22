@@ -6,6 +6,7 @@
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
 @prefix ldes: <https://w3id.org/ldes#> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
 @prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
 @prefix tree: <https://w3id.org/tree#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -14,11 +15,13 @@
     tree:member <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/Realiseert_-_teken_01_-_bord_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/bord_01/v1>,
         <https://data.awvvlaanderen.be/id/asset/bord_01/v2>,
         <https://data.awvvlaanderen.be/id/asset/folie_01/v1>,
-        <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> .
+        <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1>,
+        <https://data.awvvlaanderen.be/id/asset/teken_01/v1> .
 
 <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1> a onderdeel:Bevestiging ;
     dct:isVersionOf asset:Bevestiging_-_bord_01_-_folie_01 ;
@@ -54,6 +57,19 @@
             imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
     imel:RelatieObject.bron asset:bord_01 ;
     imel:RelatieObject.doel asset:aanzicht_01 .
+
+<https://data.awvvlaanderen.be/id/asset/Realiseert_-_teken_01_-_bord_01/v1> a onderdeel:Realiseert ;
+    dct:isVersionOf asset:Realiseert_-_teken_01_-_bord_01 ;
+    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:DavieRelatieAttributes.bron [ imel:AIMObject.typeURI "https://data.vlaanderen.be/ns/mobiliteit#VerkeersbordVerkeersteken" ] ;
+    imel:DavieRelatieAttributes.doel [ imel:AIMObject.typeURI "https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#RetroreflecterendVerkeersbord" ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "Realiseert_-_teken_01_-_bord_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bronAssetId [ imel:DtcIdentificator.identificator "teken_01" ] ;
+    imel:RelatieObject.doelAssetId [ imel:DtcIdentificator.identificator "bord_01" ] .
 
 <https://data.awvvlaanderen.be/id/asset/aanzicht_01/v1> a installatie:AanzichtVerkeersbordopstelling ;
     dct:isVersionOf asset:aanzicht_01 ;
@@ -94,6 +110,7 @@
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "folie_01" ] ;
+    imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -105,6 +122,16 @@
     locn:geometry "<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)"^^geo:wktLiteral ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
+    imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] .
+
+<https://data.awvvlaanderen.be/id/asset/teken_01/v1> a mob:VerkeersbordVerkeersteken ;
+    dct:isVersionOf asset:teken_01 ;
+    dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "teken_01" ] ;
     imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;

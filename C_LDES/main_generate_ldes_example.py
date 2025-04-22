@@ -129,8 +129,8 @@ if __name__ == '__main__':
     LDESServer(Path(current_dir / 'vkb_example.ttl'))
 
     model_directory = Path(__file__).parent.parent / 'VLAG_model'
-    objects = OtlmowConverter.from_file_to_objects(Path(current_dir / 'vkb_example.jsonld'),
-                                                   model_directory=model_directory)
-    OtlmowConverter.from_objects_to_file(file_path=Path(current_dir / 'vkb_example.xlsx'),
-                                         sequence_of_objects=objects,
-                                         model_directory=model_directory)
+    # objects = OtlmowConverter.from_file_to_objects(Path(current_dir / 'vkb_example.jsonld'),
+    #                                                model_directory=model_directory)
+    # OtlmowConverter.from_objects_to_file(file_path=Path(current_dir / 'vkb_example.xlsx'),
+    #                                      sequence_of_objects=objects,
+    #                                      model_directory=model_directory)

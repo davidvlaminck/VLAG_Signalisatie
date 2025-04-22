@@ -3,8 +3,10 @@ from pathlib import Path
 
 from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from VLAG_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
+from VLAG_model.OtlmowModel.Classes.Mobiliteit.VerkeersbordVerkeersteken import VerkeersbordVerkeersteken
 from VLAG_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftAanzicht import HeeftAanzicht
+from VLAG_model.OtlmowModel.Classes.Onderdeel.Realiseert import Realiseert
 from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
 from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendeFolie import RetroreflecterendeFolie
 from VLAG_model.OtlmowModel.Helpers.RelationCreator import create_relation
@@ -93,6 +95,7 @@ def create_objects() -> [OTLObject]:
     folie.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
     folie.assetVersie.versienummer = 1
     folie.isActief = True
+    folie.toestand = 'in-gebruik'
     folie.folietype = 'folietype-3a'
     list_of_objects.append(folie)
 
@@ -101,5 +104,20 @@ def create_objects() -> [OTLObject]:
     folie_bord.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
     folie_bord.assetVersie.versienummer = 1
     list_of_objects.append(folie_bord)
+
+    teken = VerkeersbordVerkeersteken()
+    teken.assetId.identificator = 'teken_01'
+    teken.assetVersie.context = 'DA_Init'
+    teken.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    teken.assetVersie.versienummer = 1
+    teken.isActief = True
+    teken.toestand = 'in-gebruik'
+    list_of_objects.append(teken)
+
+    bord_teken = create_relation(source=teken, target=bord, relation_type=Realiseert, model_directory=model_dir)
+    bord_teken.assetVersie.context = 'DA_Init'
+    bord_teken.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    bord_teken.assetVersie.versienummer = 1
+    list_of_objects.append(bord_teken)
 
     return list_of_objects
