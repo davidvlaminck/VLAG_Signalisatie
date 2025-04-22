@@ -11,6 +11,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/BevatOntwerpVoor_-_aro_01_-_mobm_01/v1> a onderdeel:BevatOntwerpVoor ;
     dct:isVersionOf asset:BevatOntwerpVoor_-_aro_01_-_mobm_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -23,6 +24,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1> a onderdeel:Bevestiging ;
     dct:isVersionOf asset:Bevestiging_-_bord_01_-_folie_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -46,6 +48,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/HeeftVerkeersteken_-_aro_01_-_teken_01/v1> a onderdeel:HeeftVerkeersteken ;
     dct:isVersionOf asset:HeeftVerkeersteken_-_aro_01_-_teken_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -58,6 +61,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1> a onderdeel:HoortBij ;
     dct:isVersionOf asset:HoortBij_-_bord_01_-_aanzicht_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -68,6 +72,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/IsGebaseerdOp_-_teken_01_-_concept_01/v1> a onderdeel:IsGebaseerdOp ;
     dct:isVersionOf asset:IsGebaseerdOp_-_teken_01_-_concept_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -80,6 +85,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/Realiseert_-_teken_01_-_bord_01/v1> a onderdeel:Realiseert ;
     dct:isVersionOf asset:Realiseert_-_teken_01_-_bord_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -92,6 +98,7 @@
 
 <https://data.awvvlaanderen.be/id/asset/WordtAangeduidDoor_-_mobm_01_-_teken_01/v1> a onderdeel:WordtAangeduidDoor ;
     dct:isVersionOf asset:WordtAangeduidDoor_-_mobm_01_-_teken_01 ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;

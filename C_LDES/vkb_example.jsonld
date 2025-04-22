@@ -48,6 +48,10 @@
             "dct:isVersionOf": {
                 "@id": "asset:BevatOntwerpVoor_-_aro_01_-_mobm_01"
             },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -81,6 +85,10 @@
             "@type": "onderdeel:Bevestiging",
             "dct:isVersionOf": {
                 "@id": "asset:Bevestiging_-_bord_01_-_folie_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
             },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
@@ -148,6 +156,10 @@
             "dct:isVersionOf": {
                 "@id": "asset:HeeftVerkeersteken_-_aro_01_-_teken_01"
             },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -182,6 +194,10 @@
             "dct:isVersionOf": {
                 "@id": "asset:HoortBij_-_bord_01_-_aanzicht_01"
             },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -209,6 +225,10 @@
             "@type": "onderdeel:IsGebaseerdOp",
             "dct:isVersionOf": {
                 "@id": "asset:IsGebaseerdOp_-_teken_01_-_concept_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
             },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
@@ -244,6 +264,10 @@
             "dct:isVersionOf": {
                 "@id": "asset:Realiseert_-_teken_01_-_bord_01"
             },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",
                 "imel:DtcAssetVersie.timestamp": {
@@ -277,6 +301,10 @@
             "@type": "onderdeel:WordtAangeduidDoor",
             "dct:isVersionOf": {
                 "@id": "asset:WordtAangeduidDoor_-_mobm_01_-_teken_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
             },
             "imel:AIMVersie.assetVersie": {
                 "imel:DtcAssetVersie.context": "DA_Init",

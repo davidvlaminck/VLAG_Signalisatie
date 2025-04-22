@@ -5,8 +5,8 @@
 @prefix imel: <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#> .
 @prefix installatie: <https://wegenenverkeer.data.vlaanderen.be/ns/installatie#> .
 @prefix ldes: <https://w3id.org/ldes#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix mob: <https://data.vlaanderen.be/ns/mobiliteit#> .
-@prefix ns2: <http://www.w3.org/ns/locn#> .
 @prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
 @prefix tree: <https://w3id.org/tree#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -33,6 +33,7 @@
 <https://data.awvvlaanderen.be/id/asset/BevatOntwerpVoor_-_aro_01_-_mobm_01/v1> a onderdeel:BevatOntwerpVoor ;
     dct:isVersionOf asset:BevatOntwerpVoor_-_aro_01_-_mobm_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -46,6 +47,7 @@
 <https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1> a onderdeel:Bevestiging ;
     dct:isVersionOf asset:Bevestiging_-_bord_01_-_folie_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -71,6 +73,7 @@
 <https://data.awvvlaanderen.be/id/asset/HeeftVerkeersteken_-_aro_01_-_teken_01/v1> a onderdeel:HeeftVerkeersteken ;
     dct:isVersionOf asset:HeeftVerkeersteken_-_aro_01_-_teken_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -84,6 +87,7 @@
 <https://data.awvvlaanderen.be/id/asset/HoortBij_-_bord_01_-_aanzicht_01/v1> a onderdeel:HoortBij ;
     dct:isVersionOf asset:HoortBij_-_bord_01_-_aanzicht_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -95,6 +99,7 @@
 <https://data.awvvlaanderen.be/id/asset/IsGebaseerdOp_-_teken_01_-_concept_01/v1> a onderdeel:IsGebaseerdOp ;
     dct:isVersionOf asset:IsGebaseerdOp_-_teken_01_-_concept_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -108,6 +113,7 @@
 <https://data.awvvlaanderen.be/id/asset/Realiseert_-_teken_01_-_bord_01/v1> a onderdeel:Realiseert ;
     dct:isVersionOf asset:Realiseert_-_teken_01_-_bord_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -121,6 +127,7 @@
 <https://data.awvvlaanderen.be/id/asset/WordtAangeduidDoor_-_mobm_01_-_teken_01/v1> a onderdeel:WordtAangeduidDoor ;
     dct:isVersionOf asset:WordtAangeduidDoor_-_mobm_01_-_teken_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    imel:AIMDBStatus.isActief true ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 1 ] ;
@@ -200,7 +207,7 @@
     dct:isVersionOf asset:mobm_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
     mob:Mobiliteitsmaatregel.beschrijving "Mobiliteitsmaatregel" ;
-    mob:Mobiliteitsmaatregel.zone [ imel:DtcZone.geometrie [ ns2:Geometry.wkt "POINT Z (200000 200000 0)" ] ] ;
+    mob:Mobiliteitsmaatregel.zone [ imel:DtcZone.geometrie [ locn:Geometry.wkt "POINT Z (200000 200000 0)" ] ] ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "mobm_01" ] ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
@@ -210,7 +217,7 @@
 <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
     dct:isVersionOf asset:opstelling_01 ;
     dct:issued "2021-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    ns2:geometry "<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)"^^geo:wktLiteral ;
+    locn:geometry "<https://www.opengis.net/def/crs/EPSG/0/31370> POINT Z (200000 200000 0)"^^geo:wktLiteral ;
     imel:AIMDBStatus.isActief true ;
     imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "opstelling_01" ] ;
     imel:AIMToestand.toestand <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlAIMToestand/in-gebruik> ;
