@@ -7,6 +7,16 @@
 @prefix onderdeel: <https://wegenenverkeer.data.vlaanderen.be/ns/onderdeel#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://data.awvvlaanderen.be/id/asset/Bevestiging_-_bord_01_-_folie_01/v1> a onderdeel:Bevestiging ;
+    dct:isVersionOf asset:Bevestiging_-_bord_01_-_folie_01 ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    imel:RelatieObject.assetId [ imel:DtcIdentificator.identificator "Bevestiging_-_bord_01_-_folie_01" ;
+            imel:DtcIdentificator.toegekendDoor "OTLMOW" ] ;
+    imel:RelatieObject.bron asset:bord_01 ;
+    imel:RelatieObject.doel asset:folie_01 .
+
 <https://data.awvvlaanderen.be/id/asset/HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1> a onderdeel:HeeftAanzicht ;
     dct:isVersionOf asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01 ;
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
@@ -59,6 +69,15 @@
     imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
             imel:DtcAssetVersie.timestamp "2025-02-02T00:00:00"^^xsd:dateTime ;
             imel:DtcAssetVersie.versienummer 2 ] .
+
+<https://data.awvvlaanderen.be/id/asset/folie_01/v1> a onderdeel:RetroreflecterendeFolie ;
+    dct:isVersionOf asset:folie_01 ;
+    imel:AIMDBStatus.isActief true ;
+    imel:AIMObject.assetId [ imel:DtcIdentificator.identificator "folie_01" ] ;
+    imel:AIMVersie.assetVersie [ imel:DtcAssetVersie.context "DA_Init" ;
+            imel:DtcAssetVersie.timestamp "2021-01-01T00:00:00"^^xsd:dateTime ;
+            imel:DtcAssetVersie.versienummer 1 ] ;
+    onderdeel:RetroreflecterendeFolie.folietype <https://wegenenverkeer.data.vlaanderen.be/id/concept/KlFolieType/folietype-3a> .
 
 <https://data.awvvlaanderen.be/id/asset/opstelling_01/v1> a installatie:Verkeersbordopstelling ;
     dct:isVersionOf asset:opstelling_01 ;

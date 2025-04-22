@@ -41,6 +41,34 @@
     },
     "@graph": [
         {
+            "@id": "asset:Bevestiging_-_bord_01_-_folie_01/v1",
+            "@type": "onderdeel:Bevestiging",
+            "dct:isVersionOf": {
+                "@id": "asset:Bevestiging_-_bord_01_-_folie_01"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "imel:RelatieObject.assetId": {
+                "imel:DtcIdentificator.identificator": "Bevestiging_-_bord_01_-_folie_01",
+                "imel:DtcIdentificator.toegekendDoor": "OTLMOW"
+            },
+            "imel:RelatieObject.bron": {
+                "@id": "asset:bord_01"
+            },
+            "imel:RelatieObject.doel": {
+                "@id": "asset:folie_01"
+            }
+        },
+        {
             "@id": "asset:HeeftAanzicht_-_opstelling_01_-_aanzicht_01/v1",
             "@type": "onderdeel:HeeftAanzicht",
             "dct:isVersionOf": {
@@ -214,6 +242,34 @@
                     "@type": "xsd:integer",
                     "@value": 2
                 }
+            }
+        },
+        {
+            "@id": "asset:folie_01/v1",
+            "@type": "onderdeel:RetroreflecterendeFolie",
+            "dct:isVersionOf": {
+                "@id": "asset:folie_01"
+            },
+            "imel:AIMDBStatus.isActief": {
+                "@type": "xsd:boolean",
+                "@value": true
+            },
+            "imel:AIMObject.assetId": {
+                "imel:DtcIdentificator.identificator": "folie_01"
+            },
+            "imel:AIMVersie.assetVersie": {
+                "imel:DtcAssetVersie.context": "DA_Init",
+                "imel:DtcAssetVersie.timestamp": {
+                    "@type": "xsd:dateTime",
+                    "@value": "2021-01-01T00:00:00"
+                },
+                "imel:DtcAssetVersie.versienummer": {
+                    "@type": "xsd:integer",
+                    "@value": 1
+                }
+            },
+            "onderdeel:RetroreflecterendeFolie.folietype": {
+                "@id": "keuzelijst:KlFolieType/folietype-3a"
             }
         },
         {

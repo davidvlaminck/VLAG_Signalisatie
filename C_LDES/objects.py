@@ -3,8 +3,10 @@ from pathlib import Path
 
 from VLAG_model.OtlmowModel.BaseClasses.OTLObject import OTLObject
 from VLAG_model.OtlmowModel.Classes.Installatie.Verkeersbordopstelling import Verkeersbordopstelling
+from VLAG_model.OtlmowModel.Classes.Onderdeel.Bevestiging import Bevestiging
 from VLAG_model.OtlmowModel.Classes.Onderdeel.HeeftAanzicht import HeeftAanzicht
 from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendVerkeersbord import RetroreflecterendVerkeersbord
+from VLAG_model.OtlmowModel.Classes.Onderdeel.RetroreflecterendeFolie import RetroreflecterendeFolie
 from VLAG_model.OtlmowModel.Helpers.RelationCreator import create_relation
 from rdflib import Graph
 
@@ -84,5 +86,20 @@ def create_objects() -> [OTLObject]:
     bordv2.opstelhoogte.waarde = 1.8
     bordv2.afmeting.rond.diameter.waarde = 600
     list_of_objects.append(bordv2)
+
+    folie = RetroreflecterendeFolie()
+    folie.assetId.identificator = 'folie_01'
+    folie.assetVersie.context = 'DA_Init'
+    folie.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    folie.assetVersie.versienummer = 1
+    folie.isActief = True
+    folie.folietype = 'folietype-3a'
+    list_of_objects.append(folie)
+
+    folie_bord = create_relation(source=bord, target=folie, relation_type=Bevestiging, model_directory=model_dir)
+    folie_bord.assetVersie.context = 'DA_Init'
+    folie_bord.assetVersie.timestamp = datetime.datetime(2021, 1, 1)
+    folie_bord.assetVersie.versienummer = 1
+    list_of_objects.append(folie_bord)
 
     return list_of_objects
