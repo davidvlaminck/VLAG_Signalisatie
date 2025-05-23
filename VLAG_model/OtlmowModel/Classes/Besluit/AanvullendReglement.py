@@ -20,7 +20,7 @@ class AanvullendReglement(Besluit):
         self._tijdsinterval = OTLAttribuut(field=DtcPeriode,
                                            naam='tijdsinterval',
                                            label='tijdsinterval',
-                                           objectUri='https://data.vlaanderen.be/ns/besluit#AanvullendReglement.tijdsinterval',
+                                           objectUri='https://data.vlaanderen.be/ns/mobiliteit#periode',
                                            kardinaliteit_min='0',
                                            kardinaliteit_max='*',
                                            definition='TODO',

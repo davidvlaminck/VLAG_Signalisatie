@@ -241,10 +241,10 @@ class OTLAttribuut:
                     self.set_waarde('POLYGON Z ((200000 200000 0, 200001 200001 1, 200002 200002 2, 200000 200000 0))')
             else:
                 data = self.field.create_dummy_data()
-                if self.kardinaliteit_max != '1':
-                    self.set_waarde([data])
-                else:
+                if data is None or self.kardinaliteit_max == '1':
                     self.set_waarde(data)
+                else:
+                    self.set_waarde([data])
             return
         new_value_object = self.field.waardeObject()
         new_value_object._parent = self
@@ -558,10 +558,10 @@ def _recursive_create_dict_from_asset(
                                 d[attr.naam] = date.strftime(attr.waarde, "%Y-%m-%d")
                         elif attr.field == DateTimeField:
                             if isinstance(attr.waarde, list):
-                                d[attr.naam] = [datetime.strftime(list_item, "%Y-%m-%d %H:%M:%S")
+                                d[attr.naam] = [DateTimeField.value_default(list_item)
                                                 for list_item in attr.waarde]
                             else:
-                                d[attr.naam] = datetime.strftime(attr.waarde, "%Y-%m-%d %H:%M:%S")
+                                d[attr.naam] = DateTimeField.value_default(attr.waarde)
                         else:
                             d[attr.naam] = attr.waarde
                     else:

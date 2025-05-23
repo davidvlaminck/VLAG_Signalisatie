@@ -304,6 +304,11 @@ abs:Verkeersbord a owl:Class .
 imel:Concept a owl:Class ;
     rdfs:subClassOf abs:AIMLinkObject .
 
+imel:VLAGAIMObject a owl:Class ;
+    rdfs:subClassOf imel:AIMDBStatus,
+        imel:AIMToestand,
+        imel:AIMVersie .
+
 imel:NietDirectioneleRelatie a owl:Class ;
     rdfs:subClassOf imel:RelatieObject .
 
@@ -337,7 +342,7 @@ imel:AIMVersie a owl:Class .
 imel:AIMDBStatus a owl:Class .
 
 abs:AIMLinkObject a owl:Class ;
-    rdfs:subClassOf imel:AIMObject .
+    rdfs:subClassOf imel:VLAGAIMObject .
 
 imel:DirectioneleRelatie a owl:Class ;
     rdfs:subClassOf imel:RelatieObject .

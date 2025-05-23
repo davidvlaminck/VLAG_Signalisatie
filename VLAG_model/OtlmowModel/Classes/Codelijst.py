@@ -1,6 +1,6 @@
 # coding=utf-8
 from otlmow_model.OtlmowModel.BaseClasses.OTLObject import OTLAttribuut
-from ..Classes.Abstracten.AIMLinkObject import AIMLinkObject
+from ...Classes.Abstracten.AIMLinkObject import AIMLinkObject
 from otlmow_model.OtlmowModel.BaseClasses.StringField import StringField
 
 
@@ -19,14 +19,14 @@ class Codelijst(AIMLinkObject):
         self._codelijstType = OTLAttribuut(field=StringField,
                                            naam='codelijstType',
                                            label='codelijstType',
-                                           objectUri='https://www.w3.org/2004/02/skos/core#ConceptScheme.codelijstType',
+                                           objectUri='http://purl.org/dc/terms/type',
                                            definition='TODO',
                                            owner=self)
 
         self._naam = OTLAttribuut(field=StringField,
                                   naam='naam',
                                   label='naam',
-                                  objectUri='https://www.w3.org/2004/02/skos/core#ConceptScheme.naam',
+                                  objectUri='http://www.w3.org/2004/02/skos/core#label',
                                   definition='TODO',
                                   owner=self)
 
