@@ -1163,7 +1163,7 @@ imel:KwantWrdInEuro.standaardEenheidShape a sh:PropertyShape ;
     sh:name "standaardEenheid" ;
     sh:nodeKind sh:Literal ;
     sh:path imel:KwantWrdInEuro.standaardEenheid ;
-    sh:pattern "{Euro}" .
+    sh:pattern "€" .
 
 imel:KwantWrdInEuro.waardeShape a sh:PropertyShape ;
     rdfs:label "waarde" ;

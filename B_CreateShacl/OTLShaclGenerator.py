@@ -213,6 +213,8 @@ class OTLShaclGenerator:
                 if row[10] == str(RDFS.Literal):
                     if '"^^cdt:ucumunit' in row[12]:
                         unit = row[12].split('"')[1]
+                        if unit == '{Euro}':
+                            unit = '€'
                         g.add((attribute_node_ref, SH.pattern, Literal(unit)))
 
             if attribute_type == 'union':
