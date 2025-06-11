@@ -212,6 +212,9 @@ onderdeel:IsNetwerkECC a owl:Class ;
 onderdeel:IsOnderdeelVan a owl:Class ;
     rdfs:subClassOf imel:DirectioneleRelatie .
 
+onderdeel:IsOntwerpVan a owl:Class ;
+    rdfs:subClassOf imel:DirectioneleRelatie .
+
 onderdeel:IsOntwerpVoor a owl:Class ;
     rdfs:subClassOf imel:DirectioneleRelatie .
 
@@ -306,8 +309,10 @@ imel:Concept a owl:Class ;
 
 imel:VLAGAIMObject a owl:Class ;
     rdfs:subClassOf imel:AIMDBStatus,
-        imel:AIMToestand,
-        imel:AIMVersie .
+        imel:AIMVersie,
+        imel:VLAGAIMToestand .
+
+imel:VLAGAIMToestand a owl:Class .
 
 imel:NietDirectioneleRelatie a owl:Class ;
     rdfs:subClassOf imel:RelatieObject .

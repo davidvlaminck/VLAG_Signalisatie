@@ -8,4 +8,4 @@ if __name__ == '__main__':
     shacl_path = Path(current_dir / 'generated_shacl_vlag.ttl')
     ont_path = Path(current_dir / 'generated_ont_vlag.ttl')
     shacl, ont = OTLShaclGenerator.generate_shacl_from_otl(subset_path=subset_path, shacl_path=shacl_path,
-                                                           ont_path=ont_path)
+                                                           ont_path=ont_path, )
